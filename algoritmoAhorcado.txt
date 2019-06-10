@@ -1,0 +1,13 @@
+Pedir al usuario que ingrase una palabra describiendo reglas de la palabra
+Pedir dificultad
+validar la dificultad
+Ingresar una palabra
+validar la palabra, manejar acentos
+confirmar palabra
+limpiar la palabra
+preguntar si desea arriesgar
+si arriesga y acierta gana
+si no acierta terminar programa
+Pedir letra
+validar letra?
+validar intento
