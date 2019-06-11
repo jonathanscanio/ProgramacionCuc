@@ -1,0 +1,6 @@
+Descargar git from https://git-scm.com/download/win
+Instalar con las opciones por defecto.
+Crear una carpeta en el disco de la computadora donde se desee guardar el proyecto.
+Abriur un explorador de windows e ir a la carpeta recientemente creada.
+Hacer click derecho y seleccionar la opcion "Git bash here"
+En la consola ejecutar ...git clone https://github.com/jonathanscanio/ProgramacionCuc.git
