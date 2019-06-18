@@ -24,8 +24,8 @@ namespace Ahorcado
 
         public Palabra(string palabra)
         {
+            palabra.ToUpper();
             cadena = palabra;
-            cadena.ToUpper();
         }  
     }
 
