@@ -12,6 +12,7 @@ namespace ValidacionNumeroEntero
         {
             string numberFromUserInput="";
             int numberAsInt;
+            //test
             bool isInt;
             do
             {
