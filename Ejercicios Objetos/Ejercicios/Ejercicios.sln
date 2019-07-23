@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ahorcado", "Ahorcado\Ahorcado.csproj", "{85CED4B9-DEEC-4637-A98B-3AF5E17ACA37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicios", "Ejercicios\Ejercicios.csproj", "{090CE11F-284B-43AA-A296-A53BEA9892B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{85CED4B9-DEEC-4637-A98B-3AF5E17ACA37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85CED4B9-DEEC-4637-A98B-3AF5E17ACA37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85CED4B9-DEEC-4637-A98B-3AF5E17ACA37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85CED4B9-DEEC-4637-A98B-3AF5E17ACA37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{090CE11F-284B-43AA-A296-A53BEA9892B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{090CE11F-284B-43AA-A296-A53BEA9892B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{090CE11F-284B-43AA-A296-A53BEA9892B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{090CE11F-284B-43AA-A296-A53BEA9892B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EA57AEBE-30D2-46A8-902B-5A34C9E663FD}
+		SolutionGuid = {31F50280-1B14-4BBA-BAF7-B1AB450AC5AB}
 	EndGlobalSection
 EndGlobal

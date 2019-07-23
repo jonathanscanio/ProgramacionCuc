@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85CED4B9-DEEC-4637-A98B-3AF5E17ACA37}</ProjectGuid>
+    <ProjectGuid>{090CE11F-284B-43AA-A296-A53BEA9892B6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ahorcado</RootNamespace>
-    <AssemblyName>Ahorcado</AssemblyName>
+    <RootNamespace>Ejercicios</RootNamespace>
+    <AssemblyName>Ejercicios</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Palabra.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Triangulo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85CED4B9-DEEC-4637-A98B-3AF5E17ACA37}</ProjectGuid>
+    <ProjectGuid>{6D4D849F-962F-4DC7-89E8-AE78DF30C594}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ahorcado</RootNamespace>
-    <AssemblyName>Ahorcado</AssemblyName>
+    <RootNamespace>ejericio_Stock</RootNamespace>
+    <AssemblyName>ejericio Stock</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Palabra.cs" />
+    <Compile Include="Articulo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
