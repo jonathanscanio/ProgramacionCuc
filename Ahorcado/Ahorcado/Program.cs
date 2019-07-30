@@ -53,135 +53,26 @@ namespace Ahorcado
             Dejo mensajes para que sea mas facil comprender la logica
             */
 
-
             Console.WriteLine("Juego ahorcado\n");
 
-            // PEDIR CANTIDAD DE JUGADORES
+            Juego juego = new Juego();
 
-            //variables necesarias 
-            int players;
-            bool isInt;
+            juego.LeerCantidadDeJugadores();
 
-            do
+            if (juego.NumeroDeJugadores > 1)
             {
-                Console.Write("¿Cuántas personas van a jugar?: ");
-                isInt = int.TryParse(Console.ReadLine(), out players);
-                if (!isInt)
-                {
-                    Console.WriteLine("La cantidad de jugadores no es válida.");
-                }
-                else if (players <= 0 || players > 20)
-                {
-                    Console.WriteLine("La cantidad de jugadores no es válida.");
-                    isInt = false;
-                }
+                ModoMultijugador modoMultijugador = new ModoMultijugador();
+                modoMultijugador.NumeroDeJugadores = juego.NumeroDeJugadores;
+                modoMultijugador.LeerNombreYPalabraDeJugadores();
+                modoMultijugador.IniciarCicloDeAhorcado();
+                modoMultijugador.MostrarResultados();
             }
-            while (!isInt);
-
-            Console.Clear();
-
-            // PEDIR NOMBRE DE CADA JUGADOR Y SU PALABRA. (TAMBIEN APROVECHO EL CICLO PARA INICIAR EL SB GUIONES)
-
-            //variables necesarias 
-            Partida[] partida = new Partida[players];
-            Queue playersQueue = new Queue();
-
-            for (int i = 0; i < players; i++)
+            else
             {
-                partida[i] = new Partida();
-                do
-                {
-                    partida[i].GetPlayerName(i + 1); //ignorar el i+1, es para que se vea mejor en la consola
-                    if (playersQueue.Contains(partida[i].playerName))
-                    {
-                        Console.WriteLine("El jugador " + partida[i].playerName + " ya existe.");
-                    }
-                    else
-                    {
-                        playersQueue.Enqueue(partida[i].playerName);
-                        break;
-                    }
-                } while (true);
-                partida[i].GetPalabraElegida();
-                partida[i].IniciarGuiones();
-                Console.Clear();
-            }
-
-            // LOGICA PRINCIPAL DEL PROGRAMA
-
-            //variables necesarias 
-            Queue winners = new Queue();
-            string intento;
-            bool reemplazo;
-
-            do //ciclo principal del juego, termina cuando hay ganadores
-            {
-                for (int i = 0; i < players; i++) //ciclo para que pasen todos los jugadores, termina cuando cada jugador pasa por el ciclo
-                {
-                    do //ciclo que pide y comprueba intentos, imprime el ahorcado, termina cuando falla o gana
-                    {
-                        partida[i].ImprimirGuiones();
-
-                        Console.WriteLine("\n"); //ignorar
-
-                        do //ciclo que pide intentos
-                        {
-                            Console.Write("Dame el intento: ");
-                            intento = Console.ReadLine().ToUpper();
-                            if (intento == "") //if para ignorar si el jugador no ingresa nada
-                            {
-                                Console.SetCursorPosition(0, Console.CursorTop - 1);
-                                Console.Write(new string(' ', Console.WindowWidth));
-                                Console.SetCursorPosition(0, Console.CursorTop - 1);
-                            }
-                            else 
-                            {
-                                intento = intento.Replace("Á", "A");
-                                intento = intento.Replace("É", "E");
-                                intento = intento.Replace("Í", "I");
-                                intento = intento.Replace("Ó", "O");
-                                intento = intento.Replace("Ú", "U");
-                                break;
-                            }
-                        } while (true);
-
-                        reemplazo = partida[i].LogicaReemplazar(intento);
-
-                        if (reemplazo)// if para optimizar, ignorar
-                        {
-                            partida[i].ImprimirGuiones();
-                        }
-
-                    } while (reemplazo && !partida[i].win);
-
-                    if (!partida[i].win)
-                    {
-                        Console.WriteLine("\n\nIntento fallido.\nPresiona cualquier tecla para pasar al siguiente jugador: ");
-                    }
-                    else
-                    {
-                        winners.Enqueue(partida[i].playerName);
-                        Console.WriteLine("\n\nPalabra completada!!!\nPresiona cualquier tecla para pasar al siguiente jugador: ");
-                    }
-                    Console.ReadKey(true);
-                }
-
-            } while (winners.Count == 0);
-
-            Console.Clear();
-
-
-            // MOSTRAR GANADORES
-
-            if (winners.Count == 1)
-            {
-                Console.WriteLine("El ganador es: \n");
-            }
-            else Console.WriteLine("Los ganadores son: \n");
-
-            foreach (string i in winners)
-            {
-                Console.WriteLine(i);
+                ModoSolitario modoSolitario = new ModoSolitario();
+                modoSolitario.LeerNombreYPalabraDelJugador();
+                modoSolitario.IniciarCicloDeAhorcado();
+                modoSolitario.MostrarResultados();
             }
         }
     }

@@ -9,31 +9,19 @@ namespace Ahorcado
 {
     class Partida
     {
-        public string playerName;
-        public string palabraElegida;
-        public StringBuilder sbGuiones; 
-        public bool win = false; 
+        public string NombreDelJugador;
+        public string PalabraElegida;
+        public StringBuilder SbGuiones; 
+        public bool Ganar = false;
 
-        public void GetPlayerName(int ignore) 
-        {
-            do
-            {
-                Console.Write("Dame el nombre del jugador " + ignore + ": ");
-                playerName = Console.ReadLine();
-                if (playerName == "")
-                {
-                    Console.WriteLine("El jugador debe tener nombre.");
-                }
-                else break;
-            } while (true);
-        }
-        public void GetPalabraElegida() 
+
+        public void LeerPalabraElegida()
         {
             bool esPalabra;
             do
             {
-                Console.Write("Escriba la palabra para el jugador " + playerName + ": ");
-                palabraElegida = "";
+                Console.Write("Escriba la palabra para el jugador " + NombreDelJugador + ": ");
+                PalabraElegida = "";
 
                 do //algoritmo de internet, escribe la palabra como contraseña, no tocar.
                 {
@@ -41,14 +29,14 @@ namespace Ahorcado
                     // Backspace Should Not Work
                     if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
                     {
-                        palabraElegida += key.KeyChar;
+                        PalabraElegida += key.KeyChar;
                         Console.Write("*");
                     }
                     else
                     {
-                        if (key.Key == ConsoleKey.Backspace && palabraElegida.Length > 0)
+                        if (key.Key == ConsoleKey.Backspace && PalabraElegida.Length > 0)
                         {
-                            palabraElegida = palabraElegida.Substring(0, (palabraElegida.Length - 1));
+                            PalabraElegida = PalabraElegida.Substring(0, (PalabraElegida.Length - 1));
                             Console.Write("\b \b");
                         }
                         else if (key.Key == ConsoleKey.Enter)
@@ -59,59 +47,49 @@ namespace Ahorcado
                 } while (true);
                 Console.WriteLine("");
 
-                if (palabraElegida.Length > 1)
+                if (PalabraElegida.Length > 1)
                 {
-                    palabraElegida = palabraElegida.ToUpper();
-                    if (palabraElegida.Contains("\0")) //manejo de tildes, no tocar, se complementa con el algoritmo anterior.
+                    PalabraElegida = PalabraElegida.ToUpper();
+                    if (PalabraElegida.Contains("\0")) //manejo de tildes, no tocar, se complementa con el algoritmo anterior.
                     {
-                        palabraElegida = palabraElegida.Remove(palabraElegida.IndexOf("\0"), 1);
-                        palabraElegida = palabraElegida.Replace("Á", "A");
-                        palabraElegida = palabraElegida.Replace("É", "E");
-                        palabraElegida = palabraElegida.Replace("Í", "I");
-                        palabraElegida = palabraElegida.Replace("Ó", "O");
-                        palabraElegida = palabraElegida.Replace("Ú", "U");
+                        PalabraElegida = PalabraElegida.Remove(PalabraElegida.IndexOf("\0"), 1);
+                        PalabraElegida = PalabraElegida.Replace("Á", "A");
+                        PalabraElegida = PalabraElegida.Replace("É", "E");
+                        PalabraElegida = PalabraElegida.Replace("Í", "I");
+                        PalabraElegida = PalabraElegida.Replace("Ó", "O");
+                        PalabraElegida = PalabraElegida.Replace("Ú", "U");
                     }
-                    esPalabra = Regex.IsMatch(palabraElegida, @"^[A-Z]+$");
+                    esPalabra = Regex.IsMatch(PalabraElegida, @"^[A-Z]+$");
                 }
                 else esPalabra = false;
-                
+
                 if (!esPalabra)
                 {
                     Console.WriteLine("La palabra elegida no es válida.");
                 }
             } while (!esPalabra);
+            Console.Clear();
         }
         public void IniciarGuiones()
         {
-            sbGuiones = new StringBuilder(palabraElegida);
-            for (int i = 0; i < palabraElegida.Length; i++)
+            SbGuiones = new StringBuilder(PalabraElegida);
+            for (int i = 0; i < PalabraElegida.Length; i++)
             {
-                sbGuiones[i] = '_';
+                SbGuiones[i] = '_';
             }
-        }
-        public void ImprimirGuiones()
-        {
-            Console.Clear();
-            Console.WriteLine("Ahorcado correspondiente a: " + playerName + "\n\n\n\n");
-            Console.Write("            ");
-            for (int i = 0; i < palabraElegida.Length; i++)
-            {
-                Console.Write(" " + sbGuiones[i].ToString());
-            }
-            Console.WriteLine("");
         }
         public bool LogicaReemplazar(string intento)
         {
             bool reemplazo = false;
             if (intento.Length == 1)
             {
-                if (palabraElegida.Contains(intento))
+                if (PalabraElegida.Contains(intento))
                 {
-                    for (int i = 0; i < palabraElegida.Length; i++)
+                    for (int i = 0; i < PalabraElegida.Length; i++)
                     {
-                        if (intento == palabraElegida[i].ToString())
+                        if (intento == PalabraElegida[i].ToString())
                         {
-                            sbGuiones[i] = intento[0]; //No se que hace el [0] pero funciona, no tocar.
+                            SbGuiones[i] = intento[0]; //No se que hace el [0] pero funciona, no tocar.
                             reemplazo = true;
                         }
                     }
@@ -119,17 +97,18 @@ namespace Ahorcado
             }
             else
             {
-                if (intento == palabraElegida)
+                if (intento == PalabraElegida)
                 {
-                    sbGuiones = new StringBuilder(palabraElegida);
+                    SbGuiones = new StringBuilder(PalabraElegida);
                     reemplazo = true;
                 }
             }
-            if (!sbGuiones.ToString().Contains("_"))
+            if (!SbGuiones.ToString().Contains("_"))
             {
-                win = true;
+                Ganar = true;
             }
             return reemplazo;
         }
+        
     }
 }
