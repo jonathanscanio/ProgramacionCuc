@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AhorcadoGonzalo
 {
-    class Ahorcado
+    class Ahorcado //Esta clase seria la principal del juego ahorcado, pregunta y ejecuta modo de juego
     {
         public static void Ejecutar()
         {

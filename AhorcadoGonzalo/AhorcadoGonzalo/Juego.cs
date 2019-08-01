@@ -8,7 +8,7 @@ namespace AhorcadoGonzalo
 {
     class Juego
     {
-        //Esta clase pregunta por el juego 
+        //Esta clase se encarga de preguntar y ejecutar el juego que el usuario selecciona
         public void ElegirYEjecutarJuego()
         {
             bool juegoExiste;

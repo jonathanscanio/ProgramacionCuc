@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace AhorcadoGonzalo
 {
-    class PartidaAhorcado
+    class PartidaAhorcado 
     {
+        //Esta clase no se comunica directamente con el camino principal del programa (nunca se crea una instancia de esta clase). 
+        //Solo estan los atributos y metodos que comparten los modos de juego, hecha para ahorrar codigo.
+        //Cada subclase tiene sus metodos y atributos agregados que necesitan para su logica
+        //Cada subclase tiene un metodo ejecutar que se encarga de todo. Solamente con llamar a ese metodo el modo de juego se ejecuta solo. 
         protected string palabraElegida;
         protected StringBuilder sbGuiones;
         protected bool ganar = false;
