@@ -76,7 +76,7 @@ namespace SistemaDeEcuaciones
 
         }
 
-        public override string ToString()
+        public override string ToString() //Como te gusta sobrescribir el ToString Carlitos
         {
             string mensaje = "";
 
