@@ -13,6 +13,35 @@ namespace SistemaDeEcuaciones
         float puntoX; //Punto de encuentro de ambas ecuaciones en X
         float puntoY; //Punto de encuentro de ambas ecuaciones en Y
 
+
+        public string TipoDeSistema(Ecuacion e1, Ecuacion e2)
+        {
+            string sistema = "";
+
+            float x = e1.coefX / e2.coefX;
+            float y = e1.coefY / e2.coefY;
+            float indep = e1.indep / e2.indep;
+
+            if (x == y && y == indep)
+            {
+                sistema = "Sistema Compatible Indeterminado";
+            }
+            else
+            {
+                if (x == y && y != indep)
+                {
+                    sistema = "Sistema Incompatible";
+                }
+                if (x != y)
+                {
+                    sistema = "Sistema Compatible Determinado";
+                }
+
+            }
+
+
+            return sistema;
+        }
         public void Ejecutar(Ecuacion e1, Ecuacion e2)
         {
 
@@ -70,13 +99,14 @@ namespace SistemaDeEcuaciones
         {
             float deltaY;
 
-            deltaY = (indep1 * x2) - (indep2 * x1) ;
+            deltaY = (x1 * indep2) - (x2 * indep1) ;
 
             return deltaY;
 
         }
 
-        public override string ToString() //Como te gusta sobrescribir el ToString Carlitos
+
+        public override string ToString() //Como te gusta sobrescribir el ToString Carlitos. Obvio ;)
         {
             string mensaje = "";
 

@@ -30,7 +30,7 @@ namespace SistemaDeEcuaciones
 
             */
 
-            Console.WriteLine("Ingresa la ecuación. Basate en este modelo: -3x + 4y = 6\nNo se pueden escribir fracciones, hay que anotarlas como numeros decimales.");
+            Console.Write("Ingresa la ecuación. Basate en este modelo: -3x + 4y = 6\nNo se pueden escribir fracciones, hay que anotarlas como numeros decimales.\nEcuacion:");
 
             ecuacion = "";
             do
@@ -201,5 +201,7 @@ namespace SistemaDeEcuaciones
             //Logica para setear el termino independiente
             indep = float.Parse(ecuacion.Remove(0, ecuacion.LastIndexOf("=") + 1));
         }
+
+        
     }
 }
