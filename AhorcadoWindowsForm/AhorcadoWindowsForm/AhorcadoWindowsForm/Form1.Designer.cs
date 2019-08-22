@@ -1,4 +1,4 @@
-﻿namespace EstrucutraAhorcado
+﻿namespace AhorcadoWindowsForm
 {
     partial class Form1
     {

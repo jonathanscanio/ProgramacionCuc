@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57E2F6FC-72F4-40DA-A17C-513561C5C9CF}</ProjectGuid>
+    <ProjectGuid>{B3F64CA4-2895-4F7B-BB4E-5E410E7AFDEE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EstrucutraAhorcado</RootNamespace>
-    <AssemblyName>EstrucutraAhorcado</AssemblyName>
+    <RootNamespace>AhorcadoWindowsForm</RootNamespace>
+    <AssemblyName>AhorcadoWindowsForm</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

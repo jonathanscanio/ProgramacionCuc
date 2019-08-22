@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EstrucutraAhorcado
+namespace AhorcadoWindowsForm
 {
     class MainMenuScreen
     {
@@ -75,7 +75,7 @@ namespace EstrucutraAhorcado
             this.instructionsButton = new Button();
             this.instructionsButton.Location = new System.Drawing.Point(543, 405); //posicion
             this.instructionsButton.Size = new System.Drawing.Size(80, 23); //tamaño
-            this.instructionsButton.TabIndex = 1; 
+            this.instructionsButton.TabIndex = 1;
             this.instructionsButton.Text = "Instrucciones"; //texto dentro
             this.instructionsButton.UseVisualStyleBackColor = true;
             mainScreen.Controls.Add(instructionsButton); // agregar a pantalla
@@ -93,7 +93,7 @@ namespace EstrucutraAhorcado
             mainScreen.Controls.Add(creditsButton);
             this.creditsButton.Click += new System.EventHandler(this.CreditsButton_Click);
 
-            
+
         }
 
         private void ModoSolitarioButton_Click(object sender, EventArgs e)

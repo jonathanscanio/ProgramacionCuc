@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EstrucutraAhorcado.Properties
+namespace AhorcadoWindowsForm.Properties
 {
 
 

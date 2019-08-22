@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("EstrucutraAhorcado")]
+[assembly: AssemblyTitle("AhorcadoWindowsForm")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EstrucutraAhorcado")]
+[assembly: AssemblyProduct("AhorcadoWindowsForm")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("57e2f6fc-72f4-40da-a17c-513561c5c9cf")]
+[assembly: Guid("b3f64ca4-2895-4f7b-bb4e-5e410e7afdee")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
