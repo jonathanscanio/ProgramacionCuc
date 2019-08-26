@@ -99,10 +99,12 @@ namespace AhorcadoWindowsForm
         private void ModoSolitarioButton_Click(object sender, EventArgs e)
         {
             ClearView();
+            new ModoSolitarioScreen(mainScreen);
         }
         private void ModoTradicionalButton_Click(object sender, EventArgs e)
         {
             ClearView();
+            new ModoTradicionalScreen(mainScreen);
         }
         private void ModoMultijugadorButton_Click(object sender, EventArgs e)
         {
