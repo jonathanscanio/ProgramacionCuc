@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AhorcadoGame.cs" />
+    <Compile Include="AhorcadoScreen.cs" />
     <Compile Include="BotonesNivelesButton.cs" />
     <Compile Include="MainMenuButton.cs" />
     <Compile Include="CreditsScreen.cs" />

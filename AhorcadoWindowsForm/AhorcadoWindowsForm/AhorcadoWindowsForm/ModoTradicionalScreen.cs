@@ -115,7 +115,8 @@ namespace AhorcadoWindowsForm
             if (vidasTextBox.Text.Length > 0 && palabraElegidaTextBox.Text.Length > 0)
             {
                 ClearView();
-                //new AhorcadoScreen(palabra, vidas, true, false);
+                AhorcadoGame ahorcadoGame = new AhorcadoGame(palabraElegidaTextBox.Text, int.Parse(vidasTextBox.Text), mostrarIntentosCheckBox.Checked, mostrarPrimerLetraCheckBox.Checked);
+                new AhorcadoScreen(mainScreen, ahorcadoGame);
             }
         }
         private void ClearView()
@@ -133,6 +134,12 @@ namespace AhorcadoWindowsForm
                 MessageBox.Show("Solo se pueden escribir letras");
                 palabraElegidaTextBox.Text = palabraElegidaTextBox.Text.Remove(palabraElegidaTextBox.Text.Length - 1);
             }
+            else if (palabraElegidaTextBox.Text.Length > 15)
+            {
+                MessageBox.Show("La palabra a adivinar no puede tener más de 15 letras");
+                palabraElegidaTextBox.Text = palabraElegidaTextBox.Text.Remove(palabraElegidaTextBox.Text.Length - 1);
+            }
+
         }
         private void VidasTextBox_TextChanged(object sender, EventArgs e)
         {

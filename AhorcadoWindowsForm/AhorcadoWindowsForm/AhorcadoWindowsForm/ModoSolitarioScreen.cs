@@ -52,7 +52,9 @@ namespace AhorcadoWindowsForm
 
             //string palabra = PedirPalabra(level)
             //string pista = PedirPista(level)
-            //new AhorcadoScreen(palabra, 6, true, false, pista);
+
+            //AhorcadoGame ahorcadoGame = new AhorcadoGame(palabra, pista);
+            //new AhorcadoScreen(mainScreen, ahorcadoGame);
         }
         private void ModoNivelesButton_Click(object sender, EventArgs e)
         {
