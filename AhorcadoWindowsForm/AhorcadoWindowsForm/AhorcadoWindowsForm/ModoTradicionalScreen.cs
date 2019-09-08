@@ -115,7 +115,7 @@ namespace AhorcadoWindowsForm
             if (vidasTextBox.Text.Length > 0 && palabraElegidaTextBox.Text.Length > 0)
             {
                 ClearView();
-                AhorcadoGame ahorcadoGame = new AhorcadoGame(palabraElegidaTextBox.Text, int.Parse(vidasTextBox.Text), mostrarIntentosCheckBox.Checked, mostrarPrimerLetraCheckBox.Checked);
+                AhorcadoGame ahorcadoGame = new AhorcadoGame(palabraElegidaTextBox.Text.ToUpper(), int.Parse(vidasTextBox.Text), mostrarIntentosCheckBox.Checked, mostrarPrimerLetraCheckBox.Checked);
                 new AhorcadoScreen(mainScreen, ahorcadoGame);
             }
         }
@@ -146,6 +146,11 @@ namespace AhorcadoWindowsForm
             if (Regex.IsMatch(vidasTextBox.Text, "[^0-9]"))
             {
                 MessageBox.Show("Solo se pueden escribir números.");
+                vidasTextBox.Text = vidasTextBox.Text.Remove(vidasTextBox.Text.Length - 1);
+            }
+            else if (vidasTextBox.Text == "0")
+            {
+                MessageBox.Show("Tiene que haber al menos 1 vida");
                 vidasTextBox.Text = vidasTextBox.Text.Remove(vidasTextBox.Text.Length - 1);
             }
         }

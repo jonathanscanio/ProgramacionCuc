@@ -55,7 +55,7 @@ namespace AhorcadoWindowsForm
                 intentosErroneosLabel.Location = new System.Drawing.Point(644, 141);
                 intentosErroneosLabel.Size = new System.Drawing.Size(116, 13);
                 intentosErroneosLabel.TabIndex = 2;
-                intentosErroneosLabel.Text = "Intentos Erroneos: ";
+                intentosErroneosLabel.Text = "Intentos Erróneos: ";
                 mainScreen.Controls.Add(intentosErroneosLabel);
             }
 
@@ -104,7 +104,7 @@ namespace AhorcadoWindowsForm
             aceptarIntentoButton.TabIndex = 6;
             aceptarIntentoButton.Text = "Ingresar intento";
             aceptarIntentoButton.UseVisualStyleBackColor = true;
-            aceptarIntentoButton.Click += new System.EventHandler(this.AceptarIntentoButton_Click);
+            aceptarIntentoButton.Click += new System.EventHandler(AceptarIntentoButton_Click);
             mainScreen.Controls.Add(aceptarIntentoButton);
 
 
@@ -119,7 +119,7 @@ namespace AhorcadoWindowsForm
                 pistaButton.TabIndex = 7;
                 pistaButton.Text = "Pista";
                 pistaButton.UseVisualStyleBackColor = true;
-                pistaButton.Click += new System.EventHandler(this.PistaButton_Click);
+                pistaButton.Click += new System.EventHandler(PistaButton_Click);
                 mainScreen.Controls.Add(pistaButton);
             }
 
@@ -127,16 +127,51 @@ namespace AhorcadoWindowsForm
 
         private void AceptarIntentoButton_Click(object sender, EventArgs e)
         {
-            ahorcadoGame.ComprobarIntento(intentoTextBox.Text);
+            ahorcadoGame.ComprobarIntento(intentoTextBox.Text.ToUpper());
+            RefreshView();
         }
         private void PistaButton_Click(object sender, EventArgs e)
         {
-            
+            Label pistaLabel = new Label();
+            pistaLabel.Location = new System.Drawing.Point(300, 380);
+            pistaLabel.AutoSize = true;
+            pistaLabel.TabIndex = 1;
+            pistaLabel.Text = ahorcadoGame.pista;
+            mainScreen.Controls.Add(pistaLabel);
         }
 
         private void RefreshView()
         {
+            //vidas
+            vidasLabel.Text = "Vidas restantes: " + ahorcadoGame.vidas;
 
+            //intentos
+            if (ahorcadoGame.intentosErroneos != null)
+            {
+                if (guionesLabel.Text == ahorcadoGame.sbGuiones.ToString())
+                {
+                    intentosErroneosLabel.Text += intentoTextBox.Text.ToUpper() + ", ";
+                }
+                
+            }
+
+            //guiones
+            guionesLabel.Text = ahorcadoGame.sbGuiones.ToString();
+
+            //intentoTextBox
+            intentoTextBox.Text = "";
+
+            //perder
+            if (ahorcadoGame.vidas == 0)
+            {
+                mainScreen.Controls.Clear();
+            }
+
+            //ganar
+            if (guionesLabel.Text == ahorcadoGame.palabraElegida)
+            {
+                mainScreen.Controls.Clear();
+            }
         }
 
     }
