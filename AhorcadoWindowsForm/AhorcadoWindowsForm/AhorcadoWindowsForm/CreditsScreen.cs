@@ -27,6 +27,7 @@ namespace AhorcadoWindowsForm
             tituloCreditosLabel.Location = new System.Drawing.Point(250, 40);
             tituloCreditosLabel.Size = new System.Drawing.Size(35, 13);
             tituloCreditosLabel.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tituloCreditosLabel.ForeColor = System.Drawing.Color.White;
             tituloCreditosLabel.TabIndex = 0;
             tituloCreditosLabel.Text = "CRÉDITOS";
             mainScreen.Controls.Add(tituloCreditosLabel);
@@ -38,6 +39,8 @@ namespace AhorcadoWindowsForm
             mensajeCreditosLabel.Location = new System.Drawing.Point(82, 152);
             mensajeCreditosLabel.Size = new System.Drawing.Size(639, 272);
             mensajeCreditosLabel.TabIndex = 0;
+            mensajeCreditosLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mensajeCreditosLabel.ForeColor = System.Drawing.Color.White;
             mensajeCreditosLabel.Text = "Program made by ogonzalo";
             mainScreen.Controls.Add(mensajeCreditosLabel);
         }

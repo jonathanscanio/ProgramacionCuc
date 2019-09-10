@@ -38,9 +38,11 @@ namespace AhorcadoWindowsForm
             // vidasLabel
             //
             vidasLabel = new Label();
-            vidasLabel.Location = new System.Drawing.Point(34, 127);
+            vidasLabel.Location = new System.Drawing.Point(60, 105);
             vidasLabel.AutoSize = true;
             vidasLabel.TabIndex = 1;
+            vidasLabel.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            vidasLabel.ForeColor = System.Drawing.Color.White;
             vidasLabel.Text = "Vidas restantes: " + ahorcadoGame.vidas;
             mainScreen.Controls.Add(vidasLabel);
 
@@ -51,10 +53,10 @@ namespace AhorcadoWindowsForm
             if (ahorcadoGame.intentosErroneos != null)
             {
                 intentosErroneosLabel = new Label();
-                intentosErroneosLabel.AutoSize = true;
-                intentosErroneosLabel.Location = new System.Drawing.Point(644, 141);
-                intentosErroneosLabel.Size = new System.Drawing.Size(116, 13);
-                intentosErroneosLabel.TabIndex = 2;
+                intentosErroneosLabel.Location = new System.Drawing.Point(480, 105);
+                intentosErroneosLabel.Size = new System.Drawing.Size(320, 80);
+                intentosErroneosLabel.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                intentosErroneosLabel.ForeColor = System.Drawing.Color.White;
                 intentosErroneosLabel.Text = "Intentos Erróneos: ";
                 mainScreen.Controls.Add(intentosErroneosLabel);
             }
@@ -64,12 +66,14 @@ namespace AhorcadoWindowsForm
             // guionesLabel
             //
             guionesLabel = new Label();
-            guionesLabel.AutoSize = true;
             guionesLabel.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            guionesLabel.Location = new System.Drawing.Point(188, 187);
-            guionesLabel.Size = new System.Drawing.Size(371, 56);
+            guionesLabel.ForeColor = System.Drawing.Color.White;
+            guionesLabel.Location = new System.Drawing.Point(195, 189);
+            guionesLabel.Size = new System.Drawing.Size(371, 59);
             guionesLabel.TabIndex = 3;
-            guionesLabel.Text = ahorcadoGame.sbGuiones.ToString(); //SepararGuiones(ahorcadoGame.sbGuiones.ToString())
+            guionesLabel.Text = ahorcadoGame.sbGuiones.ToString();
+            guionesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            guionesLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             mainScreen.Controls.Add(guionesLabel);
 
             //
@@ -81,6 +85,8 @@ namespace AhorcadoWindowsForm
             intentoLabel.Location = new System.Drawing.Point(194, 316);
             intentoLabel.Size = new System.Drawing.Size(86, 24);
             intentoLabel.TabIndex = 4;
+            intentoLabel.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            intentoLabel.ForeColor = System.Drawing.Color.White;
             intentoLabel.Text = "Intento: ";
             mainScreen.Controls.Add(intentoLabel);
 
@@ -100,8 +106,9 @@ namespace AhorcadoWindowsForm
             //
             aceptarIntentoButton = new Button();
             aceptarIntentoButton.Location = new System.Drawing.Point(455, 308);
-            aceptarIntentoButton.Size = new System.Drawing.Size(104, 32);
+            aceptarIntentoButton.Size = new System.Drawing.Size(150, 35);
             aceptarIntentoButton.TabIndex = 6;
+            aceptarIntentoButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             aceptarIntentoButton.Text = "Ingresar intento";
             aceptarIntentoButton.UseVisualStyleBackColor = true;
             aceptarIntentoButton.Click += new System.EventHandler(AceptarIntentoButton_Click);
@@ -117,11 +124,14 @@ namespace AhorcadoWindowsForm
                 pistaButton.Location = new System.Drawing.Point(205, 372);
                 pistaButton.Size = new System.Drawing.Size(75, 34);
                 pistaButton.TabIndex = 7;
+                pistaButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 pistaButton.Text = "Pista";
                 pistaButton.UseVisualStyleBackColor = true;
                 pistaButton.Click += new System.EventHandler(PistaButton_Click);
                 mainScreen.Controls.Add(pistaButton);
             }
+
+            mainScreen.AcceptButton = aceptarIntentoButton;
 
         }
 
@@ -137,6 +147,8 @@ namespace AhorcadoWindowsForm
             pistaLabel.AutoSize = true;
             pistaLabel.TabIndex = 1;
             pistaLabel.Text = ahorcadoGame.pista;
+            pistaLabel.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            pistaLabel.ForeColor = System.Drawing.Color.White;
             mainScreen.Controls.Add(pistaLabel);
         }
 

@@ -32,9 +32,10 @@ namespace AhorcadoWindowsForm
             // palabraElegidaLabel
             //
             palabraElegidaLabel = new Label();
-            palabraElegidaLabel.Location = new System.Drawing.Point(311, 83);
+            palabraElegidaLabel.Location = new System.Drawing.Point(309, 83);
             palabraElegidaLabel.AutoSize = true;
-            palabraElegidaLabel.TabIndex = 1;
+            palabraElegidaLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            palabraElegidaLabel.ForeColor = System.Drawing.Color.White;
             palabraElegidaLabel.Text = "Escriba la palabra a adivinar:";
             mainScreen.Controls.Add(palabraElegidaLabel);
 
@@ -43,7 +44,7 @@ namespace AhorcadoWindowsForm
             //
             palabraElegidaTextBox = new TextBox();
             palabraElegidaTextBox.Location = new System.Drawing.Point(311, 114);
-            palabraElegidaTextBox.Size = new System.Drawing.Size(100, 20);
+            palabraElegidaTextBox.Size = new System.Drawing.Size(150, 30);
             palabraElegidaTextBox.TabIndex = 2;
             palabraElegidaTextBox.Text = "";
             palabraElegidaTextBox.PasswordChar = '*';
@@ -57,6 +58,8 @@ namespace AhorcadoWindowsForm
             vidasLabel.Location = new System.Drawing.Point(87, 232);
             vidasLabel.AutoSize = true;
             vidasLabel.TabIndex = 1;
+            vidasLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            vidasLabel.ForeColor = System.Drawing.Color.White;
             vidasLabel.Text = "Cantidad de vidas: ";
             mainScreen.Controls.Add(vidasLabel);
 
@@ -64,7 +67,7 @@ namespace AhorcadoWindowsForm
             // vidasTextBox
             //
             vidasTextBox = new TextBox();
-            vidasTextBox.Location = new System.Drawing.Point(185, 228);
+            vidasTextBox.Location = new System.Drawing.Point(230, 231);
             vidasTextBox.Size = new System.Drawing.Size(100, 20);
             vidasTextBox.TabIndex = 2;
             vidasTextBox.TextChanged += new System.EventHandler(VidasTextBox_TextChanged);
@@ -78,6 +81,8 @@ namespace AhorcadoWindowsForm
             mostrarIntentosCheckBox.AutoSize = true;
             mostrarIntentosCheckBox.RightToLeft = RightToLeft.Yes;
             mostrarIntentosCheckBox.TabIndex = 0;
+            mostrarIntentosCheckBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mostrarIntentosCheckBox.ForeColor = System.Drawing.Color.White;
             mostrarIntentosCheckBox.Text = "?Mostrar intentos erróneos¿"; //JAJAJAJAJAJAJAJ WTF, los signos de pregunta se imprimen al reves
             mostrarIntentosCheckBox.UseVisualStyleBackColor = true;
             mainScreen.Controls.Add(mostrarIntentosCheckBox);
@@ -90,6 +95,8 @@ namespace AhorcadoWindowsForm
             mostrarPrimerLetraCheckBox.AutoSize = true;
             mostrarPrimerLetraCheckBox.RightToLeft = RightToLeft.Yes;
             mostrarPrimerLetraCheckBox.TabIndex = 0;
+            mostrarPrimerLetraCheckBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mostrarPrimerLetraCheckBox.ForeColor = System.Drawing.Color.White;
             mostrarPrimerLetraCheckBox.Text = "?Mostrar la primera letra¿";
             mostrarPrimerLetraCheckBox.UseVisualStyleBackColor = true;
             mainScreen.Controls.Add(mostrarPrimerLetraCheckBox);
@@ -101,6 +108,7 @@ namespace AhorcadoWindowsForm
             aceptarButton.Location = new System.Drawing.Point(540, 230);
             aceptarButton.Size = new System.Drawing.Size(151, 132);
             aceptarButton.TabIndex = 3;
+            aceptarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             aceptarButton.Text = "Aceptar";
             aceptarButton.UseVisualStyleBackColor = true;
             aceptarButton.Click += new System.EventHandler(this.AceptarButton_Click);
@@ -112,10 +120,10 @@ namespace AhorcadoWindowsForm
 
         private void AceptarButton_Click(object sender, EventArgs e)
         {
-            if (vidasTextBox.Text.Length > 0 && palabraElegidaTextBox.Text.Length > 0)
+            if (vidasTextBox.Text.Length > 0 && palabraElegidaTextBox.Text.Length > 1)
             {
                 ClearView();
-                AhorcadoGame ahorcadoGame = new AhorcadoGame(palabraElegidaTextBox.Text.ToUpper(), int.Parse(vidasTextBox.Text), mostrarIntentosCheckBox.Checked, mostrarPrimerLetraCheckBox.Checked);
+                AhorcadoGame ahorcadoGame = new AhorcadoGame(palabraElegidaTextBox.Text, int.Parse(vidasTextBox.Text), mostrarIntentosCheckBox.Checked, mostrarPrimerLetraCheckBox.Checked);
                 new AhorcadoScreen(mainScreen, ahorcadoGame);
             }
         }
@@ -134,9 +142,9 @@ namespace AhorcadoWindowsForm
                 MessageBox.Show("Solo se pueden escribir letras");
                 palabraElegidaTextBox.Text = palabraElegidaTextBox.Text.Remove(palabraElegidaTextBox.Text.Length - 1);
             }
-            else if (palabraElegidaTextBox.Text.Length > 15)
+            else if (palabraElegidaTextBox.Text.Length > 20)
             {
-                MessageBox.Show("La palabra a adivinar no puede tener más de 15 letras");
+                MessageBox.Show("La palabra a adivinar no puede tener más de 20 letras");
                 palabraElegidaTextBox.Text = palabraElegidaTextBox.Text.Remove(palabraElegidaTextBox.Text.Length - 1);
             }
 

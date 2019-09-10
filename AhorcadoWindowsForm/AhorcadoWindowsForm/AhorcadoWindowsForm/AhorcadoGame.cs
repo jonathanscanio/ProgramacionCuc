@@ -18,7 +18,7 @@ namespace AhorcadoWindowsForm
         public AhorcadoGame(string palabraF, int vidasF, bool mostrarIntentosF, bool mostrarPrimerLetraF) //Tradicional(sin pista)
         {
             //palabra
-            palabraElegida = palabraF;
+            palabraElegida = palabraF.ToUpper();
 
             //vidas
             vidas = vidasF;
@@ -27,7 +27,7 @@ namespace AhorcadoWindowsForm
             sbGuiones = new StringBuilder(palabraElegida);
             for (int i = 0; i < palabraElegida.Length; i++)
             {
-                sbGuiones[i] = '_';
+                sbGuiones[i] = '-';
             }
 
             //mostrarPrimerLetra
@@ -47,7 +47,7 @@ namespace AhorcadoWindowsForm
         public AhorcadoGame(string palabraF, string pistaF) //Solitario solo varia la pista y la palabra
         {
             //palabra
-            palabraElegida = palabraF;
+            palabraElegida = palabraF.ToUpper();
 
             //vidas
             vidas = 6;
@@ -59,7 +59,7 @@ namespace AhorcadoWindowsForm
             sbGuiones = new StringBuilder(palabraElegida);
             for (int i = 0; i < palabraElegida.Length; i++)
             {
-                sbGuiones[i] = '_';
+                sbGuiones[i] = '-';
             }
 
             //mostrarIntentos
@@ -91,24 +91,6 @@ namespace AhorcadoWindowsForm
                 else vidas--;
             }
         }
-
-
-
-
-
-
-
-
-
-
-        //private void IniciarGuiones()
-        //{
-        //    sbGuiones = new StringBuilder(palabraElegida);
-        //    for (int i = 0; i < palabraElegida.Length; i++)
-        //    {
-        //        sbGuiones[i] = '_';
-        //    }
-        //}
 
     }
 }

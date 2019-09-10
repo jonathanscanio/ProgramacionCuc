@@ -27,6 +27,7 @@ namespace AhorcadoWindowsForm
             this.modoAleatorioButton.Location = new System.Drawing.Point(210, 200);
             this.modoAleatorioButton.Size = new System.Drawing.Size(128, 44);
             this.modoAleatorioButton.TabIndex = 1;
+            this.modoAleatorioButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modoAleatorioButton.Text = "Aleatorio";
             this.modoAleatorioButton.UseVisualStyleBackColor = true;
             mainScreen.Controls.Add(modoAleatorioButton);
@@ -39,6 +40,7 @@ namespace AhorcadoWindowsForm
             this.modoNivelesButton.Location = new System.Drawing.Point(510, 200);
             this.modoNivelesButton.Size = new System.Drawing.Size(128, 44);
             this.modoNivelesButton.TabIndex = 1;
+            this.modoNivelesButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modoNivelesButton.Text = "Niveles";
             this.modoNivelesButton.UseVisualStyleBackColor = true;
             mainScreen.Controls.Add(modoNivelesButton);
@@ -48,13 +50,15 @@ namespace AhorcadoWindowsForm
         private void ModoAleatorioButton_Click(object sender, EventArgs e)
         {
             ClearView();
-            //level = numero aleatorio entre 1 y 20
 
-            //string palabra = PedirPalabra(level)
-            //string pista = PedirPista(level)
+            Random rnd = new Random();
+            int level = rnd.Next(20);
 
-            //AhorcadoGame ahorcadoGame = new AhorcadoGame(palabra, pista);
-            //new AhorcadoScreen(mainScreen, ahorcadoGame);
+            string palabra = PalabrasPredefinidas.PedirPalabra(level);
+            string pista = PalabrasPredefinidas.PedirPista(level);
+
+            AhorcadoGame ahorcadoGame = new AhorcadoGame(palabra, pista);
+            new AhorcadoScreen(mainScreen, ahorcadoGame);
         }
         private void ModoNivelesButton_Click(object sender, EventArgs e)
         {
