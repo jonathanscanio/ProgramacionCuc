@@ -22,15 +22,15 @@ namespace AhorcadoWindowsForm
             //
             int level = 1;
             int x = 0;
-            int y = 0;
+            int y = 20;
 
             for (int i = 0; i < 4; i++)
             {
-                y += 90;
-                x = 0;
+                y += 130;
+                x = 20;
                 for (int j = 0; j < 5; j++)
                 {
-                    x += 130;
+                    x += 180;
                     new BotonesNivelesButton(mainScreen, level.ToString(), x, y);
                     level++;
                 }

@@ -26,7 +26,7 @@ namespace AhorcadoWindowsForm
             //
             this.nombreJuegoLabel = new Label();
             this.nombreJuegoLabel.AutoSize = true;
-            this.nombreJuegoLabel.Location = new System.Drawing.Point(300, 120);
+            this.nombreJuegoLabel.Location = new System.Drawing.Point(475, 120);
             this.nombreJuegoLabel.Size = new System.Drawing.Size(35, 13);
             this.nombreJuegoLabel.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreJuegoLabel.ForeColor = System.Drawing.Color.White;
@@ -38,7 +38,7 @@ namespace AhorcadoWindowsForm
             // modoSolitarioButton
             //
             this.modoSolitarioButton = new Button();
-            this.modoSolitarioButton.Location = new System.Drawing.Point(110, 232);
+            this.modoSolitarioButton.Location = new System.Drawing.Point(200, 300);
             this.modoSolitarioButton.Size = new System.Drawing.Size(128, 44);
             this.modoSolitarioButton.TabIndex = 1;
             this.modoSolitarioButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -51,7 +51,7 @@ namespace AhorcadoWindowsForm
             // modoTradicionalButton
             //
             this.modoTradicionalButton = new Button();
-            this.modoTradicionalButton.Location = new System.Drawing.Point(355, 232);
+            this.modoTradicionalButton.Location = new System.Drawing.Point(520, 300);
             this.modoTradicionalButton.Size = new System.Drawing.Size(128, 44);
             this.modoTradicionalButton.TabIndex = 1;
             this.modoTradicionalButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -64,7 +64,7 @@ namespace AhorcadoWindowsForm
             // modoMultijugadorButton
             //
             this.modoMultijugadorButton = new Button();
-            this.modoMultijugadorButton.Location = new System.Drawing.Point(604, 232);
+            this.modoMultijugadorButton.Location = new System.Drawing.Point(830, 300);
             this.modoMultijugadorButton.Size = new System.Drawing.Size(128, 44);
             this.modoMultijugadorButton.TabIndex = 1;
             this.modoMultijugadorButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,7 +77,7 @@ namespace AhorcadoWindowsForm
             // instruccionesButton
             //
             this.instructionsButton = new Button();
-            this.instructionsButton.Location = new System.Drawing.Point(543, 405); //posicion
+            this.instructionsButton.Location = new System.Drawing.Point(800, 580); //posicion
             this.instructionsButton.Size = new System.Drawing.Size(120, 30); //tamaño
             this.instructionsButton.TabIndex = 1;
             this.instructionsButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,7 +90,7 @@ namespace AhorcadoWindowsForm
             // creditsButton
             //
             this.creditsButton = new Button();
-            this.creditsButton.Location = new System.Drawing.Point(681, 405);
+            this.creditsButton.Location = new System.Drawing.Point(1000, 580);
             this.creditsButton.Size = new System.Drawing.Size(100, 30);
             this.creditsButton.TabIndex = 1;
             this.creditsButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

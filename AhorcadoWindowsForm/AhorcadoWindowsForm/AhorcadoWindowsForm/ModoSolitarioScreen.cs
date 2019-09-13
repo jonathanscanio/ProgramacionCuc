@@ -24,7 +24,7 @@ namespace AhorcadoWindowsForm
             // modoAleatorioButton
             //
             this.modoAleatorioButton = new Button();
-            this.modoAleatorioButton.Location = new System.Drawing.Point(210, 200);
+            this.modoAleatorioButton.Location = new System.Drawing.Point(350, 300);
             this.modoAleatorioButton.Size = new System.Drawing.Size(128, 44);
             this.modoAleatorioButton.TabIndex = 1;
             this.modoAleatorioButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -37,7 +37,7 @@ namespace AhorcadoWindowsForm
             // modoNivelesButton
             //
             this.modoNivelesButton = new Button();
-            this.modoNivelesButton.Location = new System.Drawing.Point(510, 200);
+            this.modoNivelesButton.Location = new System.Drawing.Point(730, 300);
             this.modoNivelesButton.Size = new System.Drawing.Size(128, 44);
             this.modoNivelesButton.TabIndex = 1;
             this.modoNivelesButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
