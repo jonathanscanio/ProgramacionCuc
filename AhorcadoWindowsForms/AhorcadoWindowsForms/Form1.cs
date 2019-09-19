@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AhorcadoWindowsForms.src.Vista;
 
 namespace AhorcadoWindowsForms
 {
@@ -15,6 +16,7 @@ namespace AhorcadoWindowsForms
         public Form1()
         {
             InitializeComponent();
+            new MenuPrincipal_Vista(this);
         }
     }
 }
