@@ -121,7 +121,7 @@ namespace AhorcadoWindowsForms.src.Vista
         private void Tradicional_Button_Click(object sender, EventArgs e)
         {
             LimpiarVista();
-            //new Tradicional_Vista(pantallaPrincipal);
+            new Tradicional_Vista(pantallaPrincipal);
         }
         private void Multijugador_Button_Click(object sender, EventArgs e)
         {

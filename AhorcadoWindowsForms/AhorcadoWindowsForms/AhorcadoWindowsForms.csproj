@@ -64,6 +64,7 @@
     <Compile Include="src\Vista\Niveles_Vista.cs" />
     <Compile Include="src\Vista\PantallaPredefinida.cs" />
     <Compile Include="src\Vista\Solitario_Vista.cs" />
+    <Compile Include="src\Vista\Tradicional_Vista.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
