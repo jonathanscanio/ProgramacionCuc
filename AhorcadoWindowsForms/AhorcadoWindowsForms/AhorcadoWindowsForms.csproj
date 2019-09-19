@@ -52,12 +52,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PalabrasPredefinidas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Controlador\Solitario_Controlador.cs" />
+    <Compile Include="src\Modelo\ParametrosPartida.cs" />
     <Compile Include="src\Vista\Creditos_Vista.cs" />
     <Compile Include="src\Vista\Instrucciones_Vista.cs" />
     <Compile Include="src\Vista\MenuPrincipal_Vista.cs" />
     <Compile Include="src\Vista\PantallaPredefinida.cs" />
+    <Compile Include="src\Vista\Solitario_Vista.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -80,9 +84,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Controlador\" />
-    <Folder Include="src\Modelo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

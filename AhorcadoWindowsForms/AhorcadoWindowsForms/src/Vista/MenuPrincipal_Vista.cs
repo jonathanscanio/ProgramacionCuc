@@ -116,7 +116,7 @@ namespace AhorcadoWindowsForms.src.Vista
         private void Solitario_Button_Click(object sender, EventArgs e)
         {
             LimpiarVista();
-            //new Solitario_Vista(pantallaPrincipal);
+            new Solitario_Vista(pantallaPrincipal);
         }
         private void Tradicional_Button_Click(object sender, EventArgs e)
         {
