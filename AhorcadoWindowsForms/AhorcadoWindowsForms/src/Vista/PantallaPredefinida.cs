@@ -13,8 +13,8 @@ namespace AhorcadoWindowsForms.src.Vista
 
         #region Atributos
 
-        private Form1 pantallaPrincipal;
-        private Button menuPrincipal_Button;
+        protected Form1 pantallaPrincipal;
+        protected Button menuPrincipal_Button;
 
         #endregion
 

@@ -136,7 +136,7 @@ namespace AhorcadoWindowsForms.src.Vista
         private void Creditos_Button_Click(object sender, EventArgs e)
         {
             LimpiarVista();
-            //new Creditos_Vista(pantallaPrincipal);
+            new Creditos_Vista(pantallaPrincipal);
         }
 
         private void LimpiarVista()
