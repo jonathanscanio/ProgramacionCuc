@@ -6,25 +6,18 @@ using System.Threading.Tasks;
 
 namespace AhorcadoWindowsForms.src.Modelo
 {
-    class ParametrosPartida
+    class ParametrosPartida : PartidaSuperClase
     {
-        string palabra;
-        int vidas;
+
         bool mostrarIntentos;
         bool mostrarPrimerLetra;
-        string pista;
-
 
         #region Controles Publicos (get, set)
 
-        public string Palabra { get => palabra; set => palabra = value; }
-        public int Vidas { get => vidas; set => vidas = value; }
         public bool MostrarIntentos { get => mostrarIntentos; set => mostrarIntentos = value; }
         public bool MostrarPrimerLetra { get => mostrarPrimerLetra; set => mostrarPrimerLetra = value; }
-        public string Pista { get => pista; set => pista = value; }
 
         #endregion
-
 
     }
 }

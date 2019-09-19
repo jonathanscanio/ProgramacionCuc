@@ -59,6 +59,7 @@
     <Compile Include="src\Controlador\Solitario_Controlador.cs" />
     <Compile Include="src\Modelo\ParametrosPartida.cs" />
     <Compile Include="src\Modelo\Partida.cs" />
+    <Compile Include="src\Modelo\PartidaSuperClase.cs" />
     <Compile Include="src\Vista\Creditos_Vista.cs" />
     <Compile Include="src\Vista\Instrucciones_Vista.cs" />
     <Compile Include="src\Vista\MenuPrincipal_Vista.cs" />
