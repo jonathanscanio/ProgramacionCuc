@@ -18,7 +18,7 @@ namespace AhorcadoWindowsForms.src.Vista
         Button solitario_Button;
         Button tradicional_Button;
         Button multijugador_Button;
-        Button instructiones_Button;
+        Button instrucciones_Button;
         Button creditos_Button;
 
         #endregion
@@ -84,15 +84,15 @@ namespace AhorcadoWindowsForms.src.Vista
             //
             // instrucciones_Button
             //
-            instructiones_Button = new Button();
-            instructiones_Button.Location = new System.Drawing.Point(800, 580); //posicion
-            instructiones_Button.Size = new System.Drawing.Size(120, 30); //tamaño
-            instructiones_Button.TabIndex = 1;
-            instructiones_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            instructiones_Button.Text = "Instrucciones"; //texto dentro
-            instructiones_Button.UseVisualStyleBackColor = true;
-            pantallaPrincipal.Controls.Add(instructiones_Button); // agregar a pantalla
-            instructiones_Button.Click += new System.EventHandler(this.Instructiones_Button_Click);
+            instrucciones_Button = new Button();
+            instrucciones_Button.Location = new System.Drawing.Point(800, 580); //posicion
+            instrucciones_Button.Size = new System.Drawing.Size(120, 30); //tamaño
+            instrucciones_Button.TabIndex = 1;
+            instrucciones_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            instrucciones_Button.Text = "Instrucciones"; //texto dentro
+            instrucciones_Button.UseVisualStyleBackColor = true;
+            pantallaPrincipal.Controls.Add(instrucciones_Button); // agregar a pantalla
+            instrucciones_Button.Click += new System.EventHandler(this.Instrucciones_Button_Click);
 
             //
             // creditos_Button
@@ -128,10 +128,10 @@ namespace AhorcadoWindowsForms.src.Vista
             LimpiarVista();
             //new Multijugador_Vista(pantallaPrincipal);
         }
-        private void Instructiones_Button_Click(object sender, EventArgs e)
+        private void Instrucciones_Button_Click(object sender, EventArgs e)
         {
             LimpiarVista();
-            //new Instructiones_Vista(pantallaPrincipal);
+            new Instrucciones_Vista(pantallaPrincipal);
         }
         private void Creditos_Button_Click(object sender, EventArgs e)
         {
@@ -145,7 +145,7 @@ namespace AhorcadoWindowsForms.src.Vista
             pantallaPrincipal.Controls.Remove(solitario_Button);
             pantallaPrincipal.Controls.Remove(tradicional_Button);
             pantallaPrincipal.Controls.Remove(multijugador_Button);
-            pantallaPrincipal.Controls.Remove(instructiones_Button);
+            pantallaPrincipal.Controls.Remove(instrucciones_Button);
             pantallaPrincipal.Controls.Remove(creditos_Button);
         }
 
