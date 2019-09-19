@@ -74,7 +74,7 @@ namespace AhorcadoWindowsForms.src.Vista
         {
             LimpiarVista();
 
-            //new Niveles_Vista(pantallaPrincipal);
+            new Niveles_Vista(pantallaPrincipal);
         }
         private void LimpiarVista()
         {
