@@ -68,7 +68,7 @@ namespace AhorcadoWindowsForms.src.Vista
             ParametrosPartida parametrosPartida = new ParametrosPartida();
             parametrosPartida = controlador.ObtenerParametrosPartidaRandom();
 
-            //new Juego_Vista(pantallaPrincipal, parametrosPartida);
+            new Juego_Vista(pantallaPrincipal, parametrosPartida);
         }
         private void Niveles_Button_Click(object sender, EventArgs e)
         {

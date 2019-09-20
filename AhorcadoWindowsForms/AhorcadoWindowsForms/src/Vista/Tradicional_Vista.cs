@@ -136,7 +136,7 @@ namespace AhorcadoWindowsForms.src.Vista
                 parametrosPartida.MostrarIntentos = mostrarIntentos_CheckBox.Checked;
                 parametrosPartida.MostrarPrimerLetra = mostrarPrimerLetra_CheckBox.Checked;
 
-                //new Juego_Vista(pantallaPrincipal, parametrosPartida);
+                new Juego_Vista(pantallaPrincipal, parametrosPartida);
             }
         }
 

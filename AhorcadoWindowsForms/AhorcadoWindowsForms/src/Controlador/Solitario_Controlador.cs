@@ -9,10 +9,6 @@ namespace AhorcadoWindowsForms.src.Controlador
 {
     class Solitario_Controlador
     {
-
-
-        #region Metodos
-
         public ParametrosPartida ObtenerParametrosPartidaRandom()
         {
             ParametrosPartida parametrosPartida = new ParametrosPartida();
@@ -28,9 +24,5 @@ namespace AhorcadoWindowsForms.src.Controlador
 
             return parametrosPartida;
         }
-
-        #endregion
-
-
     }
 }

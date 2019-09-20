@@ -9,10 +9,6 @@ namespace AhorcadoWindowsForms.src.Controlador
 {
     class Niveles_Controlador
     {
-
-
-        #region Metodos
-
         public ParametrosPartida ObtenerParametrosPartida(int nivel)
         {
             ParametrosPartida parametrosPartida = new ParametrosPartida();
@@ -25,9 +21,5 @@ namespace AhorcadoWindowsForms.src.Controlador
 
             return parametrosPartida;
         }
-
-        #endregion
-
-
     }
 }

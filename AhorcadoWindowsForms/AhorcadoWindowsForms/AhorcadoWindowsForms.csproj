@@ -55,6 +55,7 @@
     <Compile Include="PalabrasPredefinidas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Controlador\Juego_Controlador.cs" />
     <Compile Include="src\Controlador\Niveles_Controlador.cs" />
     <Compile Include="src\Controlador\Solitario_Controlador.cs" />
     <Compile Include="src\Modelo\ParametrosPartida.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="src\Modelo\PartidaSuperClase.cs" />
     <Compile Include="src\Vista\Creditos_Vista.cs" />
     <Compile Include="src\Vista\Instrucciones_Vista.cs" />
+    <Compile Include="src\Vista\Juego_Vista.cs" />
     <Compile Include="src\Vista\MenuPrincipal_Vista.cs" />
     <Compile Include="src\Vista\Niveles_Vista.cs" />
     <Compile Include="src\Vista\PantallaPredefinida.cs" />
