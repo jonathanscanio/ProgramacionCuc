@@ -348,5 +348,105 @@ namespace SistEcuaciones
             e.Graphics.DrawString("Muchas Gracias por utilizarlo", fontSubTitles, Brushes.Black, new Rectangle(20, 265, 1000, 30));
 
         }
+
+        private void PosicionarControles()
+        {
+            //Tomé con proporción original el programa en 1400x900|, a partir de ahi lo adecúo proporcionalmente a la resolución de cada usuario.
+
+            //Acomoda el tamaño del formulario, según la resolución de pantalla del usuario
+            //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.CenterToScreen();
+
+            int width;
+            int height;
+
+            #region Pantalla Inicial
+            //Proporcion Pantalla Inicial
+            btnCerrarPrograma.Location = new Point(this.Width - 60, 10);
+            //Tamaño de los botones
+            width = (this.Width * 344) / 1400;
+            height = (this.Height * 171) / 900;
+            btnComenzar.Size = new Size(width, height);
+            btnInstrucciones.Size = new Size(width, height);
+
+            int espacio = (this.Height * 109) / 900;
+            btnComenzar.Location = new Point((this.Width / 2) - width, (this.Height / 2) + espacio);
+            btnInstrucciones.Location = new Point((btnComenzar.Location.X + width), (this.Height / 2) + espacio);
+            #endregion
+
+            #region Menu Izquierda
+
+            //Proporcion Menú Izquierda
+            width = (this.Width * 250) / 1400;
+            pnMenu.Size = new Size(width, this.Height);
+
+            //BOTONES MENU
+            //Saco la proporción de la altura de los botones respecto a la nueva resolución.
+            height = (this.Height * 47) / 900;
+
+            btnResultados.Size = new Size(pnMenu.Width, height);
+            btnProcedimiento.Size = new Size(pnMenu.Width, height);
+            btnGrafico.Size = new Size(pnMenu.Width, height);
+            btnInformacion.Size = new Size(pnMenu.Width, height);
+            btnGuardarFoto.Size = new Size(pnMenu.Width, height);
+
+            //Ajustar tamaño del logo
+            height = (pnMenu.Height * 84) / 900;
+            width = (pnMenu.Width * 238) / 250;
+            Logo.Size = new Size(width, height);
+
+
+            int espacioBtn = (pnMenu.Height * 91) / 900;
+            btnResultados.Location = new Point(0, (Logo.Location.Y + Logo.Height + espacioBtn));
+            btnProcedimiento.Location = new Point(0, (btnResultados.Location.Y + espacioBtn));
+            btnGrafico.Location = new Point(0, (btnProcedimiento.Location.Y + espacioBtn));
+            btnInformacion.Location = new Point(0, (btnGrafico.Location.Y + espacioBtn));
+            btnGuardarFoto.Location = new Point(0, (btnInformacion.Location.Y + espacioBtn));
+
+            #endregion
+
+            #region Menu Inferior
+            //Acomoda Botones Menú Inferior           
+            btnSalir.Location = new Point(this.pnMenu.Width - 50, this.pnMenu.Height - 42);
+            btnBorrar.Location = new Point(this.pnMenu.Width - 100, this.pnMenu.Height - 42);
+            btnMensaje.Location = new Point(this.pnMenu.Width - 150, this.pnMenu.Height - 42);
+            #endregion
+
+            #region Menu Top
+
+            height = (this.Height * 100) / 900;
+            pnMenuTop.Size = new Size(this.Width, height);
+
+            height = (this.Height * 84) / 900;
+            width = (this.Width * 238) / 1400;
+            pictureBox1.Size = new Size(width, height);
+
+            espacio = (this.Height * 32) / 900;
+            btnSalirTop.Location = new Point(this.Width - 50, espacio);
+            btnMinimizar.Location = new Point(this.Width - 100, espacio);
+
+            #endregion
+
+            #region Guardar Datos
+
+            width = (this.Width * 241) / 1400;
+            height = (this.Height * 108) / 900;
+
+            btnGuardarEcuacion1.Size = new Size(width, height);
+            btnGuardarEcuacion2.Size = new Size(width, height);
+            btnResolver.Size = new Size(width, height);
+
+            float font = (this.Height * btnGuardarEcuacion1.Font.Size) / 900;
+            float font2 = (this.Width * btnGuardarEcuacion1.Font.Size) / 1400;
+            font = (font + font2) / 2;
+
+            btnGuardarEcuacion1.Font = new Font("Bebas Neue", font, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnGuardarEcuacion2.Font = new Font("Bebas Neue", font, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnResolver.Font = new Font("Bebas Neue", font, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            #endregion
+        }
+
     }
 }
