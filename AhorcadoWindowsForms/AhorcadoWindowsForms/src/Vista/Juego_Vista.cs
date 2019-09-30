@@ -191,6 +191,7 @@ namespace AhorcadoWindowsForms.src.Vista
         private void Pista_Button_Click(object sender, EventArgs e)
         {
             pista_Label.Text = partida.Pista;
+            partida.Vidas--;
         }
         private void AceptarIntento_Button_Click(object sender, EventArgs e)
         {
