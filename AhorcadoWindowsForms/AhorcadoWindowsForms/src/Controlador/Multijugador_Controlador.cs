@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AhorcadoWindowsForms.src.Modelo;
 
 namespace AhorcadoWindowsForms.src.Controlador
 {
@@ -57,6 +58,36 @@ namespace AhorcadoWindowsForms.src.Controlador
                 }
             }
             return datosIngresados;
+        }
+
+
+        public List<ParametrosPartidaMultijugador> SetearParametroPartidaMultijugador(List<Panel> paneles)
+        {
+            List<ParametrosPartidaMultijugador> parametrosPartidaMultijugador = new List<ParametrosPartidaMultijugador>();
+
+            foreach (Panel panel in paneles)
+            {
+                ParametrosPartidaMultijugador parametros = new ParametrosPartidaMultijugador();
+
+                foreach (Control control in panel.Controls)
+                {
+                    if (control.TabIndex == 2) // == si es el textBox de nombre
+                    {
+                        parametros.NombreJugador = control.Text;
+                    }
+                    else
+                    {
+                        if (control.TabIndex == 3) // == si es el textBox de palabra
+                        {
+                            parametros.Palabra = control.Text;
+                        }
+                    }
+                }
+
+                parametrosPartidaMultijugador.Add(parametros);
+            }
+
+            return parametrosPartidaMultijugador;
         }
     }
 }

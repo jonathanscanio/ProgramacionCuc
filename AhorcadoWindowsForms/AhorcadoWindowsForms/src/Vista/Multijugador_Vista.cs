@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AhorcadoWindowsForms.src.Controlador;
+using AhorcadoWindowsForms.src.Modelo;
 
 namespace AhorcadoWindowsForms.src.Vista
 {
@@ -144,9 +145,13 @@ namespace AhorcadoWindowsForms.src.Vista
             bool datosIngresadosCorrectos = controlador.VerificarNombresPalabras(paneles);
             if (datosIngresadosCorrectos)
             {
-                MessageBox.Show("Que crack que sos");
-            }
+                List<ParametrosPartidaMultijugador> parametrosPartidaMultijugador= new List<ParametrosPartidaMultijugador>();
+                parametrosPartidaMultijugador = controlador.SetearParametroPartidaMultijugador(paneles);
 
+                LimpiarVista();
+
+                //new JuegoMultijugador_Vista(pantallaPrincipal, parametrosPartidaMultijugador);
+            }
         }
 
 
@@ -243,9 +248,6 @@ namespace AhorcadoWindowsForms.src.Vista
             return panel;
         }
 
-
-
-
         private void PalabraElegidaTextBox_TextChanged(object sender, EventArgs e, string textoIngresadoPorUsario)
         {
             if (Regex.IsMatch(textoIngresadoPorUsario, "[^a-zA-Z]"))
@@ -258,6 +260,17 @@ namespace AhorcadoWindowsForms.src.Vista
                 MessageBox.Show("La palabra a adivinar no puede tener más de 20 letras");
                 textoIngresadoPorUsario = textoIngresadoPorUsario.Remove(textoIngresadoPorUsario.Length - 1);
             }
+        }
+
+        private void LimpiarVista()
+        {
+            pantallaPrincipal.Controls.Remove(cantidadJugadores_Label);
+            pantallaPrincipal.Controls.Remove(cantidadJugadores_ComboBox);
+            pantallaPrincipal.Controls.Remove(aceptar_Button);
+            pantallaPrincipal.Controls.Remove(jugador1_Panel);
+            pantallaPrincipal.Controls.Remove(jugador2_Panel);
+            pantallaPrincipal.Controls.Remove(jugador3_Panel);
+            pantallaPrincipal.Controls.Remove(jugador4_Panel);
         }
     }
 }
