@@ -150,7 +150,7 @@ namespace AhorcadoWindowsForms.src.Vista
 
                 LimpiarVista();
 
-                //new JuegoMultijugador_Vista(pantallaPrincipal, parametrosPartidaMultijugador);
+                new JuegoMultijugador_Vista(pantallaPrincipal, parametrosPartidaMultijugador);
             }
         }
 

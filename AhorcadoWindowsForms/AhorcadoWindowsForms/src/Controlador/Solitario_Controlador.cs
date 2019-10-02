@@ -9,9 +9,9 @@ namespace AhorcadoWindowsForms.src.Controlador
 {
     class Solitario_Controlador
     {
-        public ParametrosPartida ObtenerParametrosPartidaRandom()
+        public ParametrosPartidaUnJugador ObtenerParametrosPartidaRandom()
         {
-            ParametrosPartida parametrosPartida = new ParametrosPartida();
+            ParametrosPartidaUnJugador parametrosPartida = new ParametrosPartidaUnJugador();
 
             Random rnd = new Random();
             int numeroRandom = rnd.Next(20); //20 = cantidad de palabras predefinidas

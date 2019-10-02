@@ -10,11 +10,11 @@ namespace AhorcadoWindowsForms.src.Controlador
 {
     class Juego_Controlador
     {
-        Partida partida;
+        PartidaUnJugador partida;
 
-        public Partida CrearPartida(ParametrosPartida parametros)
+        public PartidaUnJugador CrearPartida(ParametrosPartidaUnJugador parametros)
         {
-            partida = new Partida();
+            partida = new PartidaUnJugador();
         
             partida.Palabra = parametros.Palabra.ToUpper();
 
@@ -23,6 +23,8 @@ namespace AhorcadoWindowsForms.src.Controlador
             partida.Pista = parametros.Pista;
 
             partida.IntentosErroneos = "";
+
+            partida.Nivel = parametros.Nivel;
 
             partida.Guiones = new StringBuilder(partida.Palabra);
             for (int i = 0; i < partida.Palabra.Length; i++)
@@ -38,7 +40,7 @@ namespace AhorcadoWindowsForms.src.Controlador
             return partida;
         }
 
-        public Partida ComprobarIntento(string intento)
+        public PartidaUnJugador ComprobarIntento(string intento)
         {
             intento = intento.ToUpper();
 

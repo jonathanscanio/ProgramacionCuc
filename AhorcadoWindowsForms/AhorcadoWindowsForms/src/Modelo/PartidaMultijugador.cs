@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace AhorcadoWindowsForms.src.Modelo
 {
-    class ParametrosPartidaMultijugador : ParametrosPartidaGenerales
+    class PartidaMultijugador : PartidaGeneral
     {
         string nombreJugador;
 
-        #region Controles Publicos (get, set)
-
         public string NombreJugador { get => nombreJugador; set => nombreJugador = value; }
-
-        #endregion
     }
 }

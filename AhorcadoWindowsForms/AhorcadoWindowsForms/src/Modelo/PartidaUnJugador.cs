@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace AhorcadoWindowsForms.src.Modelo
 {
-    class Partida : PartidaSuperClase
+    class PartidaUnJugador : PartidaGeneral
     {
-
-        StringBuilder guiones;
+        int vidas;
+        string pista;
         string intentosErrones;
+        int nivel;
 
         #region Controles Publicos (get, set)
-
-        public StringBuilder Guiones { get => guiones; set => guiones = value; }
         public string IntentosErroneos { get => intentosErrones; set => intentosErrones = value; }
-        
+        public int Vidas { get => vidas; set => vidas = value; }
+        public string Pista { get => pista; set => pista = value; }
+        public int Nivel { get => nivel; set => nivel = value; }
 
         #endregion
 

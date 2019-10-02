@@ -17,7 +17,7 @@ namespace AhorcadoWindowsForms.src.Vista
 
         Form1 pantallaPrincipal;
         Juego_Controlador controlador;
-        Partida partida;
+        PartidaUnJugador partida;
 
         Label vidas_Label;
         Label intentosErroneos_Label;
@@ -29,20 +29,21 @@ namespace AhorcadoWindowsForms.src.Vista
         Label pista_Label;
         Label resultado_Label;
         Label palabraCorrecta_Label;
+        Button siguienteNivel_Button;
 
         #endregion
 
 
         #region Constructor 
 
-        public Juego_Vista(Form1 mainScreen, ParametrosPartida parametrosPartida)
+        public Juego_Vista(Form1 mainScreen, ParametrosPartidaUnJugador parametrosPartida)
         {
             this.pantallaPrincipal = mainScreen;
 
             controlador = new Juego_Controlador();
 
             //Crear Partida
-            partida = new Partida();
+            partida = new PartidaUnJugador();
             partida = controlador.CrearPartida(parametrosPartida);
 
 
@@ -190,8 +191,13 @@ namespace AhorcadoWindowsForms.src.Vista
 
         private void Pista_Button_Click(object sender, EventArgs e)
         {
-            pista_Label.Text = partida.Pista;
-            partida.Vidas--;
+            if (pista_Label.Text == "")
+            {
+                pista_Label.Text = partida.Pista;
+                partida.Vidas--;
+                vidas_Label.Text = "Vidas restantes: " + partida.Vidas;
+            }
+            
         }
         private void AceptarIntento_Button_Click(object sender, EventArgs e)
         {
@@ -234,8 +240,28 @@ namespace AhorcadoWindowsForms.src.Vista
                 LimpiarControlesParaMostrarResultado();
 
                 resultado_Label.Text = "GANASTE!!!";
+
+                if (partida.Nivel >= 1 && partida.Nivel <= 19)
+                {
+                    siguienteNivel_Button = new Button();
+
+                    siguienteNivel_Button.Location = new System.Drawing.Point(770, 495);
+                    siguienteNivel_Button.Size = new System.Drawing.Size(180, 50);
+                    siguienteNivel_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    siguienteNivel_Button.Text = "Siguiente Nivel";
+                    siguienteNivel_Button.UseVisualStyleBackColor = true;
+                    pantallaPrincipal.Controls.Add(siguienteNivel_Button);
+                    siguienteNivel_Button.Click += new System.EventHandler(this.SiguienteNivel_Button_Click);
+                }
+                else if (partida.Nivel == 20)
+                {
+                    resultado_Label.Location = new System.Drawing.Point(200, 500);
+                    resultado_Label.Text = "FELICIDADES!!! HAS COMPLETADO EL JUEGO";
+                }
+                
             }
         }
+
         private void LimpiarControlesParaMostrarResultado()
         {
             pantallaPrincipal.Controls.Remove(intento_Label);
@@ -243,6 +269,27 @@ namespace AhorcadoWindowsForms.src.Vista
             pantallaPrincipal.Controls.Remove(aceptarIntento_Button);
             pantallaPrincipal.Controls.Remove(pista_Button);
             pantallaPrincipal.Controls.Remove(pista_Label);
+        }
+
+        private void SiguienteNivel_Button_Click(object sender, EventArgs e)
+        {
+            LimpiarVista();
+
+            Niveles_Controlador controladorNiveles = new Niveles_Controlador();
+
+            ParametrosPartidaUnJugador parametrosPartida = new ParametrosPartidaUnJugador();
+            parametrosPartida = controladorNiveles.ObtenerParametrosPartida(partida.Nivel + 1);
+
+            new Juego_Vista(pantallaPrincipal, parametrosPartida);
+        }
+
+        private void LimpiarVista()
+        {
+            pantallaPrincipal.Controls.Remove(vidas_Label);
+            pantallaPrincipal.Controls.Remove(intentosErroneos_Label);
+            pantallaPrincipal.Controls.Remove(guiones_Label);
+            pantallaPrincipal.Controls.Remove(resultado_Label);
+            pantallaPrincipal.Controls.Remove(siguienteNivel_Button);
         }
 
         #endregion
