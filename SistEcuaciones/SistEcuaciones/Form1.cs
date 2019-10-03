@@ -43,8 +43,9 @@ namespace SistEcuaciones
             pnMenu.Visible = false;
             pnMenuTop.Visible = false;
             pnPrincipal.Visible = false;
-            pnPantallaInicial.Visible = true; 
+            pnPantallaInicial.Visible = true;
 
+            ProporcionControles();
         }
 
         #region Botones Menu Top
@@ -274,10 +275,10 @@ namespace SistEcuaciones
             screenDatos.BorrarTodo();
             sistema = new SistemaDeEcuaciones(e1,e2);
             sistema.EjecutarDeterminante();
-            if (sistema.tiposistema == "Sistema Compatible Determinado") //Si el sistema es "SCD", mostrará el botón de procedimiento
+            /*if (sistema.tiposistema == "Sistema Compatible Determinado") //Si el sistema es "SCD", mostrará el botón de procedimiento
             {
                 ReacomodarBotones();
-            }
+            }*/
             screenResultados = new Resultados(pnPrincipal);
             screenResultados.ImprimirResultados(sistema);
         }
@@ -446,6 +447,70 @@ namespace SistEcuaciones
             btnResolver.Font = new Font("Bebas Neue", font, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             #endregion
+        }
+
+        private void ProporcionControles()
+        {
+            int width;
+            int height;
+            
+            //El tamaño del programa será igual a la resolución de pantalla de la computadora del usuario
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Size = screenSize;
+            this.CenterToScreen();
+            label1.Text = $"Widht: {screenSize.Width} Height: {screenSize.Height}";
+
+            //La pantalla inicial ocupará el 100% de la pantalla.
+            pnPantallaInicial.Size = screenSize;
+
+            
+            
+            //El menú top ocupará el 15% de la pantalla.
+
+            height = (screenSize.Height / 7);
+            pnMenuTop.Size = new Size(screenSize.Width,height);
+            //El boton se posicionará en la mitad del panel, y 50px menos de la derecha del programa.
+            btnSalirTop.Location = new Point((pnMenuTop.Width - 50),((pnMenuTop.Height / 2) - (btnSalirTop.Height / 2)));
+            btnMinimizar.Location = new Point((btnSalirTop.Location.X - 50),btnSalirTop.Location.Y);
+
+            //El logo ocupara el 15% del pnMenuTop
+            width = (pnMenuTop.Width / 5);
+            pictureBox1.Size = new Size(width,pnMenuTop.Height);
+
+
+
+
+            //El menú Izq, ocupará el 20% de la pantalla.
+            width = (screenSize.Width / 4);
+
+            pnMenu.Size = new Size(width,screenSize.Height);
+
+            Logo.Size = new Size(pnMenu.Width,(pnMenu.Width / 3));
+            btnResultados.Size = new Size(pnMenu.Width,btnResultados.Height);
+            btnGrafico.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnProcedimiento.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnInformacion.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnGuardarFoto.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnCopiarSistema.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnImprimir.Size = new Size(pnMenu.Width, btnResultados.Height);
+
+            //El espacio entre botones será del 2% del alto de la pantalla
+            int espacio = (screenSize.Height / 10);
+            btnResultados.Location = new Point(0,(screenSize.Height /5));
+            btnProcedimiento.Location = new Point(0, (btnResultados.Location.Y + espacio));
+            btnGrafico.Location = new Point(0, (btnProcedimiento.Location.Y + espacio));
+            btnInformacion.Location = new Point(0, (btnGrafico.Location.Y + espacio));
+            btnGuardarFoto.Location = new Point(0, (btnInformacion.Location.Y + espacio));
+            btnCopiarSistema.Location = new Point(0, (btnGuardarFoto.Location.Y + espacio));
+            btnImprimir.Location = new Point(0, (btnCopiarSistema.Location.Y + espacio));
+
+            btnSalir.Location = new Point((pnMenu.Width - 40),(screenSize.Height - 40));
+            btnBorrar.Location = new Point((btnSalir.Location.X - 60),(btnSalir.Location.Y));
+            btnMensaje.Location = new Point((btnBorrar.Location.X - 60),(btnSalir.Location.Y));
+
+
+            //El pnPrincipal ocupará siempre el máximo permitido de la pantalla.
+
         }
 
     }
