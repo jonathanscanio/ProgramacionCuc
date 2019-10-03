@@ -220,11 +220,6 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraElegida_TextBox.Text = "";
             palabraElegida_TextBox.PasswordChar = '*';
             palabraElegida_TextBox.TabIndex = 3;
-            palabraElegida_TextBox.TextChanged += delegate (object sender, EventArgs e) { PalabraElegidaTextBox_TextChanged(sender, e, palabraElegida_TextBox.Text); };
-
-
-
-
 
             #endregion
 

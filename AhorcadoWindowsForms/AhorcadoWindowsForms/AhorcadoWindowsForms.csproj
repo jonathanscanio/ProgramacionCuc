@@ -60,6 +60,7 @@
     <Compile Include="src\Controlador\Multijugador_Controlador.cs" />
     <Compile Include="src\Controlador\Niveles_Controlador.cs" />
     <Compile Include="src\Controlador\Solitario_Controlador.cs" />
+    <Compile Include="src\Modelo\IndiceMultijugador.cs" />
     <Compile Include="src\Modelo\ParametrosPartidaUnJugador.cs" />
     <Compile Include="src\Modelo\ParametrosPartidaGenerales.cs" />
     <Compile Include="src\Modelo\ParametrosPartidaMultijugador.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -98,6 +100,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Checked-80_icon-icons.com_57359.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desactivarPantalla.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Private-80_icon-icons.com_57286.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

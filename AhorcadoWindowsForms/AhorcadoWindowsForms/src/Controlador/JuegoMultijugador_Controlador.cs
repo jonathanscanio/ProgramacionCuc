@@ -17,7 +17,7 @@ namespace AhorcadoWindowsForms.src.Controlador
 
             partida.NombreJugador = parametros.NombreJugador;
 
-            partida.Palabra = parametros.Palabra;
+            partida.Palabra = parametros.Palabra.ToUpper();
 
             partida.Guiones = new StringBuilder(partida.Palabra);
             for (int i = 0; i < partida.Palabra.Length; i++)
@@ -26,6 +26,46 @@ namespace AhorcadoWindowsForms.src.Controlador
             }
 
             return partida;
+        }
+        public (PartidaMultijugador, bool) ComprobarIntento(PartidaMultijugador partida, string intento)
+        {
+            bool reemplazo = true;
+
+            if (intento != "")
+            {
+                intento = intento.ToUpper();
+
+                if (intento.Length == 1)
+                {
+                    if (partida.Palabra.Contains(intento))
+                    {
+                        for (int i = 0; i < partida.Palabra.Length; i++)
+                        {
+                            if (intento == partida.Palabra[i].ToString())
+                            {
+                                partida.Guiones[i] = intento[0];
+                            }
+                        }
+                    }
+                    else
+                    {
+                        reemplazo = false;
+                    }
+                }
+                else
+                {
+                    if (intento == partida.Palabra)
+                    {
+                        partida.Guiones = new StringBuilder(partida.Palabra);
+                    }
+                    else
+                    {
+                        reemplazo = false;
+                    }
+                }
+            }
+
+            return (partida, reemplazo);
         }
     }
 }
