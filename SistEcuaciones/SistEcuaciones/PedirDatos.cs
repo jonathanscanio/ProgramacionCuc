@@ -188,6 +188,8 @@ namespace SistEcuaciones
 
 
             this.pnInfo.ResumeLayout(false);
+
+            ProporcionControles();
         }
         #endregion
 
@@ -306,7 +308,7 @@ namespace SistEcuaciones
         {
             float tamañofuente;
 
-            if ((panelSize.Width / 2) <= lbEcuacion1.Width)
+            /* if ((panelSize.Width / 2) <= lbEcuacion1.Width)
             {
 
                 tamañofuente = lbEcuacion1.Font.Size;
@@ -335,7 +337,19 @@ namespace SistEcuaciones
             }
 
             lbEcuacion1.Location = new Point(((panelSize.Width / 2) - lbEcuacion1.Width),10);
-            lbEcuacion2.Location = new Point((panelSize.Width / 2), 10);
+            lbEcuacion2.Location = new Point((panelSize.Width / 2), 10); */
+
+            //Labels ecuacion
+            lbEcuacion1.Location = new Point(((panelSize.Width / 2) - (lbEcuacion1.Width / 2)),lbEcuacion1.Location.Y);
+            lbEcuacion2.Location = new Point(lbEcuacion1.Location.X,(lbEcuacion1.Location.Y + lbEcuacion1.Height));
+            
+            
+            
+            
+            //Correr posicion textbox
+            txtCoefX.Location = new Point((lbCoefX.Location.X + lbCoefX.Width),txtCoefX.Location.Y);
+            txtCoefY.Location = new Point((lbCoefY.Location.X + lbCoefY.Width), txtCoefY.Location.Y);
+            txtIndep.Location = new Point((lbIndep.Location.X + lbIndep.Width), txtIndep.Location.Y);
         }
     }
 }

@@ -369,8 +369,8 @@ namespace SistEcuaciones
             //La pantalla inicial ocupará el 100% de la pantalla.
             pnPantallaInicial.Size = screenSize;
 
-            width = (screenSize.Width / 3);
-            height = (width / 2);
+            width = (screenSize.Width / 2);
+            height = (width / 3);
             picLogoInicial.Size = new Size(width,height);
             picLogoInicial.Location = new Point(((screenSize.Width / 2) - (picLogoInicial.Width / 2)) , ((screenSize.Height / 2) - picLogoInicial.Height));
 
@@ -381,8 +381,8 @@ namespace SistEcuaciones
             height = width / 2;
             btnComenzar.Size = new Size(width,height);
             btnInstrucciones.Size = new Size(width,height);
-            btnComenzar.Location = new Point((screenSize.Width / 2 - btnComenzar.Width) , (screenSize.Height / 2));
-            btnInstrucciones.Location = new Point((screenSize.Width / 2), (screenSize.Height / 2));
+            btnComenzar.Location = new Point((screenSize.Width / 2 - btnComenzar.Width - (screenSize.Width / 50)) , (screenSize.Height / 2));
+            btnInstrucciones.Location = new Point(((screenSize.Width / 2) + (screenSize.Width / 50)), (screenSize.Height / 2));
             #endregion
 
 

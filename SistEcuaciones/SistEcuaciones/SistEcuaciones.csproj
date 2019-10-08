@@ -145,6 +145,7 @@
     <None Include="Resources\Linea Horizontal.png" />
     <None Include="Resources\Linea Vertical.png" />
     <None Include="Resources\copy_30px.png" />
+    <None Include="Resources\FONDO INICIAL.png" />
     <Content Include="Resources\math_26px.png" />
     <None Include="Resources\pnInfo.png" />
     <None Include="Resources\pnInfo2.png" />

@@ -135,15 +135,20 @@ namespace SistEcuaciones
 
             float tamañofuente;
 
+            //Si el ancho del label Ecuacion es mayor al ancho de la pantalla
+            //se ejecutara este ciclo que ira achicando la fuente hasta que entre en la pantalla.
+
             if (panelSize.Width <= lbEcuacion1.Width)
             {
                 tamañofuente = lbEcuacion1.Font.Size;
 
-                while(panelSize.Width <= lbEcuacion1.Width)
+                //Mientras el tamaño del Label sea mayor al ancho de la pantalla
+                while (panelSize.Width <= lbEcuacion1.Width)
                 {
+                    //Disminuye la fuente en 1
                     tamañofuente--;
-                    lbEcuacion1.Font = new Font(lbEcuacion1.Font.Name, tamañofuente, FontStyle.Bold);
-                    lbEcuacion1.Width = lbEcuacion1.Width - 10;
+                    lbEcuacion1.Font = new Font(lbEcuacion1.Font.Name, tamañofuente, FontStyle.Bold); //Se aplica el nuevo tamaño al label
+                    lbEcuacion1.Width = lbEcuacion1.Width - 10; //Disminuye el ancho de label en 10
                     
                 }
 
