@@ -208,6 +208,7 @@ namespace AhorcadoWindowsForms.src.Vista
             nombreJugador_TextBox.Size = new System.Drawing.Size(173, 26);
             nombreJugador_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nombreJugador_TextBox.TabIndex = 2;
+            nombreJugador_TextBox.MaxLength = 12;
 
             //
             // palabra a adivinar Textbox
@@ -220,6 +221,8 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraElegida_TextBox.Text = "";
             palabraElegida_TextBox.PasswordChar = '*';
             palabraElegida_TextBox.TabIndex = 3;
+            palabraElegida_TextBox.MaxLength = 14;
+            palabraElegida_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloLetrasValidador);
 
             #endregion
 
@@ -242,21 +245,14 @@ namespace AhorcadoWindowsForms.src.Vista
 
             return panel;
         }
-
-        private void PalabraElegidaTextBox_TextChanged(object sender, EventArgs e, string textoIngresadoPorUsario)
+        private void SoloLetrasValidador(object sender, KeyPressEventArgs e)
         {
-            if (Regex.IsMatch(textoIngresadoPorUsario, "[^a-zA-Z]"))
+            if (char.IsLetter(e.KeyChar) || char.IsControl(e.KeyChar))
             {
-                MessageBox.Show("Solo se pueden escribir letras");
-                textoIngresadoPorUsario = textoIngresadoPorUsario.Remove(textoIngresadoPorUsario.Length - 1);
+                return;
             }
-            else if (textoIngresadoPorUsario.Length > 20)
-            {
-                MessageBox.Show("La palabra a adivinar no puede tener más de 20 letras");
-                textoIngresadoPorUsario = textoIngresadoPorUsario.Remove(textoIngresadoPorUsario.Length - 1);
-            }
+            e.Handled = true;
         }
-
         private void LimpiarVista()
         {
             pantallaPrincipal.Controls.Remove(cantidadJugadores_Label);

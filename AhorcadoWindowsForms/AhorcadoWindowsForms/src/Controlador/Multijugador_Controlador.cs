@@ -27,6 +27,7 @@ namespace AhorcadoWindowsForms.src.Controlador
                         {
                             datosIngresados = false;
                             //Mensaje de error: Todos los jugadores deben tener nombre
+                            MessageBox.Show("Todos los jugadores deben tener nombre");
                             return datosIngresados;
                         }
                         else
@@ -35,6 +36,7 @@ namespace AhorcadoWindowsForms.src.Controlador
                             {
                                 datosIngresados = false;
                                 //Mensaje de error: No se pueden repetir los nombres de los jugadores
+                                MessageBox.Show("No se pueden repetir los nombres de los jugadores");
                                 return datosIngresados;
                             }
                             else
@@ -51,8 +53,20 @@ namespace AhorcadoWindowsForms.src.Controlador
                             {
                                 datosIngresados = false;
                                 //Mensaje de error: Todos los jugadores deben tener una palabra a adivinar
+                                MessageBox.Show("Todos los jugadores deben tener una palabra a adivinar");
                                 return datosIngresados;
                             }
+                            else
+                            {
+                                if (control.Text.Length <= 1)
+                                {
+                                    datosIngresados = false;
+                                    //Mensaje de error: Las palabras a adivinar deben tener 2 letras como mínimo
+                                    MessageBox.Show("Las palabras a adivinar deben tener 2 letras como mínimo");
+                                    return datosIngresados;
+                                }
+                            }
+                            
                         }
                     }
                 }
