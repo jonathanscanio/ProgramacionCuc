@@ -52,6 +52,8 @@ namespace AhorcadoWindowsForms.src.Vista
         }
 
         #endregion
+
+        #region Metodos
         private Panel CrearPanel(PartidaMultijugador partida)
         {
             //
@@ -341,6 +343,6 @@ namespace AhorcadoWindowsForms.src.Vista
                 indice.Indice++;
             } while (indice.Indice < paneles.Count && indice.Indice != 0);
         }
-        
+        #endregion
     }
 }

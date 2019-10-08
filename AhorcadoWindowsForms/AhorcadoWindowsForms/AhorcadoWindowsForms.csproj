@@ -104,9 +104,6 @@
     <None Include="Resources\Checked-80_icon-icons.com_57359.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\desactivarPantalla.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Private-80_icon-icons.com_57286.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
