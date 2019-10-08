@@ -262,6 +262,7 @@ namespace AhorcadoWindowsForms.src.Vista
             pantallaPrincipal.Controls.Remove(jugador2_Panel);
             pantallaPrincipal.Controls.Remove(jugador3_Panel);
             pantallaPrincipal.Controls.Remove(jugador4_Panel);
+
         }
     }
 }

@@ -130,6 +130,7 @@ namespace AhorcadoWindowsForms.src.Vista
             intento_TextBox.Size = new System.Drawing.Size(128, 26);
             intento_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             intento_TextBox.TabIndex = 3;
+            intento_TextBox.Focus();
 
             //
             // aceptar intento (button)
@@ -142,6 +143,7 @@ namespace AhorcadoWindowsForms.src.Vista
             aceptarIntento_Button.UseVisualStyleBackColor = true;
             aceptarIntento_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             aceptarIntento_Button.TabIndex = 4;
+            pantallaPrincipal.AcceptButton = aceptarIntento_Button;
             aceptarIntento_Button.Click += new System.EventHandler(AceptarIntento_Button_Click);
 
             //
@@ -226,16 +228,22 @@ namespace AhorcadoWindowsForms.src.Vista
                 {
                     intento = textBox.Text;
                     textBox.Text = "";
+                    textBox.Focus();
                 }
             }
             bool reemplazo;
 
-            (partidasMultijugador[indice.Indice], reemplazo) = controlador.ComprobarIntento(partidasMultijugador[indice.Indice], intento);
+            var tuple = controlador.ComprobarIntento(partidasMultijugador[indice.Indice], intento);
+            partidasMultijugador[indice.Indice] = tuple.Item1;
+            reemplazo = tuple.Item2;
+
+            //(partidasMultijugador[indice.Indice], reemplazo) = controlador.ComprobarIntento(partidasMultijugador[indice.Indice], intento);
 
             // actualizar pantalla
             bool gano = false;
             if (reemplazo)
             {
+                
                 foreach (Control control in paneles[indice.Indice].Controls)
                 {
                     if (control.TabIndex == 2)
@@ -245,6 +253,10 @@ namespace AhorcadoWindowsForms.src.Vista
                         {
                             gano = true;
                         }
+                    }
+                    else if (control.TabIndex == 4)
+                    {
+                        pantallaPrincipal.AcceptButton = (Button) control;
                     }
                 }
                 if (gano)

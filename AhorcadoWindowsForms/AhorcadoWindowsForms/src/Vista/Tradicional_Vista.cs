@@ -169,10 +169,6 @@ namespace AhorcadoWindowsForms.src.Vista
         {
             if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
             {
-                //if (vidas_TextBox.TextLength == 1 && e.KeyChar != '0')
-                //{
-                //    return;
-                //}
                 return;
             }
             e.Handled = true;

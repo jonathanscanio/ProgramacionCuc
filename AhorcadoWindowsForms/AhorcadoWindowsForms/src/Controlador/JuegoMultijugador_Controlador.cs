@@ -27,7 +27,7 @@ namespace AhorcadoWindowsForms.src.Controlador
 
             return partida;
         }
-        public (PartidaMultijugador, bool) ComprobarIntento(PartidaMultijugador partida, string intento)
+        public Tuple<PartidaMultijugador, bool> ComprobarIntento(PartidaMultijugador partida, string intento)
         {
             bool reemplazo = true;
 
@@ -65,7 +65,7 @@ namespace AhorcadoWindowsForms.src.Controlador
                 }
             }
 
-            return (partida, reemplazo);
+            return Tuple.Create(partida, reemplazo);
         }
     }
 }
