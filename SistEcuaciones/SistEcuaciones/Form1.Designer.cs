@@ -34,6 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSalirTop = new System.Windows.Forms.Button();
             this.pnPrincipal = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnIniciador = new System.Windows.Forms.Panel();
             this.btnResolver = new System.Windows.Forms.Button();
             this.btnGuardarEcuacion1 = new System.Windows.Forms.Button();
@@ -58,7 +59,7 @@
             this.pnInformacion = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCerrarPanel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.picLogoInicial = new System.Windows.Forms.PictureBox();
             this.pnMenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnPrincipal.SuspendLayout();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnComenzar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInstrucciones)).BeginInit();
             this.pnInformacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicial)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMenuTop
@@ -126,7 +128,7 @@
             this.btnSalirTop.Click += new System.EventHandler(this.btnSalirTop_Click);
             // 
             // pnPrincipal
-            // 
+            //             
             this.pnPrincipal.Controls.Add(this.label1);
             this.pnPrincipal.Controls.Add(this.pnIniciador);
             this.pnPrincipal.Controls.Add(this.btnResolver);
@@ -139,8 +141,19 @@
             this.pnPrincipal.Size = new System.Drawing.Size(1128, 680);
             this.pnPrincipal.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(525, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 37);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "label1";
+            // 
             // pnIniciador
             // 
+            this.pnIniciador.BackColor = System.Drawing.Color.Transparent;
             this.pnIniciador.Location = new System.Drawing.Point(44, 21);
             this.pnIniciador.Name = "pnIniciador";
             this.pnIniciador.Size = new System.Drawing.Size(200, 100);
@@ -430,20 +443,31 @@
             // 
             // pnPantallaInicial
             // 
-            this.pnPantallaInicial.BackgroundImage = global::SistEcuaciones.Properties.Resources.PORTADA_PRINCIPAL;
+            this.pnPantallaInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
             this.pnPantallaInicial.Controls.Add(this.btnComenzar);
             this.pnPantallaInicial.Controls.Add(this.btnInstrucciones);
             this.pnPantallaInicial.Controls.Add(this.btnCerrarPrograma);
+            this.pnPantallaInicial.Controls.Add(this.picLogoInicial);
             this.pnPantallaInicial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPantallaInicial.Location = new System.Drawing.Point(0, 100);
             this.pnPantallaInicial.Name = "pnPantallaInicial";
             this.pnPantallaInicial.Size = new System.Drawing.Size(1378, 680);
             this.pnPantallaInicial.TabIndex = 0;
             // 
+            // picLogoInicial
+            // 
+            this.picLogoInicial.Image = global::SistEcuaciones.Properties.Resources.LOGO1;
+            this.picLogoInicial.Location = new System.Drawing.Point(184, 129);
+            this.picLogoInicial.Name = "picLogoInicial";
+            this.picLogoInicial.Size = new System.Drawing.Size(695, 226);
+            this.picLogoInicial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogoInicial.TabIndex = 11;
+            this.picLogoInicial.TabStop = false;
+            // 
             // btnComenzar
             // 
-            this.btnComenzar.BackColor = System.Drawing.Color.Transparent;
-            this.btnComenzar.Image = global::SistEcuaciones.Properties.Resources.Button_Comenzar;
+            this.btnComenzar.BackgroundImage = global::SistEcuaciones.Properties.Resources.Button_Comenzar;
+            this.btnComenzar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnComenzar.Location = new System.Drawing.Point(292, 559);
             this.btnComenzar.Name = "btnComenzar";
             this.btnComenzar.Size = new System.Drawing.Size(344, 171);
@@ -453,8 +477,8 @@
             // 
             // btnInstrucciones
             // 
-            this.btnInstrucciones.BackColor = System.Drawing.Color.Transparent;
-            this.btnInstrucciones.Image = global::SistEcuaciones.Properties.Resources.Button_Instrucciones;
+            this.btnInstrucciones.BackgroundImage = global::SistEcuaciones.Properties.Resources.Button_Instrucciones;
+            this.btnInstrucciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnInstrucciones.Location = new System.Drawing.Point(730, 559);
             this.btnInstrucciones.Name = "btnInstrucciones";
             this.btnInstrucciones.Size = new System.Drawing.Size(344, 171);
@@ -514,16 +538,7 @@
             this.btnCerrarPanel.TabIndex = 0;
             this.btnCerrarPanel.UseVisualStyleBackColor = false;
             this.btnCerrarPanel.Click += new System.EventHandler(this.btnCerrarPanel_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(525, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 37);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "label1";
+           
             // 
             // Form1
             // 
@@ -551,6 +566,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnComenzar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInstrucciones)).EndInit();
             this.pnInformacion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicial)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -589,6 +605,7 @@
         private System.Windows.Forms.Button btnCopiarSistema;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picLogoInicial;
     }
 }
 
