@@ -17,7 +17,7 @@ namespace AhorcadoWindowsForms.src.Vista
 
         Form1 pantallaPrincipal;
         Juego_Controlador controlador;
-        Partida partida;
+        PartidaUnJugador partida;
 
         Label vidas_Label;
         Label intentosErroneos_Label;
@@ -29,20 +29,21 @@ namespace AhorcadoWindowsForms.src.Vista
         Label pista_Label;
         Label resultado_Label;
         Label palabraCorrecta_Label;
+        Button siguienteNivel_Button;
 
         #endregion
 
 
         #region Constructor 
 
-        public Juego_Vista(Form1 mainScreen, ParametrosPartida parametrosPartida)
+        public Juego_Vista(Form1 pantallaPrincipal, ParametrosPartidaUnJugador parametrosPartida)
         {
-            this.pantallaPrincipal = mainScreen;
+            this.pantallaPrincipal = pantallaPrincipal;
 
             controlador = new Juego_Controlador();
 
             //Crear Partida
-            partida = new Partida();
+            partida = new PartidaUnJugador();
             partida = controlador.CrearPartida(parametrosPartida);
 
 
@@ -58,7 +59,7 @@ namespace AhorcadoWindowsForms.src.Vista
             vidas_Label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             vidas_Label.ForeColor = System.Drawing.Color.White;
             vidas_Label.Text = "Vidas restantes: " + partida.Vidas;
-            mainScreen.Controls.Add(vidas_Label);
+            pantallaPrincipal.Controls.Add(vidas_Label);
 
             //
             // intentosErroneosLabel
@@ -71,7 +72,7 @@ namespace AhorcadoWindowsForms.src.Vista
                 intentosErroneos_Label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 intentosErroneos_Label.ForeColor = System.Drawing.Color.White;
                 intentosErroneos_Label.Text = "Intentos Erróneos: ";
-                mainScreen.Controls.Add(intentosErroneos_Label);
+                pantallaPrincipal.Controls.Add(intentosErroneos_Label);
             }
 
             //
@@ -86,7 +87,7 @@ namespace AhorcadoWindowsForms.src.Vista
             guiones_Label.Text = partida.Guiones.ToString();
             guiones_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             guiones_Label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            mainScreen.Controls.Add(guiones_Label);
+            pantallaPrincipal.Controls.Add(guiones_Label);
 
             //
             // intentoLabel
@@ -100,7 +101,7 @@ namespace AhorcadoWindowsForms.src.Vista
             intento_Label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             intento_Label.ForeColor = System.Drawing.Color.White;
             intento_Label.Text = "Intento: ";
-            mainScreen.Controls.Add(intento_Label);
+            pantallaPrincipal.Controls.Add(intento_Label);
 
             //
             // intentoTextBox
@@ -110,21 +111,21 @@ namespace AhorcadoWindowsForms.src.Vista
             intento_TextBox.MinimumSize = new System.Drawing.Size(4, 30);
             intento_TextBox.Size = new System.Drawing.Size(120, 30);
             intento_TextBox.TabIndex = 5;
-            mainScreen.Controls.Add(intento_TextBox);
+            pantallaPrincipal.Controls.Add(intento_TextBox);
 
             //
             // aceptarIntentoButton
             //
             aceptarIntento_Button = new Button();
-            aceptarIntento_Button.Location = new System.Drawing.Point(490, 500);
+            aceptarIntento_Button.Location = new System.Drawing.Point(490, 498);
             aceptarIntento_Button.Size = new System.Drawing.Size(150, 35);
             aceptarIntento_Button.TabIndex = 6;
             aceptarIntento_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             aceptarIntento_Button.Text = "Ingresar intento";
             aceptarIntento_Button.UseVisualStyleBackColor = true;
             aceptarIntento_Button.Click += new System.EventHandler(AceptarIntento_Button_Click);
-            mainScreen.Controls.Add(aceptarIntento_Button);
-            mainScreen.AcceptButton = aceptarIntento_Button;
+            pantallaPrincipal.Controls.Add(aceptarIntento_Button);
+            pantallaPrincipal.AcceptButton = aceptarIntento_Button;
 
             //
             // pistaButton
@@ -139,7 +140,7 @@ namespace AhorcadoWindowsForms.src.Vista
                 pista_Button.Text = "Pista";
                 pista_Button.UseVisualStyleBackColor = true;
                 pista_Button.Click += new System.EventHandler(Pista_Button_Click);
-                mainScreen.Controls.Add(pista_Button);
+                pantallaPrincipal.Controls.Add(pista_Button);
             }
 
             //
@@ -152,7 +153,7 @@ namespace AhorcadoWindowsForms.src.Vista
             pista_Label.Text = "";
             pista_Label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             pista_Label.ForeColor = System.Drawing.Color.White;
-            mainScreen.Controls.Add(pista_Label);
+            pantallaPrincipal.Controls.Add(pista_Label);
 
             //
             // resultado_Label
@@ -164,7 +165,7 @@ namespace AhorcadoWindowsForms.src.Vista
             resultado_Label.Text = "";
             resultado_Label.ForeColor = System.Drawing.Color.White;
             resultado_Label.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mainScreen.Controls.Add(resultado_Label);
+            pantallaPrincipal.Controls.Add(resultado_Label);
 
             //
             // palabraCorrecta_Label
@@ -176,7 +177,7 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraCorrecta_Label.Text = "";
             palabraCorrecta_Label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             palabraCorrecta_Label.ForeColor = System.Drawing.Color.White;
-            mainScreen.Controls.Add(palabraCorrecta_Label);
+            pantallaPrincipal.Controls.Add(palabraCorrecta_Label);
 
             #endregion
 
@@ -190,7 +191,13 @@ namespace AhorcadoWindowsForms.src.Vista
 
         private void Pista_Button_Click(object sender, EventArgs e)
         {
-            pista_Label.Text = partida.Pista;
+            if (pista_Label.Text == "")
+            {
+                pista_Label.Text = partida.Pista;
+                partida.Vidas--;
+                vidas_Label.Text = "Vidas restantes: " + partida.Vidas;
+            }
+            
         }
         private void AceptarIntento_Button_Click(object sender, EventArgs e)
         {
@@ -233,8 +240,28 @@ namespace AhorcadoWindowsForms.src.Vista
                 LimpiarControlesParaMostrarResultado();
 
                 resultado_Label.Text = "GANASTE!!!";
+
+                if (partida.Nivel >= 1 && partida.Nivel <= 19)
+                {
+                    siguienteNivel_Button = new Button();
+
+                    siguienteNivel_Button.Location = new System.Drawing.Point(770, 495);
+                    siguienteNivel_Button.Size = new System.Drawing.Size(180, 50);
+                    siguienteNivel_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    siguienteNivel_Button.Text = "Siguiente Nivel";
+                    siguienteNivel_Button.UseVisualStyleBackColor = true;
+                    pantallaPrincipal.Controls.Add(siguienteNivel_Button);
+                    siguienteNivel_Button.Click += new System.EventHandler(this.SiguienteNivel_Button_Click);
+                }
+                else if (partida.Nivel == 20)
+                {
+                    resultado_Label.Location = new System.Drawing.Point(200, 500);
+                    resultado_Label.Text = "FELICIDADES!!! HAS COMPLETADO EL JUEGO";
+                }
+                
             }
         }
+
         private void LimpiarControlesParaMostrarResultado()
         {
             pantallaPrincipal.Controls.Remove(intento_Label);
@@ -242,6 +269,27 @@ namespace AhorcadoWindowsForms.src.Vista
             pantallaPrincipal.Controls.Remove(aceptarIntento_Button);
             pantallaPrincipal.Controls.Remove(pista_Button);
             pantallaPrincipal.Controls.Remove(pista_Label);
+        }
+
+        private void SiguienteNivel_Button_Click(object sender, EventArgs e)
+        {
+            LimpiarVista();
+
+            Niveles_Controlador controladorNiveles = new Niveles_Controlador();
+
+            ParametrosPartidaUnJugador parametrosPartida = new ParametrosPartidaUnJugador();
+            parametrosPartida = controladorNiveles.ObtenerParametrosPartida(partida.Nivel + 1);
+
+            new Juego_Vista(pantallaPrincipal, parametrosPartida);
+        }
+
+        private void LimpiarVista()
+        {
+            pantallaPrincipal.Controls.Remove(vidas_Label);
+            pantallaPrincipal.Controls.Remove(intentosErroneos_Label);
+            pantallaPrincipal.Controls.Remove(guiones_Label);
+            pantallaPrincipal.Controls.Remove(resultado_Label);
+            pantallaPrincipal.Controls.Remove(siguienteNivel_Button);
         }
 
         #endregion

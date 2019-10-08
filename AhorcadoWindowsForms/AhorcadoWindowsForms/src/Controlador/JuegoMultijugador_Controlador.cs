@@ -5,26 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AhorcadoWindowsForms.src.Modelo;
+using AhorcadoWindowsForms.src.Vista;
 
 namespace AhorcadoWindowsForms.src.Controlador
 {
-    class Juego_Controlador
+    class JuegoMultijugador_Controlador
     {
-        PartidaUnJugador partida;
-
-        public PartidaUnJugador CrearPartida(ParametrosPartidaUnJugador parametros)
+        public PartidaMultijugador CrearPartidaMultijugador(ParametrosPartidaMultijugador parametros)
         {
-            partida = new PartidaUnJugador();
-        
+            PartidaMultijugador partida = new PartidaMultijugador();
+
+            partida.NombreJugador = parametros.NombreJugador;
+
             partida.Palabra = parametros.Palabra.ToUpper();
-
-            partida.Vidas = parametros.Vidas;
-
-            partida.Pista = parametros.Pista;
-
-            partida.IntentosErroneos = "";
-
-            partida.Nivel = parametros.Nivel;
 
             partida.Guiones = new StringBuilder(partida.Palabra);
             for (int i = 0; i < partida.Palabra.Length; i++)
@@ -32,20 +25,16 @@ namespace AhorcadoWindowsForms.src.Controlador
                 partida.Guiones[i] = '-';
             }
 
-            if (parametros.MostrarPrimerLetra)
-            {
-                ComprobarIntento(partida.Palabra[0].ToString());
-            }
-                
             return partida;
         }
-
-        public PartidaUnJugador ComprobarIntento(string intento)
+        public (PartidaMultijugador, bool) ComprobarIntento(PartidaMultijugador partida, string intento)
         {
-            intento = intento.ToUpper();
+            bool reemplazo = true;
 
             if (intento != "")
             {
+                intento = intento.ToUpper();
+
                 if (intento.Length == 1)
                 {
                     if (partida.Palabra.Contains(intento))
@@ -60,9 +49,8 @@ namespace AhorcadoWindowsForms.src.Controlador
                     }
                     else
                     {
-                        partida.Vidas--;
+                        reemplazo = false;
                     }
-
                 }
                 else
                 {
@@ -72,13 +60,12 @@ namespace AhorcadoWindowsForms.src.Controlador
                     }
                     else
                     {
-                        partida.Vidas--;
+                        reemplazo = false;
                     }
                 }
-                partida.IntentosErroneos = intento;
             }
 
-            return partida;
+            return (partida, reemplazo);
         }
     }
 }

@@ -65,7 +65,7 @@ namespace AhorcadoWindowsForms.src.Vista
         {
             LimpiarVista();
 
-            ParametrosPartida parametrosPartida = new ParametrosPartida();
+            ParametrosPartidaUnJugador parametrosPartida = new ParametrosPartidaUnJugador();
             parametrosPartida = controlador.ObtenerParametrosPartidaRandom();
 
             new Juego_Vista(pantallaPrincipal, parametrosPartida);

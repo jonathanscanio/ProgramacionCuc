@@ -129,7 +129,7 @@ namespace AhorcadoWindowsForms.src.Vista
             {
                 LimpiarVista();
 
-                ParametrosPartida parametrosPartida = new ParametrosPartida();
+                ParametrosPartidaUnJugador parametrosPartida = new ParametrosPartidaUnJugador();
 
                 parametrosPartida.Palabra = palabraElegida_TextBox.Text;
                 parametrosPartida.Vidas = int.Parse(vidas_TextBox.Text);
