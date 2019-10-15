@@ -129,18 +129,25 @@ namespace AhorcadoWindowsForms.src.Vista
 
         private void Aceptar_Button_Click(object sender, EventArgs e)
         {
-            if (vidas_TextBox.Text.Length > 0 && palabraElegida_TextBox.Text.Length > 1)
+            if (int.TryParse(vidas_TextBox.Text, out int vidas))
             {
-                LimpiarVista();
+                if (vidas > 0 && palabraElegida_TextBox.Text.Length > 1)
+                {
+                    LimpiarVista();
 
-                ParametrosPartidaUnJugador parametrosPartida = new ParametrosPartidaUnJugador();
+                    ParametrosPartidaUnJugador parametrosPartida = new ParametrosPartidaUnJugador();
 
-                parametrosPartida.Palabra = palabraElegida_TextBox.Text;
-                parametrosPartida.Vidas = int.Parse(vidas_TextBox.Text);
-                parametrosPartida.MostrarIntentos = mostrarIntentos_CheckBox.Checked;
-                parametrosPartida.MostrarPrimerLetra = mostrarPrimerLetra_CheckBox.Checked;
+                    parametrosPartida.Palabra = palabraElegida_TextBox.Text;
+                    parametrosPartida.Vidas = int.Parse(vidas_TextBox.Text);
+                    parametrosPartida.MostrarIntentos = mostrarIntentos_CheckBox.Checked;
+                    parametrosPartida.MostrarPrimerLetra = mostrarPrimerLetra_CheckBox.Checked;
 
-                new Juego_Vista(pantallaPrincipal, parametrosPartida);
+                    new Juego_Vista(pantallaPrincipal, parametrosPartida);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tiene que haber al menos una vida");
             }
         }
 

@@ -256,6 +256,7 @@ namespace AhorcadoWindowsForms.src.Vista
                     siguienteNivel_Button.UseVisualStyleBackColor = true;
                     pantallaPrincipal.Controls.Add(siguienteNivel_Button);
                     siguienteNivel_Button.Click += new System.EventHandler(this.SiguienteNivel_Button_Click);
+                    pantallaPrincipal.AcceptButton = siguienteNivel_Button;
                 }
                 else if (partida.Nivel == 20)
                 {

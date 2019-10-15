@@ -248,9 +248,13 @@ namespace AhorcadoWindowsForms.src.Vista
                         indice.Indice++;
                     } while (paneles[indice.Indice].Controls.Count < 4 && contador < 10);
 
-                    PictureBox estadoPanel_ImagenSiguientePanel = paneles[indice.Indice].Controls.Find("estadoPanel_Imagen", true).FirstOrDefault() as PictureBox;
-                    estadoPanel_ImagenSiguientePanel.TabIndex = 7;
-                    estadoPanel_ImagenSiguientePanel.BackgroundImage = Properties.Resources.activarPantalla;
+                    if (contador < 9)
+                    {
+                        PictureBox estadoPanel_ImagenSiguientePanel = paneles[indice.Indice].Controls.Find("estadoPanel_Imagen", true).FirstOrDefault() as PictureBox;
+                        estadoPanel_ImagenSiguientePanel.TabIndex = 7;
+                        estadoPanel_ImagenSiguientePanel.BackgroundImage = Properties.Resources.activarPantalla;
+                    }
+                    
                 }
             }
             else
