@@ -173,7 +173,7 @@ namespace AhorcadoWindowsForms.src.Vista
             numeroJugador_Label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             numeroJugador_Label.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             numeroJugador_Label.ForeColor = System.Drawing.Color.White;
-            numeroJugador_Label.TabIndex = 1;
+            numeroJugador_Label.Name = "numeroJugador_Label";
 
             //
             // nombre del jugador label
@@ -185,7 +185,7 @@ namespace AhorcadoWindowsForms.src.Vista
             nombreJugador_Label.Text = "Nombre del Jugador: ";
             nombreJugador_Label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nombreJugador_Label.ForeColor = System.Drawing.Color.White;
-            nombreJugador_Label.TabIndex = 1;
+            nombreJugador_Label.Name = "nombreJugador_Label";
 
             //
             // palabra a adivinar label
@@ -197,7 +197,7 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraElegida_Label.Text = "Palabra a Adivinar:";
             palabraElegida_Label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             palabraElegida_Label.ForeColor = System.Drawing.Color.White;
-            palabraElegida_Label.TabIndex = 1;
+            palabraElegida_Label.Name = "palabraElegida_Label";
 
             //
             // nombre del jugador textbox
@@ -207,7 +207,7 @@ namespace AhorcadoWindowsForms.src.Vista
             nombreJugador_TextBox.Location = new System.Drawing.Point(258, 87);
             nombreJugador_TextBox.Size = new System.Drawing.Size(173, 26);
             nombreJugador_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombreJugador_TextBox.TabIndex = 2;
+            nombreJugador_TextBox.Name = "nombreJugador_TextBox";
             nombreJugador_TextBox.MaxLength = 12;
 
             //
@@ -220,7 +220,7 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraElegida_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             palabraElegida_TextBox.Text = "";
             palabraElegida_TextBox.PasswordChar = '*';
-            palabraElegida_TextBox.TabIndex = 3;
+            palabraElegida_TextBox.Name = "palabraElegida_TextBox";
             palabraElegida_TextBox.MaxLength = 14;
             palabraElegida_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloLetrasValidador);
 

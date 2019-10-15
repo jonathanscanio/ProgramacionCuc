@@ -69,7 +69,6 @@
     <Compile Include="src\Modelo\PartidaUnJugador.cs" />
     <Compile Include="src\Modelo\PartidaGeneral.cs" />
     <Compile Include="src\Vista\Creditos_Vista.cs" />
-    <Compile Include="src\Vista\Instrucciones_Vista.cs" />
     <Compile Include="src\Vista\JuegoMultijugador_Vista.cs" />
     <Compile Include="src\Vista\Juego_Vista.cs" />
     <Compile Include="src\Vista\MenuPrincipal_Vista.cs" />
