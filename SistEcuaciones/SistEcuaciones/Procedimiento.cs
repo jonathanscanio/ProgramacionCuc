@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SistEcuaciones
 {
@@ -12,6 +13,7 @@ namespace SistEcuaciones
         #region Controles
         Panel mainScreen;
         Panel pnProcedimientos;
+        Size panelSize;
         Label lbS5;
         Label lbX5;
         Label lbY5;
@@ -39,9 +41,17 @@ namespace SistEcuaciones
         PictureBox picFlechaY;
         PictureBox picFlechaX;
         PictureBox picFlechaS;
-        PictureBox picLineaY;
-        PictureBox picLineaX;
-        PictureBox picLineaS;
+
+        PictureBox picLineaY1;
+        PictureBox picLineaX1;
+        PictureBox picLineaS1;
+
+        PictureBox picDeltaX;
+        PictureBox picDeltaS;
+        PictureBox picDeltaY;
+        PictureBox picLineaS2;
+        PictureBox picLineaY2;
+        PictureBox picLineaX2;
 
         Button btnInfo;
         Panel pnInfo;
@@ -49,12 +59,14 @@ namespace SistEcuaciones
         #endregion
 
         #region Constructor
-        public Procedimiento(Panel mainScreen)
+        public Procedimiento(Panel mainScreen , Size principalSize)
         {
             this.mainScreen = mainScreen;
+            panelSize = principalSize;
+
             this.pnInfo = new System.Windows.Forms.Panel();
             this.btnCerrarInfo = new System.Windows.Forms.Button();
-            this.pnProcedimientos = new System.Windows.Forms.Panel();            
+            this.pnProcedimientos = new System.Windows.Forms.Panel();
             this.btnInfo = new System.Windows.Forms.Button();
             this.lbS1 = new System.Windows.Forms.Label();
             this.lbS2 = new System.Windows.Forms.Label();
@@ -83,18 +95,27 @@ namespace SistEcuaciones
             this.picFlechaY = new System.Windows.Forms.PictureBox();
             this.picFlechaX = new System.Windows.Forms.PictureBox();
             this.picFlechaS = new System.Windows.Forms.PictureBox();
-            this.picLineaY = new System.Windows.Forms.PictureBox();
-            this.picLineaX = new System.Windows.Forms.PictureBox();
-            this.picLineaS = new System.Windows.Forms.PictureBox();
+            this.picLineaY1 = new System.Windows.Forms.PictureBox();
+            this.picLineaX1 = new System.Windows.Forms.PictureBox();
+            this.picLineaS1 = new System.Windows.Forms.PictureBox();
+            this.picLineaY2 = new System.Windows.Forms.PictureBox();
+            this.picLineaX2 = new System.Windows.Forms.PictureBox();
+            this.picLineaS2 = new System.Windows.Forms.PictureBox();
+            this.picDeltaX = new System.Windows.Forms.PictureBox();
+            this.picDeltaS = new System.Windows.Forms.PictureBox();
+            this.picDeltaY = new System.Windows.Forms.PictureBox();
             this.pnProcedimientos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLineaHorizY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLineaHorizX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlechaY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlechaX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlechaS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLineaY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLineaX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLineaS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLineaY1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLineaX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLineaS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLineaY2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLineaX2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLineaS2)).BeginInit();
 
             // 
             // pnProcedimientos
@@ -126,11 +147,17 @@ namespace SistEcuaciones
             this.pnProcedimientos.Controls.Add(this.picFlechaY);
             this.pnProcedimientos.Controls.Add(this.picFlechaX);
             this.pnProcedimientos.Controls.Add(this.picFlechaS);
-            this.pnProcedimientos.Controls.Add(this.picLineaY);
-            this.pnProcedimientos.Controls.Add(this.picLineaX);
-            this.pnProcedimientos.Controls.Add(this.picLineaS);
+            this.pnProcedimientos.Controls.Add(this.picLineaY1);
+            this.pnProcedimientos.Controls.Add(this.picLineaX1);
+            this.pnProcedimientos.Controls.Add(this.picLineaS1);
+            this.pnProcedimientos.Controls.Add(this.picLineaY2);
+            this.pnProcedimientos.Controls.Add(this.picLineaX2);
+            this.pnProcedimientos.Controls.Add(this.picLineaS2);
+            this.pnProcedimientos.Controls.Add(this.picDeltaX);
+            this.pnProcedimientos.Controls.Add(this.picDeltaY);
+            this.pnProcedimientos.Controls.Add(this.picDeltaS);
             this.pnProcedimientos.Controls.Add(this.btnInfo);
-            this.pnProcedimientos.BackgroundImage = global::SistEcuaciones.Properties.Resources.Background_Procedimiento1;
+            this.pnProcedimientos.BackColor = System.Drawing.Color.White;
             this.pnProcedimientos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnProcedimientos.Location = new System.Drawing.Point(250, 0);
             this.pnProcedimientos.Name = "pnInfo";
@@ -208,13 +235,13 @@ namespace SistEcuaciones
             // 
             // picLineaS
             // 
-            this.picLineaS.BackColor = System.Drawing.Color.Transparent;
-            this.picLineaS.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
-            this.picLineaS.Location = new System.Drawing.Point(340, 6);
-            this.picLineaS.Name = "picLineaS";
-            this.picLineaS.Size = new System.Drawing.Size(9, 143);
-            this.picLineaS.TabIndex = 0;
-            this.picLineaS.TabStop = false;
+            this.picLineaS1.BackColor = System.Drawing.Color.Transparent;
+            this.picLineaS1.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaS1.Location = new System.Drawing.Point(340, 6);
+            this.picLineaS1.Name = "picLineaS";
+            this.picLineaS1.Size = new System.Drawing.Size(9, 143);
+            this.picLineaS1.TabIndex = 0;
+            this.picLineaS1.TabStop = false;
             // 
             // lbS5
             // 
@@ -286,13 +313,13 @@ namespace SistEcuaciones
             // 
             // picLineaX
             // 
-            this.picLineaX.BackColor = System.Drawing.Color.Transparent;
-            this.picLineaX.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
-            this.picLineaX.Location = new System.Drawing.Point(350, 214);
-            this.picLineaX.Name = "picLineaX";
-            this.picLineaX.Size = new System.Drawing.Size(9, 143);
-            this.picLineaX.TabIndex = 1;
-            this.picLineaX.TabStop = false;
+            this.picLineaX1.BackColor = System.Drawing.Color.Transparent;
+            this.picLineaX1.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaX1.Location = new System.Drawing.Point(350, 214);
+            this.picLineaX1.Name = "picLineaX";
+            this.picLineaX1.Size = new System.Drawing.Size(9, 143);
+            this.picLineaX1.TabIndex = 1;
+            this.picLineaX1.TabStop = false;
             // 
             // lbX5
             // 
@@ -364,13 +391,13 @@ namespace SistEcuaciones
             // 
             // picLineaY
             // 
-            this.picLineaY.BackColor = System.Drawing.Color.Transparent;
-            this.picLineaY.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
-            this.picLineaY.Location = new System.Drawing.Point(305, 435);
-            this.picLineaY.Name = "picLineaY";
-            this.picLineaY.Size = new System.Drawing.Size(9, 143);
-            this.picLineaY.TabIndex = 0;
-            this.picLineaY.TabStop = false;
+            this.picLineaY1.BackColor = System.Drawing.Color.Transparent;
+            this.picLineaY1.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaY1.Location = new System.Drawing.Point(305, 435);
+            this.picLineaY1.Name = "picLineaY";
+            this.picLineaY1.Size = new System.Drawing.Size(9, 143);
+            this.picLineaY1.TabIndex = 0;
+            this.picLineaY1.TabStop = false;
             // 
             // lbY5
             // 
@@ -484,6 +511,73 @@ namespace SistEcuaciones
 
             #endregion
 
+            #region IMAGENES DE LINEAS
+
+            // 
+            // picLineaX
+            // 
+            this.picLineaX2.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaX2.Location = new System.Drawing.Point(122, 6);
+            this.picLineaX2.Name = "picLineaX";
+            this.picLineaX2.Size = new System.Drawing.Size(10, 147);
+            this.picLineaX2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLineaX2.TabIndex = 17;
+            this.picLineaX2.TabStop = false;
+            // 
+            // picLineaY
+            // 
+            this.picLineaY2.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaY2.Location = new System.Drawing.Point(189, 6);
+            this.picLineaY2.Name = "picLineaY";
+            this.picLineaY2.Size = new System.Drawing.Size(10, 147);
+            this.picLineaY2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLineaY2.TabIndex = 18;
+            this.picLineaY2.TabStop = false;
+            // 
+            // picLineaS
+            // 
+            this.picLineaS2.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaS2.Location = new System.Drawing.Point(262, 15);
+            this.picLineaS2.Name = "picLineaS";
+            this.picLineaS2.Size = new System.Drawing.Size(10, 147);
+            this.picLineaS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLineaS2.TabIndex = 19;
+            this.picLineaS2.TabStop = false;
+
+            // 
+            // picDeltaS
+            // 
+            this.picDeltaS.Image = global::SistEcuaciones.Properties.Resources.DeltaS;
+            this.picDeltaS.Location = new System.Drawing.Point(6, 218);
+            this.picDeltaS.Name = "picDeltaS";
+            this.picDeltaS.Size = new System.Drawing.Size(96, 49);
+            this.picDeltaS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDeltaS.TabIndex = 16;
+            this.picDeltaS.TabStop = false;
+            // 
+            // picDeltaY
+            // 
+            this.picDeltaY.Image = global::SistEcuaciones.Properties.Resources.DeltaY;
+            this.picDeltaY.Location = new System.Drawing.Point(6, 129);
+            this.picDeltaY.Name = "picDeltaY";
+            this.picDeltaY.Size = new System.Drawing.Size(96, 49);
+            this.picDeltaY.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDeltaY.TabIndex = 15;
+            this.picDeltaY.TabStop = false;
+            // 
+            // picDeltaX
+            // 
+            this.picDeltaX.Image = global::SistEcuaciones.Properties.Resources.DeltaX;
+            this.picDeltaX.Location = new System.Drawing.Point(6, 22);
+            this.picDeltaX.Name = "picDeltaX";
+            this.picDeltaX.Size = new System.Drawing.Size(96, 49);
+            this.picDeltaX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDeltaX.TabIndex = 14;
+            this.picDeltaX.TabStop = false;
+
+            #endregion
+            
+            
             // 
             // lbSolucion
             // 
@@ -530,6 +624,8 @@ namespace SistEcuaciones
 
             mainScreen.Controls.Add(this.pnProcedimientos);
             mainScreen.Controls.Add(this.pnInfo);
+
+            ProporcionControles();
         }
         #endregion
 
@@ -588,13 +684,13 @@ namespace SistEcuaciones
             this.lbS4.Location = new System.Drawing.Point((this.picFlechaS.Location.X + this.picFlechaS.Width + 4), 106);
             if (this.lbS3.Width > this.lbS4.Width)
             {
-                this.picLineaS.Location = new System.Drawing.Point((this.lbS3.Location.X + this.lbS3.Width + 3), 6);
+                this.picLineaS1.Location = new System.Drawing.Point((this.lbS3.Location.X + this.lbS3.Width + 3), 6);
             }
             else
             {
-                this.picLineaS.Location = new System.Drawing.Point((this.lbS4.Location.X + this.lbS4.Width + 3), 6);
+                this.picLineaS1.Location = new System.Drawing.Point((this.lbS4.Location.X + this.lbS4.Width + 3), 6);
             }
-            this.lbS5.Location = new System.Drawing.Point((this.picLineaS.Width + this.picLineaS.Location.X + 4), 54);
+            this.lbS5.Location = new System.Drawing.Point((this.picLineaS1.Width + this.picLineaS1.Location.X + 4), 54);
             #endregion
 
             #region Controles DELTA X
@@ -610,13 +706,13 @@ namespace SistEcuaciones
             this.lbX4.Location = new System.Drawing.Point((this.picFlechaX.Location.X + this.picFlechaX.Width + 4), 309);
             if (this.lbX3.Width > this.lbX4.Width)
             {
-                this.picLineaX.Location = new System.Drawing.Point((this.lbX3.Location.X + this.lbX3.Width + 3), 214);
+                this.picLineaX1.Location = new System.Drawing.Point((this.lbX3.Location.X + this.lbX3.Width + 3), 214);
             }
             else
             {
-                this.picLineaX.Location = new System.Drawing.Point((this.lbX4.Location.X + this.lbX4.Width + 3), 214);
+                this.picLineaX1.Location = new System.Drawing.Point((this.lbX4.Location.X + this.lbX4.Width + 3), 214);
             }
-            this.lbX5.Location = new System.Drawing.Point((this.picLineaX.Width + this.picLineaX.Location.X + 4), 264);
+            this.lbX5.Location = new System.Drawing.Point((this.picLineaX1.Width + this.picLineaX1.Location.X + 4), 264);
             #endregion
 
             #region Controles DELTA Y
@@ -632,13 +728,13 @@ namespace SistEcuaciones
             this.lbY4.Location = new System.Drawing.Point((this.picFlechaY.Location.X + this.picFlechaY.Width + 4), 532);
             if (this.lbY3.Width >= this.lbY4.Width)
             {
-                this.picLineaY.Location = new System.Drawing.Point((this.lbY3.Location.X + this.lbY3.Width), 435);
+                this.picLineaY1.Location = new System.Drawing.Point((this.lbY3.Location.X + this.lbY3.Width), 435);
             }
             else
             {
-                this.picLineaY.Location = new System.Drawing.Point((this.lbY4.Location.X + this.lbY4.Width), 435);
+                this.picLineaY1.Location = new System.Drawing.Point((this.lbY4.Location.X + this.lbY4.Width), 435);
             }
-            this.lbY5.Location = new System.Drawing.Point((this.picLineaY.Width + this.picLineaY.Location.X + 4), 485);
+            this.lbY5.Location = new System.Drawing.Point((this.picLineaY1.Width + this.picLineaY1.Location.X + 4), 485);
 
             #endregion
 
@@ -671,6 +767,25 @@ namespace SistEcuaciones
         {
             mainScreen.Controls.Remove(pnProcedimientos);
             mainScreen.Controls.Remove(pnInfo);
+        }
+
+        public void ProporcionControles()
+        {
+            //Divido la pantalla principal en 4 espacio iguales.
+
+            int espacio = (panelSize.Height / 4);
+
+            
+
+            picDeltaS.Location = new Point(0,((espacio / 2) - (picDeltaS.Height / 2)));
+            picDeltaX.Location = new Point(0, (picDeltaS.Location.Y + espacio));
+            picDeltaY.Location = new Point(0 , (picDeltaX.Location.Y + espacio));
+
+            picLineaS2.Location = new Point((picDeltaS.Width + 3) , 2);
+            picLineaX2.Location = new Point((picDeltaX.Width + 3),espacio);
+            picLineaY2.Location = new Point((picDeltaY.Width + 3), (espacio * 2));
+
+
         }
         #endregion
 

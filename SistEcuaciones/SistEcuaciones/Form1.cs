@@ -39,7 +39,7 @@ namespace SistEcuaciones
             screenDatos = new PedirDatos(pnIniciador , principalSize);
             screenResultados = new Resultados(pnIniciador, principalSize);
             screenInformacion = new Informacion(pnIniciador);
-            screenProcedimientos = new Procedimiento(pnIniciador);
+            screenProcedimientos = new Procedimiento(pnIniciador, principalSize);
             screenGrafico = new Grafico(pnIniciador);
 
             #endregion
@@ -126,7 +126,7 @@ namespace SistEcuaciones
             ResetColorBtn();
             btnProcedimiento.BackColor = Color.DarkCyan;
             btnGuardarFoto.Visible = true;
-            screenProcedimientos = new Procedimiento(pnPrincipal);
+            screenProcedimientos = new Procedimiento(pnPrincipal,principalSize);
             screenProcedimientos.Imprimir(sistema);
         }
 
