@@ -23,7 +23,7 @@ namespace AhorcadoWindowsForms
             "Coagulacion",
             "Linyera",
             "Incredulo",
-            "Alquitrán",
+            "Alquitran",
             "Axon",
             "Indole",
             "Funicular",
