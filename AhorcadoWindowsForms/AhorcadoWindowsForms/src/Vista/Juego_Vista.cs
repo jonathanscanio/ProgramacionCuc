@@ -111,6 +111,7 @@ namespace AhorcadoWindowsForms.src.Vista
             intento_TextBox.MinimumSize = new System.Drawing.Size(4, 30);
             intento_TextBox.Size = new System.Drawing.Size(120, 30);
             intento_TextBox.TabIndex = 5;
+            
             pantallaPrincipal.Controls.Add(intento_TextBox);
 
             //
@@ -125,7 +126,7 @@ namespace AhorcadoWindowsForms.src.Vista
             aceptarIntento_Button.UseVisualStyleBackColor = true;
             aceptarIntento_Button.Click += new System.EventHandler(AceptarIntento_Button_Click);
             pantallaPrincipal.Controls.Add(aceptarIntento_Button);
-            pantallaPrincipal.AcceptButton = aceptarIntento_Button;
+            
 
             //
             // pistaButton
@@ -179,9 +180,12 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraCorrecta_Label.ForeColor = System.Drawing.Color.White;
             pantallaPrincipal.Controls.Add(palabraCorrecta_Label);
 
+
             #endregion
 
-
+            //Focusear controles
+            intento_TextBox.Focus();
+            pantallaPrincipal.AcceptButton = aceptarIntento_Button;
         }
 
         #endregion
@@ -252,14 +256,18 @@ namespace AhorcadoWindowsForms.src.Vista
                     siguienteNivel_Button.UseVisualStyleBackColor = true;
                     pantallaPrincipal.Controls.Add(siguienteNivel_Button);
                     siguienteNivel_Button.Click += new System.EventHandler(this.SiguienteNivel_Button_Click);
+                    pantallaPrincipal.AcceptButton = siguienteNivel_Button;
                 }
                 else if (partida.Nivel == 20)
                 {
                     resultado_Label.Location = new System.Drawing.Point(200, 500);
                     resultado_Label.Text = "FELICIDADES!!! HAS COMPLETADO EL JUEGO";
                 }
-                
             }
+
+            //Focusear controles
+            intento_TextBox.Focus();
+            pantallaPrincipal.AcceptButton = aceptarIntento_Button;
         }
 
         private void LimpiarControlesParaMostrarResultado()

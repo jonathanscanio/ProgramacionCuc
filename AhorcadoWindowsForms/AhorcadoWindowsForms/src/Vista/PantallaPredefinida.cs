@@ -32,7 +32,7 @@ namespace AhorcadoWindowsForms.src.Vista
             menuPrincipal_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             menuPrincipal_Button.Text = "Menú";
             pantallaPrincipal.Controls.Add(menuPrincipal_Button);
-            menuPrincipal_Button.Click += new System.EventHandler(this.MenuPrincipal_Button_Click);
+            menuPrincipal_Button.Click += new System.EventHandler(MenuPrincipal_Button_Click);
         }
 
         #endregion

@@ -173,7 +173,7 @@ namespace AhorcadoWindowsForms.src.Vista
             numeroJugador_Label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             numeroJugador_Label.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             numeroJugador_Label.ForeColor = System.Drawing.Color.White;
-            numeroJugador_Label.TabIndex = 1;
+            numeroJugador_Label.Name = "numeroJugador_Label";
 
             //
             // nombre del jugador label
@@ -185,7 +185,7 @@ namespace AhorcadoWindowsForms.src.Vista
             nombreJugador_Label.Text = "Nombre del Jugador: ";
             nombreJugador_Label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nombreJugador_Label.ForeColor = System.Drawing.Color.White;
-            nombreJugador_Label.TabIndex = 1;
+            nombreJugador_Label.Name = "nombreJugador_Label";
 
             //
             // palabra a adivinar label
@@ -197,7 +197,7 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraElegida_Label.Text = "Palabra a Adivinar:";
             palabraElegida_Label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             palabraElegida_Label.ForeColor = System.Drawing.Color.White;
-            palabraElegida_Label.TabIndex = 1;
+            palabraElegida_Label.Name = "palabraElegida_Label";
 
             //
             // nombre del jugador textbox
@@ -207,7 +207,8 @@ namespace AhorcadoWindowsForms.src.Vista
             nombreJugador_TextBox.Location = new System.Drawing.Point(258, 87);
             nombreJugador_TextBox.Size = new System.Drawing.Size(173, 26);
             nombreJugador_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombreJugador_TextBox.TabIndex = 2;
+            nombreJugador_TextBox.Name = "nombreJugador_TextBox";
+            nombreJugador_TextBox.MaxLength = 12;
 
             //
             // palabra a adivinar Textbox
@@ -219,7 +220,9 @@ namespace AhorcadoWindowsForms.src.Vista
             palabraElegida_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             palabraElegida_TextBox.Text = "";
             palabraElegida_TextBox.PasswordChar = '*';
-            palabraElegida_TextBox.TabIndex = 3;
+            palabraElegida_TextBox.Name = "palabraElegida_TextBox";
+            palabraElegida_TextBox.MaxLength = 14;
+            palabraElegida_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloLetrasValidador);
 
             #endregion
 
@@ -242,21 +245,14 @@ namespace AhorcadoWindowsForms.src.Vista
 
             return panel;
         }
-
-        private void PalabraElegidaTextBox_TextChanged(object sender, EventArgs e, string textoIngresadoPorUsario)
+        private void SoloLetrasValidador(object sender, KeyPressEventArgs e)
         {
-            if (Regex.IsMatch(textoIngresadoPorUsario, "[^a-zA-Z]"))
+            if (char.IsLetter(e.KeyChar) || char.IsControl(e.KeyChar))
             {
-                MessageBox.Show("Solo se pueden escribir letras");
-                textoIngresadoPorUsario = textoIngresadoPorUsario.Remove(textoIngresadoPorUsario.Length - 1);
+                return;
             }
-            else if (textoIngresadoPorUsario.Length > 20)
-            {
-                MessageBox.Show("La palabra a adivinar no puede tener más de 20 letras");
-                textoIngresadoPorUsario = textoIngresadoPorUsario.Remove(textoIngresadoPorUsario.Length - 1);
-            }
+            e.Handled = true;
         }
-
         private void LimpiarVista()
         {
             pantallaPrincipal.Controls.Remove(cantidadJugadores_Label);
@@ -266,6 +262,7 @@ namespace AhorcadoWindowsForms.src.Vista
             pantallaPrincipal.Controls.Remove(jugador2_Panel);
             pantallaPrincipal.Controls.Remove(jugador3_Panel);
             pantallaPrincipal.Controls.Remove(jugador4_Panel);
+
         }
     }
 }

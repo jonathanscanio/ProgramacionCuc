@@ -28,7 +28,7 @@ namespace AhorcadoWindowsForms.src.Vista
             //
             tituloCreditos_Label = new Label();
             tituloCreditos_Label.AutoSize = true;
-            tituloCreditos_Label.Location = new System.Drawing.Point(400, 40);
+            tituloCreditos_Label.Location = new System.Drawing.Point(500, 40);
             tituloCreditos_Label.Size = new System.Drawing.Size(35, 13);
             tituloCreditos_Label.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             tituloCreditos_Label.ForeColor = System.Drawing.Color.White;
@@ -40,12 +40,12 @@ namespace AhorcadoWindowsForms.src.Vista
             // mensajeCreditosLabel
             //
             mensajeCreditos_Label = new Label();
-            mensajeCreditos_Label.Location = new System.Drawing.Point(150, 152);
+            mensajeCreditos_Label.Location = new System.Drawing.Point(350, 152);
             mensajeCreditos_Label.AutoSize = true;
             mensajeCreditos_Label.TabIndex = 0;
             mensajeCreditos_Label.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mensajeCreditos_Label.ForeColor = System.Drawing.Color.White;
-            mensajeCreditos_Label.Text = "Program made by ogonzalo";
+            mensajeCreditos_Label.Text = "Programa hecho por Gonzalo Ortiz en el curso de programación del CUC 2019";
             pantallaPrincipal.Controls.Add(mensajeCreditos_Label);
         }
 

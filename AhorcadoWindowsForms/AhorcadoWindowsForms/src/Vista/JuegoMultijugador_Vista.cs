@@ -29,8 +29,7 @@ namespace AhorcadoWindowsForms.src.Vista
         {
             this.pantallaPrincipal = pantallaPrincipal;
             controlador = new JuegoMultijugador_Controlador();
-            indice = new IndiceMultijugador(parametrosPartidaMultijugador.Count);
-            indice.Indice = 1;
+            indice = new IndiceMultijugador(parametrosPartidaMultijugador.Count);          
 
             partidasMultijugador = new List<PartidaMultijugador>();
             paneles = new List<Panel>();
@@ -47,8 +46,6 @@ namespace AhorcadoWindowsForms.src.Vista
             }
 
             BloquearPanelesIniciales();
-
-
         }
 
         #endregion
@@ -93,6 +90,7 @@ namespace AhorcadoWindowsForms.src.Vista
             nombreJugador_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             nombreJugador_Label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             nombreJugador_Label.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nombreJugador_Label.Name = "nombreJugador_Label";
             nombreJugador_Label.TabIndex = 0;
 
             //
@@ -107,6 +105,7 @@ namespace AhorcadoWindowsForms.src.Vista
             guiones_Label.Text = partida.Guiones.ToString();
             guiones_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             guiones_Label.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            guiones_Label.Name = "guiones_Label";
             guiones_Label.TabIndex = 2;
 
             //
@@ -119,6 +118,7 @@ namespace AhorcadoWindowsForms.src.Vista
             intento_Label.Text = "Intento: ";
             intento_Label.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             intento_Label.ForeColor = System.Drawing.Color.White;
+            intento_Label.Name = "intento_Label";
             intento_Label.TabIndex = 1;
 
             //
@@ -129,6 +129,7 @@ namespace AhorcadoWindowsForms.src.Vista
             intento_TextBox.Location = new System.Drawing.Point(195, 194);
             intento_TextBox.Size = new System.Drawing.Size(128, 26);
             intento_TextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            intento_TextBox.Name = "intento_TextBox";
             intento_TextBox.TabIndex = 3;
 
             //
@@ -141,7 +142,9 @@ namespace AhorcadoWindowsForms.src.Vista
             aceptarIntento_Button.Text = "Ingresar Intento";
             aceptarIntento_Button.UseVisualStyleBackColor = true;
             aceptarIntento_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            aceptarIntento_Button.Name = "aceptarIntento_Button";
             aceptarIntento_Button.TabIndex = 4;
+            pantallaPrincipal.AcceptButton = aceptarIntento_Button;
             aceptarIntento_Button.Click += new System.EventHandler(AceptarIntento_Button_Click);
 
             //
@@ -153,6 +156,7 @@ namespace AhorcadoWindowsForms.src.Vista
             estadoPanel_Imagen.Size = new System.Drawing.Size(73, 73);
             estadoPanel_Imagen.TabStop = false;
             estadoPanel_Imagen.BackgroundImage = Properties.Resources.activarPantalla;
+            estadoPanel_Imagen.Name = "estadoPanel_Imagen";
             estadoPanel_Imagen.TabIndex = 7;
             estadoPanel_Imagen.BackgroundImageChanged += delegate (object sender, EventArgs e) { EstadoPanel_Imagen_BackgroundImageChanged(sender, e, panel); }; ;
 
@@ -175,108 +179,58 @@ namespace AhorcadoWindowsForms.src.Vista
         }
         private void EstadoPanel_Imagen_BackgroundImageChanged(object sender, EventArgs e, Panel panel)
         {
-            foreach (Control imagen in paneles[indice.Indice].Controls)
+            PictureBox estadoPanel_Imagen = paneles[indice.Indice].Controls.Find("estadoPanel_Imagen", true).FirstOrDefault() as PictureBox;
+            Button aceptarIntento_Button = paneles[indice.Indice].Controls.Find("aceptarIntento_Button", true).FirstOrDefault() as Button;
+            TextBox intento_TextBox = paneles[indice.Indice].Controls.Find("intento_TextBox", true).FirstOrDefault() as TextBox;
+
+            if (estadoPanel_Imagen.TabIndex == 7)
             {
-                if (imagen.TabIndex > 5)
-                {
-                    if (imagen.TabIndex == 7)
-                    {
-                        foreach (Control control in paneles[indice.Indice].Controls)
-                        {  
-                            if (control.TabIndex == 3)
-                            {
-                                control.Enabled = true;                               
-                            }
-                            else
-                            {
-                                if (control.TabIndex == 4)
-                                {
-                                    control.Enabled = true;
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        foreach (Control control in paneles[indice.Indice].Controls)
-                        {
-                            if (control.TabIndex == 3)
-                            {
-                                control.Enabled = false;
-                            }
-                            else
-                            {
-                                if (control.TabIndex == 4)
-                                {
-                                    control.Enabled = false;
-                                }
-                            }
-                        }
-                    }
-                }
+                aceptarIntento_Button.Enabled = true;
+                pantallaPrincipal.AcceptButton = aceptarIntento_Button;
+
+                intento_TextBox.Enabled = true;
+                intento_TextBox.Focus();
+            }
+            else
+            {
+                aceptarIntento_Button.Enabled = false;
+                intento_TextBox.Enabled = false;
             }
         }
         private void AceptarIntento_Button_Click(object sender, EventArgs e)
         {
-            // Mandar intento a comprobar
-            string intento = "";
-            foreach (Control textBox in paneles[indice.Indice].Controls)
-            {
-                if (textBox.TabIndex == 3)
-                {
-                    intento = textBox.Text;
-                    textBox.Text = "";
-                }
-            }
-            bool reemplazo;
+            //Controles del panel para utilizar
+            PictureBox estadoPanel_Imagen = paneles[indice.Indice].Controls.Find("estadoPanel_Imagen", true).FirstOrDefault() as PictureBox;
+            Button aceptarIntento_Button = paneles[indice.Indice].Controls.Find("aceptarIntento_Button", true).FirstOrDefault() as Button;
+            Label guiones_Label = paneles[indice.Indice].Controls.Find("guiones_Label", true).FirstOrDefault() as Label;
+            Label intento_Label = paneles[indice.Indice].Controls.Find("intento_Label", true).FirstOrDefault() as Label;
+            TextBox intento_TextBox = paneles[indice.Indice].Controls.Find("intento_TextBox", true).FirstOrDefault() as TextBox;
 
-            (partidasMultijugador[indice.Indice], reemplazo) = controlador.ComprobarIntento(partidasMultijugador[indice.Indice], intento);
+            // Mandar intento a comprobar
+            string intento = intento_TextBox.Text;
+            intento_TextBox.Text = "";
+            intento_TextBox.Focus();
+
+            var tuple = controlador.ComprobarIntento(partidasMultijugador[indice.Indice], intento);
+            partidasMultijugador[indice.Indice] = tuple.Item1;
+            bool reemplazo = tuple.Item2;
 
             // actualizar pantalla
             bool gano = false;
             if (reemplazo)
             {
-                foreach (Control control in paneles[indice.Indice].Controls)
+                pantallaPrincipal.AcceptButton = aceptarIntento_Button;
+                guiones_Label.Text = partidasMultijugador[indice.Indice].Guiones.ToString();
+                if (guiones_Label.Text == partidasMultijugador[indice.Indice].Palabra)
                 {
-                    if (control.TabIndex == 2)
-                    {
-                        control.Text = partidasMultijugador[indice.Indice].Guiones.ToString();
-                        if (control.Text == partidasMultijugador[indice.Indice].Palabra)
-                        {
-                            gano = true;
-                        }
-                    }
+                    gano = true;
                 }
                 if (gano)
                 {
-                    foreach (Control control1 in paneles[indice.Indice].Controls)
-                    {
-                        if (control1.TabIndex == 1)
-                        {
-                            paneles[indice.Indice].Controls.Remove(control1);
-                        }
-                    }
-                    foreach (Control control1 in paneles[indice.Indice].Controls)
-                    {
-                        if (control1.TabIndex == 3)
-                        {
-                            paneles[indice.Indice].Controls.Remove(control1);
-                        }
-                    }
-                    foreach (Control control1 in paneles[indice.Indice].Controls)
-                    {
-                        if (control1.TabIndex == 4)
-                        {
-                            paneles[indice.Indice].Controls.Remove(control1);
-                        }
-                    }
-                    foreach (Control control1 in paneles[indice.Indice].Controls)
-                    {
-                        if (control1.TabIndex == 7)
-                        {
-                            paneles[indice.Indice].Controls.Remove(control1);
-                        }
-                    }
+                    paneles[indice.Indice].Controls.Remove(intento_Label);
+                    paneles[indice.Indice].Controls.Remove(aceptarIntento_Button);
+                    paneles[indice.Indice].Controls.Remove(estadoPanel_Imagen);
+                    paneles[indice.Indice].Controls.Remove(intento_TextBox);
 
                     Label resultado_Label = new Label();
                     resultado_Label.Location = new System.Drawing.Point(198, 189);
@@ -294,54 +248,48 @@ namespace AhorcadoWindowsForms.src.Vista
                         indice.Indice++;
                     } while (paneles[indice.Indice].Controls.Count < 4 && contador < 10);
 
-                    foreach (Control image in paneles[indice.Indice].Controls)
+                    if (contador < 9)
                     {
-                        if (image.TabIndex == 8)
-                        {
-                            image.TabIndex = 7;
-                            image.BackgroundImage = Properties.Resources.activarPantalla;
-                        }
+                        PictureBox estadoPanel_ImagenSiguientePanel = paneles[indice.Indice].Controls.Find("estadoPanel_Imagen", true).FirstOrDefault() as PictureBox;
+                        estadoPanel_ImagenSiguientePanel.TabIndex = 7;
+                        estadoPanel_ImagenSiguientePanel.BackgroundImage = Properties.Resources.activarPantalla;
                     }
+                    
                 }
             }
             else
             {
-                foreach (Control image in paneles[indice.Indice].Controls)
-                {
-                    if (image.TabIndex == 7)
-                    {
-                        image.TabIndex = 8;
-                        image.BackgroundImage = Properties.Resources.desactivarPantalla;
-                    }
-                }
+                estadoPanel_Imagen.TabIndex = 8;
+                estadoPanel_Imagen.BackgroundImage = Properties.Resources.desactivarPantalla;
                 do
                 {
                     indice.Indice++;
                 } while (paneles[indice.Indice].Controls.Count < 4);
-                foreach (Control image in paneles[indice.Indice].Controls)
-                {
-                    if (image.TabIndex == 8)
-                    {
-                        image.TabIndex = 7;
-                        image.BackgroundImage = Properties.Resources.activarPantalla;
-                    }
-                }
+
+                PictureBox estadoPanel_ImagenSiguientePanel = paneles[indice.Indice].Controls.Find("estadoPanel_Imagen", true).FirstOrDefault() as PictureBox;
+                estadoPanel_ImagenSiguientePanel.TabIndex = 7;
+                estadoPanel_ImagenSiguientePanel.BackgroundImage = Properties.Resources.activarPantalla;
             }
         }
         private void BloquearPanelesIniciales()
         {
+            indice.Indice = 1; //Para que no bloquee el primer panel
             do
             {
-                foreach (Control control in paneles[indice.Indice].Controls)
-                {
-                    if (control.TabIndex == 7)
-                    {
-                        control.TabIndex = 8;
-                        control.BackgroundImage = Properties.Resources.desactivarPantalla;
-                    }
-                }
+                PictureBox estadoPanel_Imagen = paneles[indice.Indice].Controls.Find("estadoPanel_Imagen", true).FirstOrDefault() as PictureBox;
+
+                estadoPanel_Imagen.TabIndex = 8;
+                estadoPanel_Imagen.BackgroundImage = Properties.Resources.desactivarPantalla;
+
                 indice.Indice++;
-            } while (indice.Indice < paneles.Count && indice.Indice != 0);
+
+            } while (indice.Indice != 0);
+
+            Button aceptarIntento_Button = paneles[indice.Indice].Controls.Find("aceptarIntento_Button", true).FirstOrDefault() as Button;
+            pantallaPrincipal.AcceptButton = aceptarIntento_Button;
+
+            TextBox intento_TextBox = paneles[indice.Indice].Controls.Find("intento_TextBox", true).FirstOrDefault() as TextBox;
+            intento_TextBox.Focus();
         }
         #endregion
     }
