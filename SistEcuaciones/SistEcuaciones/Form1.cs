@@ -27,6 +27,7 @@ namespace SistEcuaciones
         SistemaDeEcuaciones sistema;
         Size screenSize;
         Size principalSize;
+        Size datosSize;
 
         public Form1()
         {
@@ -36,7 +37,7 @@ namespace SistEcuaciones
 
             #region Inicializar
             //Inicializo todas las pantallas en un panel oculto, para luego si necesito borrar las pantallas poder hacerlo.
-            screenDatos = new PedirDatos(pnIniciador , principalSize);
+            screenDatos = new PedirDatos(pnIniciador , datosSize);
             screenResultados = new Resultados(pnIniciador, principalSize);
             screenInformacion = new Informacion(pnIniciador);
             screenProcedimientos = new Procedimiento(pnIniciador, principalSize);
@@ -77,11 +78,10 @@ namespace SistEcuaciones
             if (opcion == DialogResult.Yes)
             {
                 BorrarPantallas(); //Borra todas las pantallas
-                AcomodarBotones(); //Acomoda los botones
                 sistema.ResetearValores(); //Resetea los valores de Sistema
                 pnMenuTop.Visible = true; //Muestra el Menú de Arriba
                 pnMenu.Visible = false; //Oculta el Menú de la izquierda
-                screenDatos = new PedirDatos(pnPrincipal , principalSize); //Muestra la pantalla de pedir datos
+                screenDatos = new PedirDatos(pnPrincipal , datosSize); //Muestra la pantalla de pedir datos
                 btnGuardarEcuacion1.Visible = true; //Muestra el boton de guardar ecuación
             }
             else
@@ -103,9 +103,8 @@ namespace SistEcuaciones
         private void btnResultados_Click(object sender, EventArgs e)
         {
             BorrarPantallas();
-            ResetColorBtn();
-            btnResultados.BackColor = Color.DarkCyan;
-            btnGuardarFoto.Visible = true;
+            ColorBtn(btnResultados); //Resetea los colores a transparente y pone de Color Cyan el seleccionado
+            MostrarBotones(); //Muestra los botones Amarillos
             screenResultados = new Resultados(pnPrincipal , principalSize);
             screenResultados.ImprimirResultados(sistema);
 
@@ -114,20 +113,19 @@ namespace SistEcuaciones
         private void btnGrafico_Click(object sender, EventArgs e)
         {
             BorrarPantallas();
-            ResetColorBtn();
-            btnGuardarFoto.Visible = true;
-            btnGrafico.BackColor = Color.DarkCyan;
+            ColorBtn(btnGrafico);
+            MostrarBotones(); //Muestra los botones Amarillos
             screenGrafico = new Grafico(pnPrincipal);
         }
 
         private void btnProcedimiento_Click(object sender, EventArgs e)
         {
             BorrarPantallas();
-            ResetColorBtn();
+            ColorBtn(btnProcedimiento); 
             btnProcedimiento.BackColor = Color.DarkCyan;
-            btnGuardarFoto.Visible = true;
             screenProcedimientos = new Procedimiento(pnPrincipal,principalSize);
             screenProcedimientos.Imprimir(sistema);
+            MostrarBotones(); //Muestra los botones Amarillos
         }
 
         private void btnInformacion_Click(object sender, EventArgs e)
@@ -136,51 +134,36 @@ namespace SistEcuaciones
             BorrarPantallas();
 
             //Pone en transparante todos los botones, excepto el clickeado
-            ResetColorBtn();
-            btnInformacion.BackColor = Color.DarkCyan;
-            
-            btnGuardarFoto.Visible = false;
-            btnCopiarSistema.Visible = false;
-            btnImprimir.Visible = false;
+            ColorBtn(btnInformacion);
+
+            OcultarBotones();
 
             screenInformacion = new Informacion(pnPrincipal);
         }
 
-        private void ResetColorBtn()
+        private void ColorBtn(Button btnSeleccionado)
         {
             //La funcion de este método es poner el Background Color de los botones en transparante
             btnResultados.BackColor = Color.Transparent;
             btnProcedimiento.BackColor = Color.Transparent;
             btnGrafico.BackColor = Color.Transparent;
             btnInformacion.BackColor = Color.Transparent;
+
+            btnSeleccionado.BackColor = Color.DarkCyan;
         }
 
-        private void ReacomodarBotones()
+        private void OcultarBotones()
         {
-            /* Reacomoda los botones un espacio hacia abajo y muestra el botón de Procedimiento. 
-            
-            Esto esta hecho así porque en caso de que el sistema sea "S.Incompatible" o "S.Compatible Determinado", no tiene sentido mostrar el procedimiento 
-
-             */
-
-            btnProcedimiento.Visible = true;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 362);
-            this.btnInformacion.Location = new System.Drawing.Point(0, 450);
-            this.btnGuardarFoto.Location = new System.Drawing.Point(0, 541);
-            this.btnCopiarSistema.Location = new Point(0, 632);
-            this.btnImprimir.Location = new Point(0, 723);
-
+            btnGuardarFoto.Visible = false;
+            btnCopiarSistema.Visible = false;
+            btnImprimir.Visible = false;
         }
-        private void AcomodarBotones()
-        {
-            //Reacomoda los botones hacia arriba y oculta el botón de procedimiento
 
-            btnProcedimiento.Visible = false;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 279);
-            this.btnInformacion.Location = new System.Drawing.Point(0, 362);
-            this.btnGuardarFoto.Location = new System.Drawing.Point(0, 450);
-            this.btnCopiarSistema.Location = new Point(0, 541);
-            this.btnImprimir.Location = new Point(0, 632);
+        private void MostrarBotones()
+        {
+            btnGuardarFoto.Visible = true;
+            btnCopiarSistema.Visible = true;
+            btnImprimir.Visible = true;
         }
 
         private void btnGuardarFoto_Click(object sender, EventArgs e)
@@ -189,11 +172,13 @@ namespace SistEcuaciones
             //Captura de pantalla
             Bitmap imgb = new Bitmap(pnPrincipal.Width, pnPrincipal.Height, PixelFormat.Format32bppArgb);
             Graphics grph = Graphics.FromImage(imgb);
-            grph.CopyFromScreen((pnPrincipal.Location.X + 260), (pnPrincipal.Location.Y + 70), 0, 0, pnPrincipal.Size);
+                    
+            grph.CopyFromScreen(pnMenu.Width,pnPrincipal.Location.Y,0,0,principalSize);
+
             picCaptura.Image = imgb;
             SaveFileDialog dg = new SaveFileDialog();
             dg.Filter = "Imagen Png| .png";
-            dg.FileName = "Sistema .png";
+            dg.FileName = "Sistema Ecuaciones.png";
             if (dg.ShowDialog() == DialogResult.OK)
             {
                 ImageFormat formato = ImageFormat.Png;
@@ -216,7 +201,7 @@ namespace SistEcuaciones
         private void btnCopiarSistema_Click(object sender, EventArgs e)
         {
             //Seteamos lo que copiaremos al portapapeles
-            string resultados = $"{sistema.e1.ecuacion}\n{sistema.e2.ecuacion}\n{sistema.solucion}\n{sistema.tiposistema}";
+            string resultados = $"{sistema.e1.ecuacion} || {sistema.e2.ecuacion} || {sistema.solucion} || {sistema.tiposistema}";
             
             //Borramos todo lo que haya en el portapeles
             Clipboard.Clear(); 
@@ -276,8 +261,7 @@ namespace SistEcuaciones
             pnMenu.Visible = true;
             btnResolver.Visible = false;
             btnGuardarFoto.Visible = true;
-            ResetColorBtn();
-            btnResultados.BackColor = Color.DarkCyan;
+            ColorBtn(btnResultados);
             screenDatos.BorrarTodo();
             sistema = new SistemaDeEcuaciones(e1,e2);
             sistema.EjecutarDeterminante();
@@ -313,7 +297,7 @@ namespace SistEcuaciones
             pnPantallaInicial.Visible = false;
             pnInformacion.Visible = false;
             pnPrincipal.Visible = true;
-            screenDatos = new PedirDatos(pnPrincipal , principalSize);
+            screenDatos = new PedirDatos(pnPrincipal , datosSize);
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -432,9 +416,27 @@ namespace SistEcuaciones
 
             #endregion
 
-
             //El pnPrincipal ocupará siempre el máximo permitido de la pantalla.
-            principalSize = new Size((screenSize.Width - pnMenu.Width),screenSize.Height);
+            principalSize = new Size((screenSize.Width - pnMenu.Width), screenSize.Height);
+
+            datosSize = new Size(screenSize.Width, (screenSize.Height - pnMenuTop.Height));
+
+            #region Pedir Datos
+
+            int posicionBoton = (btnGuardarEcuacion1.Location.X + btnGuardarEcuacion1.Width);
+
+            if (posicionBoton > datosSize.Width)
+            {
+                btnGuardarEcuacion1.Location = new Point(((datosSize.Width / 2) - (btnGuardarEcuacion1.Width / 2))  ,(datosSize.Height - btnGuardarEcuacion1.Height - 3));
+                btnGuardarEcuacion2.Location = new Point(btnGuardarEcuacion1.Location.X , btnGuardarEcuacion1.Location.Y);
+            }
+
+            //Posicionará el boton resolver en el centro de la pantalla, y abajo del label de ecuacion2
+            btnResolver.Location = new Point(((datosSize.Width / 2) - (btnResolver.Width / 2)) , (screenDatos.lbEcuacion2.Location.Y + screenDatos.lbEcuacion2.Height + 20) );
+
+            #endregion 
+
+
 
         }
 
