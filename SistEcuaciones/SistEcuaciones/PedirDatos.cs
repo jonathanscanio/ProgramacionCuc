@@ -306,45 +306,10 @@ namespace SistEcuaciones
 
         public void ProporcionControles()
         {
-            float tamañofuente;
-
-            /* if ((panelSize.Width / 2) <= lbEcuacion1.Width)
-            {
-
-                tamañofuente = lbEcuacion1.Font.Size;
-
-                while ((panelSize.Width / 2) <= lbEcuacion1.Width)
-                {
-                    tamañofuente--;
-                    lbEcuacion1.Font = new Font(lbEcuacion1.Font.Name, tamañofuente, FontStyle.Bold);
-                    lbEcuacion1.Width = lbEcuacion1.Width - 10;
-
-                }
-            }
-
-            if ((panelSize.Width / 2) <= lbEcuacion2.Width)
-            {
-
-                tamañofuente = lbEcuacion2.Font.Size;
-
-                while ((panelSize.Width / 2) <= lbEcuacion2.Width)
-                {
-                    tamañofuente--;
-                    lbEcuacion2.Font = new Font(lbEcuacion2.Font.Name, tamañofuente, FontStyle.Bold);
-                    lbEcuacion2.Width = lbEcuacion2.Width - 10;
-
-                }
-            }
-
-            lbEcuacion1.Location = new Point(((panelSize.Width / 2) - lbEcuacion1.Width),10);
-            lbEcuacion2.Location = new Point((panelSize.Width / 2), 10); */
 
             //Labels ecuacion
             lbEcuacion1.Location = new Point(((panelSize.Width / 2) - (lbEcuacion1.Width / 2)),lbEcuacion1.Location.Y);
-            lbEcuacion2.Location = new Point(lbEcuacion1.Location.X,(lbEcuacion1.Location.Y + lbEcuacion1.Height));
-            
-            
-            
+            lbEcuacion2.Location = new Point(((panelSize.Width / 2) - (lbEcuacion2.Width / 2)), (lbEcuacion1.Location.Y + lbEcuacion1.Height));
             
             //Correr posicion textbox
             txtCoefX.Location = new Point((lbCoefX.Location.X + lbCoefX.Width),txtCoefX.Location.Y);

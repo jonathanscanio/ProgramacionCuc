@@ -17,13 +17,14 @@ namespace SistEcuaciones
         Label lbS5;
         Label lbX5;
         Label lbY5;
-        Label lbSolucion;
         Label lbSolucionY;
         Label lbSolucionX;
         Label lbSoluY2;
         Label lbSoluY1;
+        Label lbSoluY;
         Label lbSoluX2;
         Label lbSoluX1;
+        Label lbSoluX;
         Label lbY4;
         Label lbY3;
         Label lbY2;
@@ -53,9 +54,6 @@ namespace SistEcuaciones
         PictureBox picLineaY2;
         PictureBox picLineaX2;
 
-        Button btnInfo;
-        Panel pnInfo;
-        Button btnCerrarInfo;
         #endregion
 
         #region Constructor
@@ -64,10 +62,7 @@ namespace SistEcuaciones
             this.mainScreen = mainScreen;
             panelSize = principalSize;
 
-            this.pnInfo = new System.Windows.Forms.Panel();
-            this.btnCerrarInfo = new System.Windows.Forms.Button();
             this.pnProcedimientos = new System.Windows.Forms.Panel();
-            this.btnInfo = new System.Windows.Forms.Button();
             this.lbS1 = new System.Windows.Forms.Label();
             this.lbS2 = new System.Windows.Forms.Label();
             this.lbS3 = new System.Windows.Forms.Label();
@@ -84,9 +79,10 @@ namespace SistEcuaciones
             this.lbSoluX2 = new System.Windows.Forms.Label();
             this.lbSoluY1 = new System.Windows.Forms.Label();
             this.lbSoluY2 = new System.Windows.Forms.Label();
+            this.lbSoluY = new System.Windows.Forms.Label();
+            this.lbSoluX = new System.Windows.Forms.Label();
             this.lbSolucionX = new System.Windows.Forms.Label();
             this.lbSolucionY = new System.Windows.Forms.Label();
-            this.lbSolucion = new System.Windows.Forms.Label();
             this.lbY5 = new System.Windows.Forms.Label();
             this.lbX5 = new System.Windows.Forms.Label();
             this.lbS5 = new System.Windows.Forms.Label();
@@ -123,13 +119,14 @@ namespace SistEcuaciones
             this.pnProcedimientos.Controls.Add(this.lbS5);
             this.pnProcedimientos.Controls.Add(this.lbX5);
             this.pnProcedimientos.Controls.Add(this.lbY5);
-            this.pnProcedimientos.Controls.Add(this.lbSolucion);
             this.pnProcedimientos.Controls.Add(this.lbSolucionY);
             this.pnProcedimientos.Controls.Add(this.lbSolucionX);
             this.pnProcedimientos.Controls.Add(this.lbSoluY2);
             this.pnProcedimientos.Controls.Add(this.lbSoluY1);
             this.pnProcedimientos.Controls.Add(this.lbSoluX2);
             this.pnProcedimientos.Controls.Add(this.lbSoluX1);
+            this.pnProcedimientos.Controls.Add(this.lbSoluX);
+            this.pnProcedimientos.Controls.Add(this.lbSoluY);
             this.pnProcedimientos.Controls.Add(this.lbY4);
             this.pnProcedimientos.Controls.Add(this.lbY3);
             this.pnProcedimientos.Controls.Add(this.lbY2);
@@ -156,26 +153,13 @@ namespace SistEcuaciones
             this.pnProcedimientos.Controls.Add(this.picDeltaX);
             this.pnProcedimientos.Controls.Add(this.picDeltaY);
             this.pnProcedimientos.Controls.Add(this.picDeltaS);
-            this.pnProcedimientos.Controls.Add(this.btnInfo);
             this.pnProcedimientos.BackColor = System.Drawing.Color.White;
             this.pnProcedimientos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnProcedimientos.Location = new System.Drawing.Point(250, 0);
             this.pnProcedimientos.Name = "pnInfo";
             this.pnProcedimientos.Size = new System.Drawing.Size(1150, 900);
             this.pnProcedimientos.TabIndex = 1;
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(203)))), ((int)(((byte)(250)))));
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Image = global::SistEcuaciones.Properties.Resources.info_50px;
-            this.btnInfo.Location = new System.Drawing.Point(6, 827);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(50, 50);
-            this.btnInfo.TabIndex = 1;
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+
 
             #region DELTA S
             // 
@@ -235,8 +219,8 @@ namespace SistEcuaciones
             // 
             // picLineaS
             // 
-            this.picLineaS1.BackColor = System.Drawing.Color.Transparent;
             this.picLineaS1.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaS1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLineaS1.Location = new System.Drawing.Point(340, 6);
             this.picLineaS1.Name = "picLineaS";
             this.picLineaS1.Size = new System.Drawing.Size(9, 143);
@@ -313,8 +297,8 @@ namespace SistEcuaciones
             // 
             // picLineaX
             // 
-            this.picLineaX1.BackColor = System.Drawing.Color.Transparent;
             this.picLineaX1.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaX1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLineaX1.Location = new System.Drawing.Point(350, 214);
             this.picLineaX1.Name = "picLineaX";
             this.picLineaX1.Size = new System.Drawing.Size(9, 143);
@@ -391,8 +375,8 @@ namespace SistEcuaciones
             // 
             // picLineaY
             // 
-            this.picLineaY1.BackColor = System.Drawing.Color.Transparent;
             this.picLineaY1.Image = global::SistEcuaciones.Properties.Resources.Linea_Vertical;
+            this.picLineaY1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLineaY1.Location = new System.Drawing.Point(305, 435);
             this.picLineaY1.Name = "picLineaY";
             this.picLineaY1.Size = new System.Drawing.Size(9, 143);
@@ -412,6 +396,17 @@ namespace SistEcuaciones
             #endregion
 
             #region SOLUCION X
+            // 
+            // lbSoluX
+            // 
+            this.lbSoluX.AutoSize = true;
+            this.lbSoluX.BackColor = System.Drawing.Color.Transparent;
+            this.lbSoluX.Font = new System.Drawing.Font("Bebas", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSoluX.Location = new System.Drawing.Point(201, 685);
+            this.lbSoluX.Name = "lbSoluX1";
+            this.lbSoluX.Size = new System.Drawing.Size(64, 43);
+            this.lbSoluX.TabIndex = 24;
+            this.lbSoluX.Text = "X= ";
             // 
             // lbSoluX1
             // 
@@ -459,7 +454,17 @@ namespace SistEcuaciones
             #endregion
 
             #region SOLUCION Y
-
+            // 
+            // lbSoluY
+            // 
+            this.lbSoluY.AutoSize = true;
+            this.lbSoluY.BackColor = System.Drawing.Color.Transparent;
+            this.lbSoluY.Font = new System.Drawing.Font("Bebas", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSoluY.Location = new System.Drawing.Point(201, 685);
+            this.lbSoluY.Name = "lbSoluX1";
+            this.lbSoluY.Size = new System.Drawing.Size(64, 43);
+            this.lbSoluY.TabIndex = 24;
+            this.lbSoluY.Text = "Y= ";
             // 
             // lbSoluY1
             // 
@@ -577,55 +582,10 @@ namespace SistEcuaciones
 
             #endregion
             
-            
-            // 
-            // lbSolucion
-            // 
-            this.lbSolucion.AutoSize = true;
-            this.lbSolucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(203)))), ((int)(((byte)(250)))));
-            this.lbSolucion.Font = new System.Drawing.Font("Bebas", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSolucion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
-            this.lbSolucion.Location = new System.Drawing.Point(410, 801);
-            this.lbSolucion.Name = "lbSolucion";
-            this.lbSolucion.Size = new System.Drawing.Size(306, 63);
-            this.lbSolucion.TabIndex = 21;
-            this.lbSolucion.Text = "S=(-2,2 ; 4,44)";
-
-            #region PANEL INFORMACION
-            // 
-            // pnInfo
-            // 
-            this.pnInfo.BackgroundImage = global::SistEcuaciones.Properties.Resources.pnInfoProcedimientos;
-            this.pnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnInfo.Controls.Add(this.btnCerrarInfo);
-            this.pnInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnInfo.Location = new System.Drawing.Point(0, 600);
-            this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(1150, 200);
-            this.pnInfo.TabIndex = 14;
-            this.pnInfo.Visible = false;
-            // 
-            // btnCerrarInfo
-            // 
-            this.btnCerrarInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCerrarInfo.FlatAppearance.BorderSize = 0;
-            this.btnCerrarInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCerrarInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarInfo.Image = global::SistEcuaciones.Properties.Resources.close_window_30px;
-            this.btnCerrarInfo.Location = new System.Drawing.Point(23, 17);
-            this.btnCerrarInfo.Name = "btnCerrarInfo";
-            this.btnCerrarInfo.Size = new System.Drawing.Size(30, 30);
-            this.btnCerrarInfo.TabIndex = 9;
-            this.btnCerrarInfo.UseVisualStyleBackColor = false;
-            this.btnCerrarInfo.Click += new System.EventHandler(this.btnCerrarInfo_Click);
-            #endregion
-
             mainScreen.Controls.Add(this.pnProcedimientos);
-            mainScreen.Controls.Add(this.pnInfo);
 
-            ProporcionControles();
+
+
         }
         #endregion
 
@@ -663,110 +623,14 @@ namespace SistEcuaciones
             lbSoluY2.Text = sistema.deltasistema.ToString();
             lbSolucionY.Text = $"= {sistema.solucionY}";
 
-            //SOLUCION
-            lbSolucion.Text = sistema.solucion.ToString();
 
-            ReacomodarControles();
+            ProporcionControles();
 
         }
-        private void ReacomodarControles()
-        {
-            #region Controles DELTA S
-            if (this.lbS1.Width > this.lbS2.Width)
-            {
-                this.picFlechaS.Location = new System.Drawing.Point((this.lbS1.Location.X + this.lbS1.Width + 5), 54);
-            }
-            else
-            {
-                this.picFlechaS.Location = new System.Drawing.Point((this.lbS2.Location.X + this.lbS2.Width + 5), 54);
-            }
-            this.lbS3.Location = new System.Drawing.Point((this.picFlechaS.Location.X + this.picFlechaS.Width + 4), 16);
-            this.lbS4.Location = new System.Drawing.Point((this.picFlechaS.Location.X + this.picFlechaS.Width + 4), 106);
-            if (this.lbS3.Width > this.lbS4.Width)
-            {
-                this.picLineaS1.Location = new System.Drawing.Point((this.lbS3.Location.X + this.lbS3.Width + 3), 6);
-            }
-            else
-            {
-                this.picLineaS1.Location = new System.Drawing.Point((this.lbS4.Location.X + this.lbS4.Width + 3), 6);
-            }
-            this.lbS5.Location = new System.Drawing.Point((this.picLineaS1.Width + this.picLineaS1.Location.X + 4), 54);
-            #endregion
-
-            #region Controles DELTA X
-            if (this.lbX1.Width > this.lbX2.Width)
-            {
-                this.picFlechaX.Location = new System.Drawing.Point((this.lbX1.Location.X + this.lbX1.Width + 5), 259);
-            }
-            else
-            {
-                this.picFlechaX.Location = new System.Drawing.Point((this.lbX2.Location.X + this.lbX2.Width + 5), 259);
-            }
-            this.lbX3.Location = new System.Drawing.Point((this.picFlechaX.Location.X + this.picFlechaX.Width + 4), 219);
-            this.lbX4.Location = new System.Drawing.Point((this.picFlechaX.Location.X + this.picFlechaX.Width + 4), 309);
-            if (this.lbX3.Width > this.lbX4.Width)
-            {
-                this.picLineaX1.Location = new System.Drawing.Point((this.lbX3.Location.X + this.lbX3.Width + 3), 214);
-            }
-            else
-            {
-                this.picLineaX1.Location = new System.Drawing.Point((this.lbX4.Location.X + this.lbX4.Width + 3), 214);
-            }
-            this.lbX5.Location = new System.Drawing.Point((this.picLineaX1.Width + this.picLineaX1.Location.X + 4), 264);
-            #endregion
-
-            #region Controles DELTA Y
-            if (this.lbY1.Width > this.lbY2.Width)
-            {
-                this.picFlechaY.Location = new System.Drawing.Point((this.lbY1.Location.X + this.lbY1.Width + 5), 480);
-            }
-            else
-            {
-                this.picFlechaY.Location = new System.Drawing.Point((this.lbY2.Location.X + this.lbY2.Width + 5), 480);
-            }
-            this.lbY3.Location = new System.Drawing.Point((this.picFlechaY.Location.X + this.picFlechaY.Width + 4), 442);
-            this.lbY4.Location = new System.Drawing.Point((this.picFlechaY.Location.X + this.picFlechaY.Width + 4), 532);
-            if (this.lbY3.Width >= this.lbY4.Width)
-            {
-                this.picLineaY1.Location = new System.Drawing.Point((this.lbY3.Location.X + this.lbY3.Width), 435);
-            }
-            else
-            {
-                this.picLineaY1.Location = new System.Drawing.Point((this.lbY4.Location.X + this.lbY4.Width), 435);
-            }
-            this.lbY5.Location = new System.Drawing.Point((this.picLineaY1.Width + this.picLineaY1.Location.X + 4), 485);
-
-            #endregion
-
-            #region Controles SOLUCION X
-            if (this.lbSoluX1.Width > this.lbSoluX2.Width)
-            {
-                this.picLineaHorizX.Size = new System.Drawing.Size((this.lbSoluX1.Width + 10), 9);
-            }
-            else
-            {
-                this.picLineaHorizX.Size = new System.Drawing.Size((this.lbSoluX2.Width + 10), 9);
-            }
-            this.lbSolucionX.Location = new System.Drawing.Point((this.picLineaHorizX.Width + this.picLineaHorizX.Location.X + 5), 711);
-
-            #endregion
-
-            #region Controles SOLUCION Y
-            if (this.lbSoluY1.Width > this.lbSoluY2.Width)
-            {
-                this.picLineaHorizY.Size = new System.Drawing.Size((this.lbSoluY1.Width + 10), 9);
-            }
-            else
-            {
-                this.picLineaHorizY.Size = new System.Drawing.Size((this.lbSoluY2.Width + 10), 9);
-            }
-            this.lbSolucionY.Location = new System.Drawing.Point((this.picLineaHorizY.Width + this.picLineaHorizY.Location.X + 5), 711);
-            #endregion
-        }
+        
         public void Borrar()
         {
             mainScreen.Controls.Remove(pnProcedimientos);
-            mainScreen.Controls.Remove(pnInfo);
         }
 
         public void ProporcionControles()
@@ -775,29 +639,156 @@ namespace SistEcuaciones
 
             int espacio = (panelSize.Height / 4);
 
-            
 
-            picDeltaS.Location = new Point(0,((espacio / 2) - (picDeltaS.Height / 2)));
+            #region PICS DELTA Y LINEAS HORIZONTALES
+
+            picDeltaS.Location = new Point(0, ((espacio / 2) - (picDeltaS.Height / 2)));
             picDeltaX.Location = new Point(0, (picDeltaS.Location.Y + espacio));
-            picDeltaY.Location = new Point(0 , (picDeltaX.Location.Y + espacio));
+            picDeltaY.Location = new Point(0, (picDeltaX.Location.Y + espacio));
 
-            picLineaS2.Location = new Point((picDeltaS.Width + 3) , 2);
-            picLineaX2.Location = new Point((picDeltaX.Width + 3),espacio);
-            picLineaY2.Location = new Point((picDeltaY.Width + 3), (espacio * 2));
+            picLineaS2.Size = new Size(picLineaS2.Width, (panelSize.Width / 7));
+            picLineaX2.Size = new Size(picLineaX2.Width, (panelSize.Width / 7));
+            picLineaY2.Size = new Size(picLineaY2.Width, (panelSize.Width / 7));
 
+            picLineaS1.Size = new Size(picLineaS2.Width, picLineaS2.Height);
+            picLineaX1.Size = new Size(picLineaS2.Width, picLineaS2.Height);
+            picLineaY1.Size = new Size(picLineaS2.Width, picLineaS2.Height);
 
-        }
-        #endregion
+            picLineaS2.Location = new Point((picDeltaS.Width + 3), ((espacio / 2) - (picLineaS2.Height / 2)));
+            picLineaX2.Location = new Point((picDeltaX.Width + 3), (picLineaS2.Location.Y + espacio));
+            picLineaY2.Location = new Point((picDeltaY.Width + 3), (picLineaX2.Location.Y + espacio));
 
-        #region Funcion Botones
-        private void btnCerrarInfo_Click(object sender, EventArgs e)
-        {
-            pnInfo.Visible = false;
+            #endregion
 
-        }
-        private void btnInfo_Click(object sender, EventArgs e)
-        {
-            pnInfo.Visible = true;
+            #region Controles DELTA S
+
+            lbS1.Location = new Point((picLineaS2.Location.X + picLineaS2.Width + 3), picLineaS2.Location.Y);
+            lbS2.Location = new Point(lbS1.Location.X, (picLineaS2.Location.Y + picLineaS2.Height) - lbS2.Height);
+
+            if (this.lbS1.Width > this.lbS2.Width)
+            {
+                this.picFlechaS.Location = new Point((this.lbS1.Location.X + this.lbS1.Width + 5), picDeltaS.Location.Y);
+            }
+            else
+            {
+                this.picFlechaS.Location = new Point((this.lbS2.Location.X + this.lbS2.Width + 5), picDeltaS.Location.Y);
+            }
+
+            this.lbS3.Location = new Point((this.picFlechaS.Location.X + this.picFlechaS.Width + 4), lbS1.Location.Y);
+            this.lbS4.Location = new Point((this.picFlechaS.Location.X + this.picFlechaS.Width + 4), lbS2.Location.Y);
+
+            if (this.lbS3.Width > this.lbS4.Width)
+            {
+                this.picLineaS1.Location = new Point((this.lbS3.Location.X + this.lbS3.Width + 3), picLineaS2.Location.Y);
+            }
+            else
+            {
+                this.picLineaS1.Location = new Point((this.lbS4.Location.X + this.lbS4.Width + 3), picLineaS2.Location.Y);
+            }
+
+            this.lbS5.Location = new Point((this.picLineaS1.Width + this.picLineaS1.Location.X + 4), (picDeltaS.Location.Y + (picDeltaS.Height / 2) - (lbS5.Height / 2)));
+
+            #endregion
+
+            #region Controles DELTA X
+
+            lbX1.Location = new Point((picLineaX2.Location.X + picLineaX2.Width + 3), picLineaX2.Location.Y);
+            lbX2.Location = new Point(lbX1.Location.X, (picLineaX2.Location.Y + picLineaX2.Height) - lbX2.Height);
+
+            if (this.lbX1.Width > this.lbX2.Width)
+            {
+                this.picFlechaX.Location = new Point((this.lbX1.Location.X + this.lbX1.Width + 5), picDeltaX.Location.Y);
+            }
+            else
+            {
+                this.picFlechaX.Location = new Point((this.lbX2.Location.X + this.lbX2.Width + 5), picDeltaX.Location.Y);
+            }
+
+            this.lbX3.Location = new Point((this.picFlechaX.Location.X + this.picFlechaX.Width + 4), lbX1.Location.Y);
+            this.lbX4.Location = new Point((this.picFlechaX.Location.X + this.picFlechaX.Width + 4), lbX2.Location.Y);
+
+            if (this.lbX3.Width > this.lbX4.Width)
+            {
+                this.picLineaX1.Location = new Point((this.lbX3.Location.X + this.lbX3.Width + 3), picLineaX2.Location.Y);
+            }
+            else
+            {
+                this.picLineaX1.Location = new Point((this.lbX4.Location.X + this.lbX4.Width + 3), picLineaX2.Location.Y);
+            }
+
+            this.lbX5.Location = new Point((this.picLineaX1.Width + this.picLineaX1.Location.X + 4), (picDeltaX.Location.Y + (picDeltaX.Height / 2) - (lbX5.Height / 2)));
+
+            #endregion
+
+            #region Controles DELTA Y
+
+            lbY1.Location = new Point((picLineaY2.Location.X + picLineaY2.Width + 3), picLineaY2.Location.Y);
+            lbY2.Location = new Point(lbY1.Location.X, (picLineaY2.Location.Y + picLineaY2.Height) - lbY2.Height);
+
+            if (this.lbY1.Width > this.lbY2.Width)
+            {
+                this.picFlechaY.Location = new Point((this.lbY1.Location.X + this.lbY1.Width + 5), picDeltaY.Location.Y);
+            }
+            else
+            {
+                this.picFlechaY.Location = new Point((this.lbY2.Location.X + this.lbY2.Width + 5), picDeltaY.Location.Y);
+            }
+
+            this.lbY3.Location = new Point((this.picFlechaY.Location.X + this.picFlechaY.Width + 4), lbY1.Location.Y);
+            this.lbY4.Location = new Point((this.picFlechaY.Location.X + this.picFlechaY.Width + 4), lbY2.Location.Y);
+
+            if (this.lbY3.Width > this.lbY4.Width)
+            {
+                this.picLineaY1.Location = new Point((this.lbY3.Location.X + this.lbY3.Width + 3), picLineaY2.Location.Y);
+            }
+            else
+            {
+                this.picLineaY1.Location = new Point((this.lbY4.Location.X + this.lbY4.Width + 3), picLineaY2.Location.Y);
+            }
+
+            this.lbY5.Location = new Point((this.picLineaY1.Width + this.picLineaY1.Location.X + 4), (picDeltaY.Location.Y + (picDeltaY.Height / 2) - (lbY5.Height / 2)));
+
+            #endregion
+
+            #region SOLUCION X
+            lbSoluX.Location = new Point(0,(picDeltaY.Location.Y + espacio));            
+            picLineaHorizX.Location = new Point(lbSoluX.Width + 3, (lbSoluX.Location.Y + (lbSoluX.Height / 2)));
+
+            if (this.lbSoluX1.Width > this.lbSoluX2.Width)
+            {
+                this.picLineaHorizX.Size = new Size((this.lbSoluX1.Width + 10), 9);
+            }
+            else
+            {
+                this.picLineaHorizX.Size = new Size((this.lbSoluX2.Width + 10), 9);
+            }
+            
+            lbSoluX1.Location = new Point(picLineaHorizX.Location.X ,(picLineaHorizX.Location.Y - lbSoluX1.Height - 3));
+            lbSoluX2.Location = new Point(lbSoluX1.Location.X,(picLineaHorizX.Location.Y + picLineaHorizX.Height + 3));
+
+            this.lbSolucionX.Location = new Point((this.picLineaHorizX.Width + this.picLineaHorizX.Location.X + 5), (picLineaHorizX.Location.Y - (lbSolucionX.Height / 2)));
+            #endregion
+
+            #region SOLUCION Y
+
+            lbSoluY.Location = new Point((panelSize.Width / 2), (picDeltaY.Location.Y + espacio));
+            picLineaHorizY.Location = new Point(lbSoluY.Width + lbSoluY.Location.X + 3, (lbSoluY.Location.Y + (lbSoluY.Height / 2)));
+
+            if (this.lbSoluY1.Width > this.lbSoluY2.Width)
+            {
+                this.picLineaHorizY.Size = new System.Drawing.Size((this.lbSoluY1.Width + 10), 9);
+            }
+            else
+            {
+                this.picLineaHorizY.Size = new System.Drawing.Size((this.lbSoluY2.Width + 10), 9);
+            }
+
+            lbSoluY1.Location = new Point(picLineaHorizY.Location.X, (picLineaHorizX.Location.Y - lbSoluY1.Height - 3));
+            lbSoluY2.Location = new Point(lbSoluY1.Location.X, (picLineaHorizY.Location.Y + picLineaHorizY.Height + 3));
+
+            this.lbSolucionY.Location = new Point((this.picLineaHorizY.Width + this.picLineaHorizY.Location.X + 5), (picLineaHorizY.Location.Y - (lbSolucionY.Height / 2)));
+            #endregion
+
 
         }
         #endregion
