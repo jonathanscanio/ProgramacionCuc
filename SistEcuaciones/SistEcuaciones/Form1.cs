@@ -39,9 +39,9 @@ namespace SistEcuaciones
             //Inicializo todas las pantallas en un panel oculto, para luego si necesito borrar las pantallas poder hacerlo.
             screenDatos = new PedirDatos(pnIniciador , datosSize);
             screenResultados = new Resultados(pnIniciador, principalSize);
-            screenInformacion = new Informacion(pnIniciador);
+            screenInformacion = new Informacion(pnIniciador , principalSize);
             screenProcedimientos = new Procedimiento(pnIniciador, principalSize);
-            screenGrafico = new Grafico(pnIniciador);
+            screenGrafico = new Grafico(pnIniciador , principalSize);
 
             #endregion
 
@@ -103,10 +103,11 @@ namespace SistEcuaciones
         private void btnResultados_Click(object sender, EventArgs e)
         {
             BorrarPantallas();
-            ColorBtn(btnResultados); //Resetea los colores a transparente y pone de Color Cyan el seleccionado
-            MostrarBotones(); //Muestra los botones Amarillos
+            ColorBtn(btnResultados); //Resetea los colores a transparente y pone de Color Cyan el seleccionado            
             screenResultados = new Resultados(pnPrincipal , principalSize);
             screenResultados.ImprimirResultados(sistema);
+
+            btnGuardarFoto.Enabled = true;
 
         }
 
@@ -114,8 +115,9 @@ namespace SistEcuaciones
         {
             BorrarPantallas();
             ColorBtn(btnGrafico);
-            MostrarBotones(); //Muestra los botones Amarillos
-            screenGrafico = new Grafico(pnPrincipal);
+            screenGrafico = new Grafico(pnPrincipal , principalSize);
+
+            btnGuardarFoto.Enabled = true;
         }
 
         private void btnProcedimiento_Click(object sender, EventArgs e)
@@ -125,7 +127,9 @@ namespace SistEcuaciones
             btnProcedimiento.BackColor = Color.DarkCyan;
             screenProcedimientos = new Procedimiento(pnPrincipal,principalSize);
             screenProcedimientos.Imprimir(sistema);
-            MostrarBotones(); //Muestra los botones Amarillos
+
+            btnGuardarFoto.Enabled = true;
+
         }
 
         private void btnInformacion_Click(object sender, EventArgs e)
@@ -136,9 +140,9 @@ namespace SistEcuaciones
             //Pone en transparante todos los botones, excepto el clickeado
             ColorBtn(btnInformacion);
 
-            OcultarBotones();
+            btnGuardarFoto.Enabled = false;
 
-            screenInformacion = new Informacion(pnPrincipal);
+            screenInformacion = new Informacion(pnPrincipal , principalSize);
         }
 
         private void ColorBtn(Button btnSeleccionado)
@@ -150,20 +154,6 @@ namespace SistEcuaciones
             btnInformacion.BackColor = Color.Transparent;
 
             btnSeleccionado.BackColor = Color.DarkCyan;
-        }
-
-        private void OcultarBotones()
-        {
-            btnGuardarFoto.Visible = false;
-            btnCopiarSistema.Visible = false;
-            btnImprimir.Visible = false;
-        }
-
-        private void MostrarBotones()
-        {
-            btnGuardarFoto.Visible = true;
-            btnCopiarSistema.Visible = true;
-            btnImprimir.Visible = true;
         }
 
         private void btnGuardarFoto_Click(object sender, EventArgs e)
@@ -367,6 +357,11 @@ namespace SistEcuaciones
             btnInstrucciones.Size = new Size(width,height);
             btnComenzar.Location = new Point((screenSize.Width / 2 - btnComenzar.Width - (screenSize.Width / 50)) , (screenSize.Height / 2));
             btnInstrucciones.Location = new Point(((screenSize.Width / 2) + (screenSize.Width / 50)), (screenSize.Height / 2));
+
+            pnInformacion.Size = datosSize;
+            btnCerrarPanel.Location = new Point(screenSize.Width - btnBack.Width, 5);
+            btnBack.Location = new Point((btnCerrarPanel.Location.X - btnBack.Width - 3), 5);
+
             #endregion
 
 
@@ -423,16 +418,14 @@ namespace SistEcuaciones
 
             #region Pedir Datos
 
-            int posicionBoton = (btnGuardarEcuacion1.Location.X + btnGuardarEcuacion1.Width);
+            int posicion = (screenDatos.posicionBtn + pnMenuTop.Height);
+            espacio = screenSize.Height / 25;
+            btnGuardarEcuacion1.Location = new Point((screenSize.Width / 2) - (btnGuardarEcuacion1.Width / 2), posicion + pnMenuTop.Height);
 
-            if (posicionBoton > datosSize.Width)
-            {
-                btnGuardarEcuacion1.Location = new Point(((datosSize.Width / 2) - (btnGuardarEcuacion1.Width / 2))  ,(datosSize.Height - btnGuardarEcuacion1.Height - 3));
-                btnGuardarEcuacion2.Location = new Point(btnGuardarEcuacion1.Location.X , btnGuardarEcuacion1.Location.Y);
-            }
+            btnGuardarEcuacion2.Location = btnGuardarEcuacion1.Location;
 
             //Posicionará el boton resolver en el centro de la pantalla, y abajo del label de ecuacion2
-            btnResolver.Location = new Point(((datosSize.Width / 2) - (btnResolver.Width / 2)) , (screenDatos.lbEcuacion2.Location.Y + screenDatos.lbEcuacion2.Height + 20) );
+            btnResolver.Location = new Point(((datosSize.Width / 2) - (btnResolver.Width / 2)) , (screenDatos.lbEcuacion2.Location.Y + screenDatos.lbEcuacion2.Height + pnMenuTop.Height) );
 
             #endregion 
 

@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnMenuTop = new System.Windows.Forms.Panel();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSalirTop = new System.Windows.Forms.Button();
             this.pnPrincipal = new System.Windows.Forms.Panel();
             this.pnIniciador = new System.Windows.Forms.Panel();
             this.btnResolver = new System.Windows.Forms.Button();
@@ -59,8 +56,10 @@
             this.pnInformacion = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCerrarPanel = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSalirTop = new System.Windows.Forms.Button();
             this.pnMenuTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCaptura)).BeginInit();
             this.pnMenu.SuspendLayout();
@@ -70,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnInstrucciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogoInicial)).BeginInit();
             this.pnInformacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMenuTop
@@ -83,48 +83,6 @@
             this.pnMenuTop.Name = "pnMenuTop";
             this.pnMenuTop.Size = new System.Drawing.Size(1378, 100);
             this.pnMenuTop.TabIndex = 1;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Image = global::SistEcuaciones.Properties.Resources.minus_30px;
-            this.btnMinimizar.Location = new System.Drawing.Point(1303, 32);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(30, 30);
-            this.btnMinimizar.TabIndex = 9;
-            this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SistEcuaciones.Properties.Resources.LOGO1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 84);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnSalirTop
-            // 
-            this.btnSalirTop.BackColor = System.Drawing.Color.Transparent;
-            this.btnSalirTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSalirTop.FlatAppearance.BorderSize = 0;
-            this.btnSalirTop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSalirTop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSalirTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalirTop.Image = global::SistEcuaciones.Properties.Resources.shutdown_30px;
-            this.btnSalirTop.Location = new System.Drawing.Point(1350, 32);
-            this.btnSalirTop.Name = "btnSalirTop";
-            this.btnSalirTop.Size = new System.Drawing.Size(30, 30);
-            this.btnSalirTop.TabIndex = 8;
-            this.btnSalirTop.UseVisualStyleBackColor = false;
-            this.btnSalirTop.Click += new System.EventHandler(this.btnSalirTop_Click);
             // 
             // pnPrincipal
             // 
@@ -494,7 +452,8 @@
             // 
             // pnInformacion
             // 
-            this.pnInformacion.BackgroundImage = global::SistEcuaciones.Properties.Resources.Background_Instrucciones;
+            this.pnInformacion.BackgroundImage = global::SistEcuaciones.Properties.Resources.Instrucciones2;
+            this.pnInformacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnInformacion.Controls.Add(this.btnBack);
             this.pnInformacion.Controls.Add(this.btnCerrarPanel);
             this.pnInformacion.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -531,6 +490,48 @@
             this.btnCerrarPanel.UseVisualStyleBackColor = false;
             this.btnCerrarPanel.Click += new System.EventHandler(this.btnCerrarPanel_Click);
             // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Image = global::SistEcuaciones.Properties.Resources.minus_30px;
+            this.btnMinimizar.Location = new System.Drawing.Point(1303, 32);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimizar.TabIndex = 9;
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SistEcuaciones.Properties.Resources.LOGO1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(238, 84);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSalirTop
+            // 
+            this.btnSalirTop.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalirTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSalirTop.FlatAppearance.BorderSize = 0;
+            this.btnSalirTop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSalirTop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSalirTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalirTop.Image = global::SistEcuaciones.Properties.Resources.shutdown_30px;
+            this.btnSalirTop.Location = new System.Drawing.Point(1350, 32);
+            this.btnSalirTop.Name = "btnSalirTop";
+            this.btnSalirTop.Size = new System.Drawing.Size(30, 30);
+            this.btnSalirTop.TabIndex = 8;
+            this.btnSalirTop.UseVisualStyleBackColor = false;
+            this.btnSalirTop.Click += new System.EventHandler(this.btnSalirTop_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,7 +548,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Ecuaciones Lineales";
             this.pnMenuTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCaptura)).EndInit();
             this.pnMenu.ResumeLayout(false);
@@ -557,6 +557,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnInstrucciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogoInicial)).EndInit();
             this.pnInformacion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,7 +596,6 @@
         private System.Windows.Forms.Button btnCopiarSistema;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.PictureBox picLogoInicial;
-
     }
 }
 

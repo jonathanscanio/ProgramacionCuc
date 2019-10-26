@@ -12,9 +12,6 @@ namespace SistEcuaciones
     {
         #region Controles
         Panel mainScreen;
-        Panel pnInfo;
-        Button btnInfo;        
-        Button btnCerrarPanel;
         public Label lbEcuacion1;
         public Label lbEcuacion2;
         Label lbIndep;
@@ -24,6 +21,7 @@ namespace SistEcuaciones
         TextBox txtIndep;
         TextBox txtCoefY;
         Size panelSize;
+        public int posicionBtn;
         #endregion
 
         #region Constructor
@@ -40,11 +38,6 @@ namespace SistEcuaciones
             this.lbCoefX = new System.Windows.Forms.Label();
             this.lbEcuacion2 = new System.Windows.Forms.Label();
             this.lbEcuacion1 = new System.Windows.Forms.Label();
-            this.pnInfo = new System.Windows.Forms.Panel();
-            this.btnCerrarPanel = new System.Windows.Forms.Button();
-            this.btnInfo = new System.Windows.Forms.Button();
-
-
 
             // 
             // txtIndep
@@ -130,51 +123,6 @@ namespace SistEcuaciones
             this.lbEcuacion1.TabIndex = 0;
             this.lbEcuacion1.Text = "ax + by = c";
 
-            // 
-            // pnInfo
-            // 
-            this.pnInfo.BackgroundImage = global::SistEcuaciones.Properties.Resources.pnInfo01;
-            this.pnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnInfo.Controls.Add(this.btnCerrarPanel);
-            this.pnInfo.Location = new System.Drawing.Point(0, 550);
-            this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(1150, 250);
-            this.pnInfo.TabIndex = 12;
-            this.pnInfo.Visible = false;
-            // 
-            // btnCerrarPanel
-            // 
-            this.btnCerrarPanel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCerrarPanel.FlatAppearance.BorderSize = 0;
-            this.btnCerrarPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnCerrarPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarPanel.Image = global::SistEcuaciones.Properties.Resources.close_window_30px;
-            this.btnCerrarPanel.Location = new System.Drawing.Point(24, 19);
-            this.btnCerrarPanel.Name = "btnCerrarPanel";
-            this.btnCerrarPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnCerrarPanel.TabIndex = 9;
-            this.btnCerrarPanel.UseVisualStyleBackColor = false;
-            this.btnCerrarPanel.Click += new System.EventHandler(this.btnCerrarPanel_Click);
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Image = global::SistEcuaciones.Properties.Resources.info_50px;
-            this.btnInfo.Location = new System.Drawing.Point(24, 738);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(50, 50);
-            this.btnInfo.TabIndex = 9;
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
-
             mainScreen.Controls.Add(this.txtIndep);
             mainScreen.Controls.Add(this.txtCoefY);
             mainScreen.Controls.Add(this.txtCoefX);
@@ -183,26 +131,8 @@ namespace SistEcuaciones
             mainScreen.Controls.Add(this.lbCoefX);
             mainScreen.Controls.Add(this.lbEcuacion2);
             mainScreen.Controls.Add(this.lbEcuacion1);
-            mainScreen.Controls.Add(this.pnInfo);
-            mainScreen.Controls.Add(this.btnInfo);
-
-
-            this.pnInfo.ResumeLayout(false);
 
             ProporcionControles();
-        }
-        #endregion
-
-        #region Botones
-        private void btnCerrarPanel_Click(object sender, EventArgs e)
-        {
-            pnInfo.Visible = false;
-
-        }
-        private void btnInfo_Click(object sender, EventArgs e)
-        {
-            pnInfo.Visible = true;
-
         }
         #endregion
 
@@ -288,7 +218,6 @@ namespace SistEcuaciones
             mainScreen.Controls.Remove(txtCoefX);
             mainScreen.Controls.Remove(txtCoefY);
             mainScreen.Controls.Remove(txtIndep);
-            mainScreen.Controls.Remove(btnInfo);
         }
         public void BorrarTodo()
         {
@@ -300,21 +229,44 @@ namespace SistEcuaciones
             mainScreen.Controls.Remove(txtCoefX);
             mainScreen.Controls.Remove(txtCoefY);
             mainScreen.Controls.Remove(txtIndep);
-            mainScreen.Controls.Remove(btnInfo);
         }
         #endregion
 
         public void ProporcionControles()
         {
 
-            //Labels ecuacion
-            lbEcuacion1.Location = new Point(((panelSize.Width / 2) - (lbEcuacion1.Width / 2)),lbEcuacion1.Location.Y);
-            lbEcuacion2.Location = new Point(((panelSize.Width / 2) - (lbEcuacion2.Width / 2)), (lbEcuacion1.Location.Y + lbEcuacion1.Height));
-            
+            //Labels ecuacion 
+            //Si la resolucion es de 800x600 o inferior, saco el espacio superior.
+
+            if (panelSize.Height < 600)
+            {
+                lbEcuacion1.Location = new Point(((panelSize.Width / 2) - (lbEcuacion1.Width / 2)), 0);
+                lbEcuacion2.Location = new Point(((panelSize.Width / 2) - (lbEcuacion2.Width / 2)), (lbEcuacion1.Location.Y + lbEcuacion1.Height));
+            }
+
+            else
+            {
+                lbEcuacion1.Location = new Point(((panelSize.Width / 2) - (lbEcuacion1.Width / 2)), lbEcuacion1.Location.Y);
+                lbEcuacion2.Location = new Point(((panelSize.Width / 2) - (lbEcuacion2.Width / 2)), (lbEcuacion1.Location.Y + lbEcuacion1.Height));
+
+            }
+
+            int espacio = panelSize.Height / 25;
+
+
+            //Correr labels
+            lbCoefX.Location = new Point(((panelSize.Width / 2) - lbCoefX.Width), lbEcuacion2.Location.Y + lbEcuacion2.Height + espacio);
+            lbCoefY.Location = new Point(lbCoefX.Location.X, lbCoefX.Location.Y + lbCoefX.Height + espacio);
+            lbIndep.Location = new Point(lbCoefX.Location.X, lbCoefY.Location.Y + lbCoefY.Height + espacio);
+
+
             //Correr posicion textbox
-            txtCoefX.Location = new Point((lbCoefX.Location.X + lbCoefX.Width),txtCoefX.Location.Y);
-            txtCoefY.Location = new Point((lbCoefY.Location.X + lbCoefY.Width), txtCoefY.Location.Y);
-            txtIndep.Location = new Point((lbIndep.Location.X + lbIndep.Width), txtIndep.Location.Y);
+            txtCoefX.Location = new Point(lbCoefX.Location.X + lbCoefX.Width , lbCoefX.Location.Y);
+            txtCoefY.Location = new Point(lbCoefY.Location.X + lbCoefY.Width, lbCoefY.Location.Y);
+            txtIndep.Location = new Point(lbIndep.Location.X + lbIndep.Width, lbIndep.Location.Y);
+
+            posicionBtn = (lbIndep.Location.Y + (lbIndep.Height ));
         }
+
     }
 }

@@ -633,7 +633,7 @@ namespace SistEcuaciones
             mainScreen.Controls.Remove(pnProcedimientos);
         }
 
-        public void ProporcionControles()
+        private void ProporcionControles()
         {
             //Divido la pantalla principal en 4 espacio iguales.
 
