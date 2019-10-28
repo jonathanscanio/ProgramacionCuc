@@ -52,6 +52,7 @@
             this.btnComenzar = new System.Windows.Forms.PictureBox();
             this.btnInstrucciones = new System.Windows.Forms.PictureBox();
             this.btnCerrarPrograma = new System.Windows.Forms.Button();
+            this.picLogoInicial = new System.Windows.Forms.PictureBox();
             this.pnInformacion = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCerrarPanel = new System.Windows.Forms.Button();
@@ -66,6 +67,7 @@
             this.pnPantallaInicial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnComenzar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInstrucciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicial)).BeginInit();
             this.pnInformacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +81,7 @@
             this.pnMenuTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMenuTop.Location = new System.Drawing.Point(0, 0);
             this.pnMenuTop.Name = "pnMenuTop";
-            this.pnMenuTop.Size = new System.Drawing.Size(1400, 100);
+            this.pnMenuTop.Size = new System.Drawing.Size(1378, 100);
             this.pnMenuTop.TabIndex = 1;
             // 
             // pnPrincipal
@@ -92,12 +94,13 @@
             this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPrincipal.Location = new System.Drawing.Point(250, 100);
             this.pnPrincipal.Name = "pnPrincipal";
-            this.pnPrincipal.Size = new System.Drawing.Size(1150, 800);
+            this.pnPrincipal.Size = new System.Drawing.Size(1128, 680);
             this.pnPrincipal.TabIndex = 2;
             // 
             // pnIniciador
             // 
-            this.pnIniciador.Location = new System.Drawing.Point(44, 21);
+            this.pnIniciador.BackColor = System.Drawing.Color.Transparent;
+            this.pnIniciador.Location = new System.Drawing.Point(72, 255);
             this.pnIniciador.Name = "pnIniciador";
             this.pnIniciador.Size = new System.Drawing.Size(200, 100);
             this.pnIniciador.TabIndex = 12;
@@ -108,7 +111,7 @@
             this.btnResolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
             this.btnResolver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(161)))));
             this.btnResolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResolver.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolver.ForeColor = System.Drawing.Color.Transparent;
             this.btnResolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnResolver.Location = new System.Drawing.Point(558, 309);
@@ -127,7 +130,7 @@
             this.btnGuardarEcuacion1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
             this.btnGuardarEcuacion1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(161)))));
             this.btnGuardarEcuacion1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarEcuacion1.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarEcuacion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEcuacion1.ForeColor = System.Drawing.Color.Transparent;
             this.btnGuardarEcuacion1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarEcuacion1.Location = new System.Drawing.Point(951, 309);
@@ -145,7 +148,7 @@
             this.btnGuardarEcuacion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
             this.btnGuardarEcuacion2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(161)))));
             this.btnGuardarEcuacion2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarEcuacion2.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarEcuacion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEcuacion2.ForeColor = System.Drawing.Color.Transparent;
             this.btnGuardarEcuacion2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarEcuacion2.Location = new System.Drawing.Point(951, 309);
@@ -164,7 +167,7 @@
             this.picCaptura.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picCaptura.Location = new System.Drawing.Point(0, 0);
             this.picCaptura.Name = "picCaptura";
-            this.picCaptura.Size = new System.Drawing.Size(1150, 800);
+            this.picCaptura.Size = new System.Drawing.Size(1128, 680);
             this.picCaptura.TabIndex = 13;
             this.picCaptura.TabStop = false;
             this.picCaptura.Visible = false;
@@ -173,6 +176,7 @@
             // 
             this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
             this.pnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnMenu.BackgroundImage")));
+            this.pnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnMenu.Controls.Add(this.btnCopiarSistema);
             this.pnMenu.Controls.Add(this.btnImprimir);
             this.pnMenu.Controls.Add(this.btnSalir);
@@ -187,7 +191,7 @@
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnMenu.Location = new System.Drawing.Point(0, 100);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(250, 800);
+            this.pnMenu.Size = new System.Drawing.Size(250, 680);
             this.pnMenu.TabIndex = 0;
             this.pnMenu.Visible = false;
             // 
@@ -196,7 +200,7 @@
             this.btnCopiarSistema.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(192)))), ((int)(((byte)(68)))));
             this.btnCopiarSistema.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(212)))), ((int)(((byte)(185)))));
             this.btnCopiarSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopiarSistema.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopiarSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCopiarSistema.ForeColor = System.Drawing.Color.Black;
             this.btnCopiarSistema.Image = global::SistEcuaciones.Properties.Resources.copy_30px;
             this.btnCopiarSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,7 +219,7 @@
             this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(192)))), ((int)(((byte)(68)))));
             this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(212)))), ((int)(((byte)(185)))));
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnImprimir.ForeColor = System.Drawing.Color.Black;
             this.btnImprimir.Image = global::SistEcuaciones.Properties.Resources.print_filled_30px;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -282,16 +286,16 @@
             this.btnGrafico.BackColor = System.Drawing.Color.Transparent;
             this.btnGrafico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(161)))));
             this.btnGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrafico.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrafico.ForeColor = System.Drawing.Color.Transparent;
             this.btnGrafico.Image = global::SistEcuaciones.Properties.Resources.graph_30px;
             this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 279);
+            this.btnGrafico.Location = new System.Drawing.Point(0, 296);
             this.btnGrafico.Name = "btnGrafico";
             this.btnGrafico.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnGrafico.Size = new System.Drawing.Size(249, 47);
             this.btnGrafico.TabIndex = 3;
-            this.btnGrafico.Text = "    MOSTRAR GRAFICOS";
+            this.btnGrafico.Text = "    MOSTRAR GRÁFICOS";
             this.btnGrafico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGrafico.UseVisualStyleBackColor = false;
             this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
@@ -301,11 +305,11 @@
             this.btnProcedimiento.BackColor = System.Drawing.Color.Transparent;
             this.btnProcedimiento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(161)))));
             this.btnProcedimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProcedimiento.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcedimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnProcedimiento.ForeColor = System.Drawing.Color.Transparent;
             this.btnProcedimiento.Image = global::SistEcuaciones.Properties.Resources.test_passed_filled_30px;
             this.btnProcedimiento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcedimiento.Location = new System.Drawing.Point(0, 279);
+            this.btnProcedimiento.Location = new System.Drawing.Point(1, 231);
             this.btnProcedimiento.Name = "btnProcedimiento";
             this.btnProcedimiento.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnProcedimiento.Size = new System.Drawing.Size(249, 47);
@@ -320,11 +324,11 @@
             this.btnResultados.BackColor = System.Drawing.Color.Transparent;
             this.btnResultados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(161)))));
             this.btnResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResultados.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnResultados.ForeColor = System.Drawing.Color.Transparent;
             this.btnResultados.Image = global::SistEcuaciones.Properties.Resources.math_30px;
             this.btnResultados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnResultados.Location = new System.Drawing.Point(0, 202);
+            this.btnResultados.Location = new System.Drawing.Point(3, 156);
             this.btnResultados.Name = "btnResultados";
             this.btnResultados.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnResultados.Size = new System.Drawing.Size(249, 47);
@@ -337,7 +341,7 @@
             // Logo
             // 
             this.Logo.Image = global::SistEcuaciones.Properties.Resources.LOGO1;
-            this.Logo.Location = new System.Drawing.Point(5, 15);
+            this.Logo.Location = new System.Drawing.Point(0, 15);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(238, 84);
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -349,7 +353,7 @@
             this.btnGuardarFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(192)))), ((int)(((byte)(68)))));
             this.btnGuardarFoto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(212)))), ((int)(((byte)(185)))));
             this.btnGuardarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarFoto.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnGuardarFoto.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarFoto.Image = global::SistEcuaciones.Properties.Resources.cameraBLACK_30px;
             this.btnGuardarFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -369,7 +373,7 @@
             this.btnInformacion.BackColor = System.Drawing.Color.Transparent;
             this.btnInformacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(161)))));
             this.btnInformacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformacion.Font = new System.Drawing.Font("Bebas Neue", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnInformacion.ForeColor = System.Drawing.Color.Transparent;
             this.btnInformacion.Image = global::SistEcuaciones.Properties.Resources.info_30px;
             this.btnInformacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -385,20 +389,23 @@
             // 
             // pnPantallaInicial
             // 
-            this.pnPantallaInicial.BackgroundImage = global::SistEcuaciones.Properties.Resources.PORTADA_PRINCIPAL;
+            this.pnPantallaInicial.BackgroundImage = global::SistEcuaciones.Properties.Resources.FONDO_INICIAL;
+            this.pnPantallaInicial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnPantallaInicial.Controls.Add(this.btnComenzar);
             this.pnPantallaInicial.Controls.Add(this.btnInstrucciones);
             this.pnPantallaInicial.Controls.Add(this.btnCerrarPrograma);
+            this.pnPantallaInicial.Controls.Add(this.picLogoInicial);
             this.pnPantallaInicial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPantallaInicial.Location = new System.Drawing.Point(0, 100);
             this.pnPantallaInicial.Name = "pnPantallaInicial";
-            this.pnPantallaInicial.Size = new System.Drawing.Size(1400, 800);
+            this.pnPantallaInicial.Size = new System.Drawing.Size(1378, 680);
             this.pnPantallaInicial.TabIndex = 0;
             // 
             // btnComenzar
             // 
             this.btnComenzar.BackColor = System.Drawing.Color.Transparent;
-            this.btnComenzar.Image = global::SistEcuaciones.Properties.Resources.Button_Comenzar;
+            this.btnComenzar.BackgroundImage = global::SistEcuaciones.Properties.Resources.Button_Comenzar;
+            this.btnComenzar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnComenzar.Location = new System.Drawing.Point(292, 559);
             this.btnComenzar.Name = "btnComenzar";
             this.btnComenzar.Size = new System.Drawing.Size(344, 171);
@@ -409,7 +416,8 @@
             // btnInstrucciones
             // 
             this.btnInstrucciones.BackColor = System.Drawing.Color.Transparent;
-            this.btnInstrucciones.Image = global::SistEcuaciones.Properties.Resources.Button_Instrucciones;
+            this.btnInstrucciones.BackgroundImage = global::SistEcuaciones.Properties.Resources.Button_Instrucciones;
+            this.btnInstrucciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnInstrucciones.Location = new System.Drawing.Point(730, 559);
             this.btnInstrucciones.Name = "btnInstrucciones";
             this.btnInstrucciones.Size = new System.Drawing.Size(344, 171);
@@ -431,15 +439,27 @@
             this.btnCerrarPrograma.UseVisualStyleBackColor = false;
             this.btnCerrarPrograma.Click += new System.EventHandler(this.btnCerrarPrograma_Click);
             // 
+            // picLogoInicial
+            // 
+            this.picLogoInicial.BackColor = System.Drawing.Color.Transparent;
+            this.picLogoInicial.Image = global::SistEcuaciones.Properties.Resources.LOGO1;
+            this.picLogoInicial.Location = new System.Drawing.Point(184, 129);
+            this.picLogoInicial.Name = "picLogoInicial";
+            this.picLogoInicial.Size = new System.Drawing.Size(695, 226);
+            this.picLogoInicial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogoInicial.TabIndex = 11;
+            this.picLogoInicial.TabStop = false;
+            // 
             // pnInformacion
             // 
-            this.pnInformacion.BackgroundImage = global::SistEcuaciones.Properties.Resources.Background_Instrucciones;
+            this.pnInformacion.BackgroundImage = global::SistEcuaciones.Properties.Resources.Instrucciones2;
+            this.pnInformacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnInformacion.Controls.Add(this.btnBack);
             this.pnInformacion.Controls.Add(this.btnCerrarPanel);
             this.pnInformacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnInformacion.Location = new System.Drawing.Point(0, 100);
             this.pnInformacion.Name = "pnInformacion";
-            this.pnInformacion.Size = new System.Drawing.Size(1400, 800);
+            this.pnInformacion.Size = new System.Drawing.Size(1378, 680);
             this.pnInformacion.TabIndex = 3;
             this.pnInformacion.Visible = false;
             // 
@@ -489,7 +509,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistEcuaciones.Properties.Resources.LOGO1;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(238, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -516,7 +536,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 900);
+            this.ClientSize = new System.Drawing.Size(1378, 780);
             this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.pnPantallaInicial);
@@ -535,6 +555,7 @@
             this.pnPantallaInicial.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnComenzar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInstrucciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicial)).EndInit();
             this.pnInformacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -574,6 +595,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnCopiarSistema;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.PictureBox picLogoInicial;
     }
 }
 

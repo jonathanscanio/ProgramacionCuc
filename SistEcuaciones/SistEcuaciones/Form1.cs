@@ -25,26 +25,32 @@ namespace SistEcuaciones
         Ecuacion e1;
         Ecuacion e2;
         SistemaDeEcuaciones sistema;
+        Size screenSize;
+        Size principalSize;
+        Size datosSize;
 
         public Form1()
         {
             InitializeComponent();
 
+            screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+
             #region Inicializar
             //Inicializo todas las pantallas en un panel oculto, para luego si necesito borrar las pantallas poder hacerlo.
-            screenDatos = new PedirDatos(pnIniciador);
-            screenResultados = new Resultados(pnIniciador);
-            screenInformacion = new Informacion(pnIniciador);
-            screenProcedimientos = new Procedimiento(pnIniciador);
-            screenGrafico = new Grafico(pnIniciador);
+            screenDatos = new PedirDatos(pnIniciador , datosSize);
+            screenResultados = new Resultados(pnIniciador, principalSize);
+            screenInformacion = new Informacion(pnIniciador , principalSize);
+            screenProcedimientos = new Procedimiento(pnIniciador, principalSize);
+            screenGrafico = new Grafico(pnIniciador , principalSize);
 
             #endregion
 
             pnMenu.Visible = false;
             pnMenuTop.Visible = false;
             pnPrincipal.Visible = false;
-            pnPantallaInicial.Visible = true; 
+            pnPantallaInicial.Visible = true;
 
+            ProporcionControles();
         }
 
         #region Botones Menu Top
@@ -72,11 +78,10 @@ namespace SistEcuaciones
             if (opcion == DialogResult.Yes)
             {
                 BorrarPantallas(); //Borra todas las pantallas
-                AcomodarBotones(); //Acomoda los botones
                 sistema.ResetearValores(); //Resetea los valores de Sistema
                 pnMenuTop.Visible = true; //Muestra el Menú de Arriba
                 pnMenu.Visible = false; //Oculta el Menú de la izquierda
-                screenDatos = new PedirDatos(pnPrincipal); //Muestra la pantalla de pedir datos
+                screenDatos = new PedirDatos(pnPrincipal , datosSize); //Muestra la pantalla de pedir datos
                 btnGuardarEcuacion1.Visible = true; //Muestra el boton de guardar ecuación
             }
             else
@@ -98,31 +103,33 @@ namespace SistEcuaciones
         private void btnResultados_Click(object sender, EventArgs e)
         {
             BorrarPantallas();
-            ResetColorBtn();
-            btnResultados.BackColor = Color.DarkCyan;
-            btnGuardarFoto.Visible = true;
-            screenResultados = new Resultados(pnPrincipal);
+            ColorBtn(btnResultados); //Resetea los colores a transparente y pone de Color Cyan el seleccionado            
+            screenResultados = new Resultados(pnPrincipal , principalSize);
             screenResultados.ImprimirResultados(sistema);
+
+            btnGuardarFoto.Enabled = true;
 
         }
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
             BorrarPantallas();
-            ResetColorBtn();
-            btnGuardarFoto.Visible = true;
-            btnGrafico.BackColor = Color.DarkCyan;
-            screenGrafico = new Grafico(pnPrincipal);
+            ColorBtn(btnGrafico);
+            screenGrafico = new Grafico(pnPrincipal , principalSize);
+
+            btnGuardarFoto.Enabled = true;
         }
 
         private void btnProcedimiento_Click(object sender, EventArgs e)
         {
             BorrarPantallas();
-            ResetColorBtn();
+            ColorBtn(btnProcedimiento); 
             btnProcedimiento.BackColor = Color.DarkCyan;
-            btnGuardarFoto.Visible = true;
-            screenProcedimientos = new Procedimiento(pnPrincipal);
+            screenProcedimientos = new Procedimiento(pnPrincipal,principalSize);
             screenProcedimientos.Imprimir(sistema);
+
+            btnGuardarFoto.Enabled = true;
+
         }
 
         private void btnInformacion_Click(object sender, EventArgs e)
@@ -131,51 +138,22 @@ namespace SistEcuaciones
             BorrarPantallas();
 
             //Pone en transparante todos los botones, excepto el clickeado
-            ResetColorBtn();
-            btnInformacion.BackColor = Color.DarkCyan;
-            
-            btnGuardarFoto.Visible = false;
-            btnCopiarSistema.Visible = false;
-            btnImprimir.Visible = false;
+            ColorBtn(btnInformacion);
 
-            screenInformacion = new Informacion(pnPrincipal);
+            btnGuardarFoto.Enabled = false;
+
+            screenInformacion = new Informacion(pnPrincipal , principalSize);
         }
 
-        private void ResetColorBtn()
+        private void ColorBtn(Button btnSeleccionado)
         {
             //La funcion de este método es poner el Background Color de los botones en transparante
             btnResultados.BackColor = Color.Transparent;
             btnProcedimiento.BackColor = Color.Transparent;
             btnGrafico.BackColor = Color.Transparent;
             btnInformacion.BackColor = Color.Transparent;
-        }
 
-        private void ReacomodarBotones()
-        {
-            /* Reacomoda los botones un espacio hacia abajo y muestra el botón de Procedimiento. 
-            
-            Esto esta hecho así porque en caso de que el sistema sea "S.Incompatible" o "S.Compatible Determinado", no tiene sentido mostrar el procedimiento 
-
-             */
-
-            btnProcedimiento.Visible = true;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 362);
-            this.btnInformacion.Location = new System.Drawing.Point(0, 450);
-            this.btnGuardarFoto.Location = new System.Drawing.Point(0, 541);
-            this.btnCopiarSistema.Location = new Point(0, 632);
-            this.btnImprimir.Location = new Point(0, 723);
-
-        }
-        private void AcomodarBotones()
-        {
-            //Reacomoda los botones hacia arriba y oculta el botón de procedimiento
-
-            btnProcedimiento.Visible = false;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 279);
-            this.btnInformacion.Location = new System.Drawing.Point(0, 362);
-            this.btnGuardarFoto.Location = new System.Drawing.Point(0, 450);
-            this.btnCopiarSistema.Location = new Point(0, 541);
-            this.btnImprimir.Location = new Point(0, 632);
+            btnSeleccionado.BackColor = Color.DarkCyan;
         }
 
         private void btnGuardarFoto_Click(object sender, EventArgs e)
@@ -184,11 +162,13 @@ namespace SistEcuaciones
             //Captura de pantalla
             Bitmap imgb = new Bitmap(pnPrincipal.Width, pnPrincipal.Height, PixelFormat.Format32bppArgb);
             Graphics grph = Graphics.FromImage(imgb);
-            grph.CopyFromScreen((pnPrincipal.Location.X + 260), (pnPrincipal.Location.Y + 70), 0, 0, pnPrincipal.Size);
+                    
+            grph.CopyFromScreen(pnMenu.Width,pnPrincipal.Location.Y,0,0,principalSize);
+
             picCaptura.Image = imgb;
             SaveFileDialog dg = new SaveFileDialog();
             dg.Filter = "Imagen Png| .png";
-            dg.FileName = "Sistema .png";
+            dg.FileName = "Sistema Ecuaciones.png";
             if (dg.ShowDialog() == DialogResult.OK)
             {
                 ImageFormat formato = ImageFormat.Png;
@@ -211,7 +191,7 @@ namespace SistEcuaciones
         private void btnCopiarSistema_Click(object sender, EventArgs e)
         {
             //Seteamos lo que copiaremos al portapapeles
-            string resultados = $"{sistema.e1.ecuacion}\n{sistema.e2.ecuacion}\n{sistema.solucion}\n{sistema.tiposistema}";
+            string resultados = $"{sistema.e1.ecuacion} || {sistema.e2.ecuacion} || {sistema.solucion} || {sistema.tiposistema}";
             
             //Borramos todo lo que haya en el portapeles
             Clipboard.Clear(); 
@@ -233,6 +213,7 @@ namespace SistEcuaciones
             {
                 e1 = screenDatos.GuardarValores();
                 screenDatos.lbEcuacion1.Text = e1.ecuacion;
+                screenDatos.ProporcionControles();
                 screenDatos.BorrarTextBox();
                 btnGuardarEcuacion1.Visible = false;
                 btnGuardarEcuacion2.Visible = true;
@@ -250,6 +231,7 @@ namespace SistEcuaciones
             {
                 e2 = screenDatos.GuardarValores();
                 screenDatos.lbEcuacion2.Text = e2.ecuacion;
+                screenDatos.ProporcionControles();
                 screenDatos.BorrarTextBox();
                 btnGuardarEcuacion2.Visible = false;
                 screenDatos.Borrar();
@@ -269,16 +251,15 @@ namespace SistEcuaciones
             pnMenu.Visible = true;
             btnResolver.Visible = false;
             btnGuardarFoto.Visible = true;
-            ResetColorBtn();
-            btnResultados.BackColor = Color.DarkCyan;
+            ColorBtn(btnResultados);
             screenDatos.BorrarTodo();
             sistema = new SistemaDeEcuaciones(e1,e2);
             sistema.EjecutarDeterminante();
-            if (sistema.tiposistema == "Sistema Compatible Determinado") //Si el sistema es "SCD", mostrará el botón de procedimiento
+            /*if (sistema.tiposistema == "Sistema Compatible Determinado") //Si el sistema es "SCD", mostrará el botón de procedimiento
             {
                 ReacomodarBotones();
-            }
-            screenResultados = new Resultados(pnPrincipal);
+            }*/
+            screenResultados = new Resultados(pnPrincipal , principalSize);
             screenResultados.ImprimirResultados(sistema);
         }
 
@@ -306,7 +287,7 @@ namespace SistEcuaciones
             pnPantallaInicial.Visible = false;
             pnInformacion.Visible = false;
             pnPrincipal.Visible = true;
-            screenDatos = new PedirDatos(pnPrincipal);
+            screenDatos = new PedirDatos(pnPrincipal , datosSize);
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -349,103 +330,107 @@ namespace SistEcuaciones
 
         }
 
-        private void PosicionarControles()
+        private void ProporcionControles()
         {
-            //Tomé con proporción original el programa en 1400x900|, a partir de ahi lo adecúo proporcionalmente a la resolución de cada usuario.
-
-            //Acomoda el tamaño del formulario, según la resolución de pantalla del usuario
-            //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            this.CenterToScreen();
-
             int width;
             int height;
 
+            //El tamaño del programa será igual a la resolución de pantalla de la computadora del usuario
+            this.Size = screenSize;
+            this.CenterToScreen();
+
             #region Pantalla Inicial
-            //Proporcion Pantalla Inicial
-            btnCerrarPrograma.Location = new Point(this.Width - 60, 10);
-            //Tamaño de los botones
-            width = (this.Width * 344) / 1400;
-            height = (this.Height * 171) / 900;
-            btnComenzar.Size = new Size(width, height);
-            btnInstrucciones.Size = new Size(width, height);
+            //La pantalla inicial ocupará el 100% de la pantalla.
+            pnPantallaInicial.Size = screenSize;
 
-            int espacio = (this.Height * 109) / 900;
-            btnComenzar.Location = new Point((this.Width / 2) - width, (this.Height / 2) + espacio);
-            btnInstrucciones.Location = new Point((btnComenzar.Location.X + width), (this.Height / 2) + espacio);
-            #endregion
+            width = (screenSize.Width / 2);
+            height = (width / 3);
+            picLogoInicial.Size = new Size(width,height);
+            picLogoInicial.Location = new Point(((screenSize.Width / 2) - (picLogoInicial.Width / 2)) , ((screenSize.Height / 2) - picLogoInicial.Height));
 
-            #region Menu Izquierda
+            btnCerrarPrograma.Location = new Point((screenSize.Width - 70),10);
+            
+            //El ancho de los botones sera el 20% de la pantalla
+            width = screenSize.Width / 5;
+            height = width / 2;
+            btnComenzar.Size = new Size(width,height);
+            btnInstrucciones.Size = new Size(width,height);
+            btnComenzar.Location = new Point((screenSize.Width / 2 - btnComenzar.Width - (screenSize.Width / 50)) , (screenSize.Height / 2));
+            btnInstrucciones.Location = new Point(((screenSize.Width / 2) + (screenSize.Width / 50)), (screenSize.Height / 2));
 
-            //Proporcion Menú Izquierda
-            width = (this.Width * 250) / 1400;
-            pnMenu.Size = new Size(width, this.Height);
-
-            //BOTONES MENU
-            //Saco la proporción de la altura de los botones respecto a la nueva resolución.
-            height = (this.Height * 47) / 900;
-
-            btnResultados.Size = new Size(pnMenu.Width, height);
-            btnProcedimiento.Size = new Size(pnMenu.Width, height);
-            btnGrafico.Size = new Size(pnMenu.Width, height);
-            btnInformacion.Size = new Size(pnMenu.Width, height);
-            btnGuardarFoto.Size = new Size(pnMenu.Width, height);
-
-            //Ajustar tamaño del logo
-            height = (pnMenu.Height * 84) / 900;
-            width = (pnMenu.Width * 238) / 250;
-            Logo.Size = new Size(width, height);
-
-
-            int espacioBtn = (pnMenu.Height * 91) / 900;
-            btnResultados.Location = new Point(0, (Logo.Location.Y + Logo.Height + espacioBtn));
-            btnProcedimiento.Location = new Point(0, (btnResultados.Location.Y + espacioBtn));
-            btnGrafico.Location = new Point(0, (btnProcedimiento.Location.Y + espacioBtn));
-            btnInformacion.Location = new Point(0, (btnGrafico.Location.Y + espacioBtn));
-            btnGuardarFoto.Location = new Point(0, (btnInformacion.Location.Y + espacioBtn));
+            pnInformacion.Size = datosSize;
+            btnCerrarPanel.Location = new Point(screenSize.Width - btnBack.Width, 5);
+            btnBack.Location = new Point((btnCerrarPanel.Location.X - btnBack.Width - 3), 5);
 
             #endregion
 
-            #region Menu Inferior
-            //Acomoda Botones Menú Inferior           
-            btnSalir.Location = new Point(this.pnMenu.Width - 50, this.pnMenu.Height - 42);
-            btnBorrar.Location = new Point(this.pnMenu.Width - 100, this.pnMenu.Height - 42);
-            btnMensaje.Location = new Point(this.pnMenu.Width - 150, this.pnMenu.Height - 42);
+
+            #region Menú Top
+            //El menú top ocupará el 10% de la pantalla.
+
+            height = (screenSize.Height / 10);
+            pnMenuTop.Size = new Size(screenSize.Width,height);
+            //El boton se posicionará en la mitad del panel, y 50px menos de la derecha del programa.
+            btnSalirTop.Location = new Point((pnMenuTop.Width - 50),((pnMenuTop.Height / 2) - (btnSalirTop.Height / 2)));
+            btnMinimizar.Location = new Point((btnSalirTop.Location.X - 50),btnSalirTop.Location.Y);
+
+            //El logo ocupara el 15% del pnMenuTop
+            width = (pnMenuTop.Width / 5);
+            pictureBox1.Size = new Size(width,pnMenuTop.Height);
             #endregion
 
-            #region Menu Top
 
-            height = (this.Height * 100) / 900;
-            pnMenuTop.Size = new Size(this.Width, height);
+            #region Menú
+            //El menú Izq, ocupará el 20% de la pantalla.
+            width = (screenSize.Width / 5);
 
-            height = (this.Height * 84) / 900;
-            width = (this.Width * 238) / 1400;
-            pictureBox1.Size = new Size(width, height);
+            pnMenu.Size = new Size(width,screenSize.Height);
 
-            espacio = (this.Height * 32) / 900;
-            btnSalirTop.Location = new Point(this.Width - 50, espacio);
-            btnMinimizar.Location = new Point(this.Width - 100, espacio);
+            Logo.Size = new Size(pnMenu.Width,(pnMenu.Width / 3));
+            btnResultados.Size = new Size(pnMenu.Width,btnResultados.Height);
+            btnGrafico.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnProcedimiento.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnInformacion.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnGuardarFoto.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnCopiarSistema.Size = new Size(pnMenu.Width, btnResultados.Height);
+            btnImprimir.Size = new Size(pnMenu.Width, btnResultados.Height);
 
-            #endregion
+            //El espacio entre botones será del 2% del alto de la pantalla
+            int espacio = (screenSize.Height / 10);
+            btnResultados.Location = new Point(0,(screenSize.Height /5));
+            btnProcedimiento.Location = new Point(0, (btnResultados.Location.Y + espacio));
+            btnGrafico.Location = new Point(0, (btnProcedimiento.Location.Y + espacio));
+            btnInformacion.Location = new Point(0, (btnGrafico.Location.Y + espacio));
+            btnGuardarFoto.Location = new Point(0, (btnInformacion.Location.Y + espacio));
+            btnCopiarSistema.Location = new Point(0, (btnGuardarFoto.Location.Y + espacio));
+            btnImprimir.Location = new Point(0, (btnCopiarSistema.Location.Y + espacio));
 
-            #region Guardar Datos
-
-            width = (this.Width * 241) / 1400;
-            height = (this.Height * 108) / 900;
-
-            btnGuardarEcuacion1.Size = new Size(width, height);
-            btnGuardarEcuacion2.Size = new Size(width, height);
-            btnResolver.Size = new Size(width, height);
-
-            float font = (this.Height * btnGuardarEcuacion1.Font.Size) / 900;
-            float font2 = (this.Width * btnGuardarEcuacion1.Font.Size) / 1400;
-            font = (font + font2) / 2;
-
-            btnGuardarEcuacion1.Font = new Font("Bebas Neue", font, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnGuardarEcuacion2.Font = new Font("Bebas Neue", font, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnResolver.Font = new Font("Bebas Neue", font, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnSalir.Location = new Point((pnMenu.Width - 40),(screenSize.Height - 40));
+            btnBorrar.Location = new Point((btnSalir.Location.X - 60),(btnSalir.Location.Y));
+            btnMensaje.Location = new Point((btnBorrar.Location.X - 60),(btnSalir.Location.Y));
 
             #endregion
+
+            //El pnPrincipal ocupará siempre el máximo permitido de la pantalla.
+            principalSize = new Size((screenSize.Width - pnMenu.Width), screenSize.Height);
+
+            datosSize = new Size(screenSize.Width, (screenSize.Height - pnMenuTop.Height));
+
+            #region Pedir Datos
+
+            int posicion = (screenDatos.posicionBtn + pnMenuTop.Height);
+            espacio = screenSize.Height / 25;
+            btnGuardarEcuacion1.Location = new Point((screenSize.Width / 2) - (btnGuardarEcuacion1.Width / 2), posicion + pnMenuTop.Height);
+
+            btnGuardarEcuacion2.Location = btnGuardarEcuacion1.Location;
+
+            //Posicionará el boton resolver en el centro de la pantalla, y abajo del label de ecuacion2
+            btnResolver.Location = new Point(((datosSize.Width / 2) - (btnResolver.Width / 2)) , (screenDatos.lbEcuacion2.Location.Y + screenDatos.lbEcuacion2.Height + pnMenuTop.Height) );
+
+            #endregion 
+
+
+
         }
 
     }

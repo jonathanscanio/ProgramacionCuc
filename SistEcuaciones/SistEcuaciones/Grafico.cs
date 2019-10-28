@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SistEcuaciones
 {
@@ -15,7 +16,7 @@ namespace SistEcuaciones
         #endregion
 
         #region Constructor
-        public Grafico(Panel mainScreen)
+        public Grafico(Panel mainScreen , Size principalSize)
         {
             this.mainScreen = mainScreen;
 
@@ -25,11 +26,11 @@ namespace SistEcuaciones
             // 
             // picMantenimiento
             // 
-            this.picMantenimiento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picMantenimiento.Image = global::SistEcuaciones.Properties.Resources.Background_Mantenimiento;
+            this.picMantenimiento.SizeMode = PictureBoxSizeMode.StretchImage;
             this.picMantenimiento.Location = new System.Drawing.Point(0, 0);
             this.picMantenimiento.Name = "picMantenimiento";
-            this.picMantenimiento.Size = new System.Drawing.Size(1150, 800);
+            this.picMantenimiento.Size = principalSize;
             this.picMantenimiento.TabIndex = 14;
             this.picMantenimiento.TabStop = false;
 

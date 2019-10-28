@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+
 namespace SistEcuaciones
 {
     class PedirDatos
     {
         #region Controles
         Panel mainScreen;
-        Panel pnInfo;
-        Button btnInfo;        
-        Button btnCerrarPanel;
         public Label lbEcuacion1;
         public Label lbEcuacion2;
         Label lbIndep;
@@ -21,12 +20,15 @@ namespace SistEcuaciones
         TextBox txtCoefX;
         TextBox txtIndep;
         TextBox txtCoefY;
+        Size panelSize;
+        public int posicionBtn;
         #endregion
 
         #region Constructor
-        public PedirDatos(Panel mainScreen)
+        public PedirDatos(Panel mainScreen , Size principalSize)
         {
             this.mainScreen = mainScreen;
+            panelSize = principalSize;
 
             this.txtIndep = new System.Windows.Forms.TextBox();
             this.txtCoefY = new System.Windows.Forms.TextBox();
@@ -36,16 +38,11 @@ namespace SistEcuaciones
             this.lbCoefX = new System.Windows.Forms.Label();
             this.lbEcuacion2 = new System.Windows.Forms.Label();
             this.lbEcuacion1 = new System.Windows.Forms.Label();
-            this.pnInfo = new System.Windows.Forms.Panel();
-            this.btnCerrarPanel = new System.Windows.Forms.Button();
-            this.btnInfo = new System.Windows.Forms.Button();
-
-
 
             // 
             // txtIndep
             // 
-            this.txtIndep.Font = new System.Drawing.Font("Bahnschrift Condensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIndep.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIndep.Location = new System.Drawing.Point(534, 450);
             this.txtIndep.Name = "txtIndep";
             this.txtIndep.Size = new System.Drawing.Size(241, 50);
@@ -55,7 +52,7 @@ namespace SistEcuaciones
             // 
             // txtCoefY
             // 
-            this.txtCoefY.Font = new System.Drawing.Font("Bahnschrift Condensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCoefY.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCoefY.Location = new System.Drawing.Point(444, 364);
             this.txtCoefY.Name = "txtCoefY";
             this.txtCoefY.Size = new System.Drawing.Size(241, 50);
@@ -65,7 +62,7 @@ namespace SistEcuaciones
             // 
             // txtCoefX
             // 
-            this.txtCoefX.Font = new System.Drawing.Font("Bahnschrift Condensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCoefX.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCoefX.Location = new System.Drawing.Point(444, 281);
             this.txtCoefX.Name = "txtCoefX";
             this.txtCoefX.Size = new System.Drawing.Size(241, 50);
@@ -76,7 +73,7 @@ namespace SistEcuaciones
             // lbIndep
             // 
             this.lbIndep.AutoSize = true;
-            this.lbIndep.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIndep.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIndep.Location = new System.Drawing.Point(200, 450);
             this.lbIndep.Name = "lbIndep";
             this.lbIndep.Size = new System.Drawing.Size(328, 42);
@@ -87,7 +84,7 @@ namespace SistEcuaciones
             // lbCoefY
             // 
             this.lbCoefY.AutoSize = true;
-            this.lbCoefY.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCoefY.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCoefY.Location = new System.Drawing.Point(200, 367);
             this.lbCoefY.Name = "lbCoefY";
             this.lbCoefY.Size = new System.Drawing.Size(233, 42);
@@ -97,7 +94,7 @@ namespace SistEcuaciones
             // lbCoefX
             // 
             this.lbCoefX.AutoSize = true;
-            this.lbCoefX.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCoefX.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCoefX.Location = new System.Drawing.Point(200, 284);
             this.lbCoefX.Name = "lbCoefX";
             this.lbCoefX.Size = new System.Drawing.Size(238, 42);
@@ -107,7 +104,7 @@ namespace SistEcuaciones
             // lbEcuacion2
             // 
             this.lbEcuacion2.AutoSize = true;
-            this.lbEcuacion2.Font = new System.Drawing.Font("Bahnschrift Condensed", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEcuacion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 62F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEcuacion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
             this.lbEcuacion2.Location = new System.Drawing.Point(740, 51);
             this.lbEcuacion2.Name = "lbEcuacion2";
@@ -118,58 +115,13 @@ namespace SistEcuaciones
             // lbEcuacion1
             // 
             this.lbEcuacion1.AutoSize = true;
-            this.lbEcuacion1.Font = new System.Drawing.Font("Bahnschrift Condensed", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEcuacion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 62F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEcuacion1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(47)))), ((int)(((byte)(157)))));
             this.lbEcuacion1.Location = new System.Drawing.Point(50, 51);
             this.lbEcuacion1.Name = "lbEcuacion1";
             this.lbEcuacion1.Size = new System.Drawing.Size(351, 115);
             this.lbEcuacion1.TabIndex = 0;
             this.lbEcuacion1.Text = "ax + by = c";
-
-            // 
-            // pnInfo
-            // 
-            this.pnInfo.BackgroundImage = global::SistEcuaciones.Properties.Resources.pnInfo01;
-            this.pnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnInfo.Controls.Add(this.btnCerrarPanel);
-            this.pnInfo.Location = new System.Drawing.Point(0, 550);
-            this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(1150, 250);
-            this.pnInfo.TabIndex = 12;
-            this.pnInfo.Visible = false;
-            // 
-            // btnCerrarPanel
-            // 
-            this.btnCerrarPanel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCerrarPanel.FlatAppearance.BorderSize = 0;
-            this.btnCerrarPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnCerrarPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarPanel.Image = global::SistEcuaciones.Properties.Resources.close_window_30px;
-            this.btnCerrarPanel.Location = new System.Drawing.Point(24, 19);
-            this.btnCerrarPanel.Name = "btnCerrarPanel";
-            this.btnCerrarPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnCerrarPanel.TabIndex = 9;
-            this.btnCerrarPanel.UseVisualStyleBackColor = false;
-            this.btnCerrarPanel.Click += new System.EventHandler(this.btnCerrarPanel_Click);
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Image = global::SistEcuaciones.Properties.Resources.info_50px;
-            this.btnInfo.Location = new System.Drawing.Point(24, 738);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(50, 50);
-            this.btnInfo.TabIndex = 9;
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
 
             mainScreen.Controls.Add(this.txtIndep);
             mainScreen.Controls.Add(this.txtCoefY);
@@ -179,25 +131,8 @@ namespace SistEcuaciones
             mainScreen.Controls.Add(this.lbCoefX);
             mainScreen.Controls.Add(this.lbEcuacion2);
             mainScreen.Controls.Add(this.lbEcuacion1);
-            mainScreen.Controls.Add(this.pnInfo);
-            mainScreen.Controls.Add(this.btnInfo);
 
-
-
-            this.pnInfo.ResumeLayout(false);
-        }
-        #endregion
-
-        #region Botones
-        private void btnCerrarPanel_Click(object sender, EventArgs e)
-        {
-            pnInfo.Visible = false;
-
-        }
-        private void btnInfo_Click(object sender, EventArgs e)
-        {
-            pnInfo.Visible = true;
-
+            ProporcionControles();
         }
         #endregion
 
@@ -283,7 +218,6 @@ namespace SistEcuaciones
             mainScreen.Controls.Remove(txtCoefX);
             mainScreen.Controls.Remove(txtCoefY);
             mainScreen.Controls.Remove(txtIndep);
-            mainScreen.Controls.Remove(btnInfo);
         }
         public void BorrarTodo()
         {
@@ -295,8 +229,44 @@ namespace SistEcuaciones
             mainScreen.Controls.Remove(txtCoefX);
             mainScreen.Controls.Remove(txtCoefY);
             mainScreen.Controls.Remove(txtIndep);
-            mainScreen.Controls.Remove(btnInfo);
         }
         #endregion
+
+        public void ProporcionControles()
+        {
+
+            //Labels ecuacion 
+            //Si la resolucion es de 800x600 o inferior, saco el espacio superior.
+
+            if (panelSize.Height < 600)
+            {
+                lbEcuacion1.Location = new Point(((panelSize.Width / 2) - (lbEcuacion1.Width / 2)), 0);
+                lbEcuacion2.Location = new Point(((panelSize.Width / 2) - (lbEcuacion2.Width / 2)), (lbEcuacion1.Location.Y + lbEcuacion1.Height));
+            }
+
+            else
+            {
+                lbEcuacion1.Location = new Point(((panelSize.Width / 2) - (lbEcuacion1.Width / 2)), lbEcuacion1.Location.Y);
+                lbEcuacion2.Location = new Point(((panelSize.Width / 2) - (lbEcuacion2.Width / 2)), (lbEcuacion1.Location.Y + lbEcuacion1.Height));
+
+            }
+
+            int espacio = panelSize.Height / 25;
+
+
+            //Correr labels
+            lbCoefX.Location = new Point(((panelSize.Width / 2) - lbCoefX.Width), lbEcuacion2.Location.Y + lbEcuacion2.Height + espacio);
+            lbCoefY.Location = new Point(lbCoefX.Location.X, lbCoefX.Location.Y + lbCoefX.Height + espacio);
+            lbIndep.Location = new Point(lbCoefX.Location.X, lbCoefY.Location.Y + lbCoefY.Height + espacio);
+
+
+            //Correr posicion textbox
+            txtCoefX.Location = new Point(lbCoefX.Location.X + lbCoefX.Width , lbCoefX.Location.Y);
+            txtCoefY.Location = new Point(lbCoefY.Location.X + lbCoefY.Width, lbCoefY.Location.Y);
+            txtIndep.Location = new Point(lbIndep.Location.X + lbIndep.Width, lbIndep.Location.Y);
+
+            posicionBtn = (lbIndep.Location.Y + (lbIndep.Height ));
+        }
+
     }
 }

@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -144,6 +145,12 @@
     <None Include="Resources\Linea Horizontal.png" />
     <None Include="Resources\Linea Vertical.png" />
     <None Include="Resources\copy_30px.png" />
+    <None Include="Resources\FONDO INICIAL.png" />
+    <None Include="Resources\DeltaX.png" />
+    <None Include="Resources\DeltaY.png" />
+    <None Include="Resources\DeltaS.png" />
+    <None Include="Resources\Informacion3.png" />
+    <None Include="Resources\Instrucciones2.png" />
     <Content Include="Resources\math_26px.png" />
     <None Include="Resources\pnInfo.png" />
     <None Include="Resources\pnInfo2.png" />

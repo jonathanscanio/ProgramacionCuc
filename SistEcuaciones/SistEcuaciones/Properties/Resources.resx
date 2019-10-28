@@ -148,9 +148,6 @@
   <data name="cameraBLACK_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cameraBLACK_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="test_passed_filled_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\test_passed_filled_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PORTADA PRINCIPAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PORTADA PRINCIPAL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,6 +178,12 @@
   <data name="Background Instrucciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background Instrucciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="print_filled_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print_filled_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeltaY" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeltaY.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pnInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pnInfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,6 +196,12 @@
   <data name="delete_sign_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_sign_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Informacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Informacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimize_window_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimize_window_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="test_passed_filled_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\test_passed_filled_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -201,6 +210,12 @@
   </data>
   <data name="trash_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trash_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeltaS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeltaS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FONDO INICIAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO INICIAL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOGO1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,6 +229,9 @@
   <data name="math_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\math_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Informacion3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Informacion3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="info_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -223,19 +241,19 @@
   <data name="communication_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\communication_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minimize_window_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimize_window_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DeltaX" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeltaX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Informacion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Informacion2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Informacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Informacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="test_passed_filled_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\test_passed_filled_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Linea Vertical" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Linea Vertical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="print_filled_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print_filled_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Instrucciones2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instrucciones2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
